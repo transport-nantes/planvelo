@@ -17,17 +17,26 @@
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   {% if page.layout == 'home' %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
   <script>
-    function progressBar() {
-      var start = new Date(2014,4,1);
-      var end = new Date(2020,4,1);
-      var today = new Date();
-      var width = Math.round(100-((end - start) * 100 ) / today);
-      var bar = document.getElementById('timebar');
-      bar.style = "width:"+width+"%";
-      bar.innerHTML = width+"%"
+    function percent(start,end) {
+        var now = moment();
+        start = start || moment(now).startOf('day');
+        end = end || moment(now).endOf('day');
+        var totalMillisInRange = end.valueOf() - start.valueOf();
+        var elapsedMillis = now.valueOf() - start.valueOf();
+        return Math.round(Math.max(0, Math.min(100, 100 * (elapsedMillis / totalMillisInRange))));
     }
-    window.onload = progressBar;
+    // display
+    function disp(value) {
+        alert("temps écoulé="+value+"%")
+        var timebar = document.getElementById('timebar');
+        timebar.style = "width:"+value+"%";
+        timebar.innerHTML = value+"%";
+    }
+    var start = moment('2014-01-01T00:00:00');
+    var end = moment('2020-01-01T00:00:00');
+    window.onload = disp(percent(start,end));
   </script>
   {% endif %}
 
