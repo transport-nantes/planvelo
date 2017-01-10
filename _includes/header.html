@@ -4,7 +4,7 @@
 
     <a class="site-title" href="{{ "/" | relative_url}}">
       {% if site.logo %}
-      <img src="{{ full_base_url }}/{{ site.logo }}" width="auto" height="56">
+      <img src="{{ '/assets/' | append: site.logo | relative_url }}" width="auto" height="56">
       {{ site.title | escape }}
       {% else %}
       {{ site.title | escape }}
