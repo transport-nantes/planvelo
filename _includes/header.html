@@ -2,7 +2,14 @@
 
   <div class="wrapper">
 
-    <a class="site-title" href="{{ "/" | relative_url}}">{{ site.title | escape }}</a>
+    <a class="site-title" href="{{ "/" | relative_url}}">
+      {% if site.logo %}
+      <img src="{{ full_base_url }}/{{ site.logo }}" width="auto" height="56">
+      {{ site.title | escape }}
+      {% else %}
+      {{ site.title | escape }}
+      {% endif %}
+    </a>
 
     <nav class="site-nav">
       <span class="menu-icon">
