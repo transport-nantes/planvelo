@@ -32,9 +32,14 @@
         timebar.style = "width:"+value+"%";
         timebar.innerHTML = value+"%";
     }
-    var start = moment('2014-01-01T00:00:00');
-    var end = moment('2020-01-01T00:00:00');
-    window.onload = disp(percent(start,end));
+
+    window.unload = function () 
+    {
+      var start = moment('2014-01-01T00:00:00');
+      var end = moment('2020-01-01T00:00:00');
+      disp(percent(start,end));
+    }
+
   </script>
   {% endif %}
 
