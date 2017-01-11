@@ -1,9 +1,30 @@
+<script>
+  function percent(start,end) {
+      var now = moment();
+      var totalMillisInRange = end.valueOf() - start.valueOf();
+      var elapsedMillis = now.valueOf() - start.valueOf();
+      return Math.round(Math.max(0, Math.min(100, 100 * (elapsedMillis / totalMillisInRange))));
+  }
+  // display
+  function disp(value) {
+      var timebar = document.getElementById('timebar');
+      timebar.style = "width:"+value+"%";
+      timebar.innerHTML = value+"%";
+  }
+
+  window.onload = function ()
+  {
+    var start = moment('2014-04-05T00:00:00');
+    var end = moment('2020-04-05T00:00:00');
+    disp(percent(start,end));
+  }
+</script>
 <div class="panel panel-default">
   <div class="panel-body">
     Avancement de la réalisation
     <div class="progress">
      <div class="progress-bar progress-bar-striped active" role="progressbar"
-     aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:4%">
+     aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:4%">
       4%
      </div>
    </div>
