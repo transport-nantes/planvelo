@@ -11,33 +11,10 @@
   <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
 
   {% if page.layout == 'home' %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
-  <script>
-    function percent(start,end) {
-        var now = moment();
-        start = start || moment(now).startOf('day');
-        end = end || moment(now).endOf('day');
-        var totalMillisInRange = end.valueOf() - start.valueOf();
-        var elapsedMillis = now.valueOf() - start.valueOf();
-        return Math.round(Math.max(0, Math.min(100, 100 * (elapsedMillis / totalMillisInRange))));
-    }
-    // display
-    function disp(value) {
-        var timebar = document.getElementById('timebar');
-        timebar.style = "width:"+value+"%";
-        timebar.innerHTML = value+"%";
-    }
-
-    window.onload = function ()
-    {
-      var start = moment('2014-04-05T00:00:00');
-      var end = moment('2020-04-05T00:00:00');
-      disp(percent(start,end));
-    }
-
-  </script>
   {% endif %}
 
   {% if jekyll.environment == 'production' and site.google_analytics %}
