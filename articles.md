@@ -1,5 +1,5 @@
 ---
-layout: blog
+layout: articles
 title: Actualités
 permalink: /articles/
 ---
