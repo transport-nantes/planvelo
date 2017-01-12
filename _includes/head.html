@@ -9,6 +9,10 @@
   <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
+  {% if site.logo %}
+  <link rel="shortcut icon" type="image/png" href="{{ '/assets/' | append: site.logo | relative_url }}">
+  {% endif %}
+
 
   {% if page.layout == 'home' %}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
