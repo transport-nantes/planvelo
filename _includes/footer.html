@@ -8,25 +8,46 @@
       <div class="footer-col footer-col-1">
         <ul class="contact-list">
             {% if site.website and site.website-desc %}
-            <li><a href="{{ site.website }}">{{ site.website-desc }}</a></li>
-            <li><a href="{{ site.website | append: '/contact' }}">Contact</a></li>
+            <li>
+              {% include icon-web.html link=site.website text=site.website-desc %}
+            </li>
+            <li>
+              {% assign contacturl = site.website | append: '/contact' %}
+              {% include icon-contact.html link=contacturl text='contact' %}
+            </li>
             {% endif %}
+            <li>
+              {% assign feedurl = "/feed.xml" | relative_url %}
+              {% include icon-feed.html link=feedurl text='rss' %}
+            </li>
         </ul>
       </div>
 
       <div class="footer-col footer-col-2">
         <ul class="social-media-list">
-          {% if site.github.username %}
-          <li>
-            {% include icon-github.html username=site.github.username %}
-          </li>
-          {% endif %}
-
           {% if site.twitter.username %}
           <li>
             {% include icon-twitter.html username=site.twitter.username %}
           </li>
           {% endif %}
+
+          {% if site.facebook.username %}
+          <li>
+            {% include icon-facebook.html username=site.facebook.username %}
+          </li>
+          {% endif %}
+
+          {% if site.github.username %}
+          <li>
+            {% include icon-github.html username=site.github.username %}
+          </li>
+          {% endif %}
+          {% if site.gitlab.username %}
+          <li>
+            {% include icon-gitlab.html username=site.gitlab.username %}
+          </li>
+          {% endif %}
+
         </ul>
       </div>
 
