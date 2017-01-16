@@ -9,16 +9,16 @@
         <ul class="contact-list">
             {% if site.website and site.website-desc %}
             <li>
-              {% include icon-web.html link=site.website text=site.website-desc %}
+              {% include icon-bike.html link=site.website text=site.website-desc %}
             </li>
             <li>
               {% assign contacturl = site.website | append: '/contact' %}
-              {% include icon-contact.html link=contacturl text='contact' %}
+              {% include icon-contact.html link=contacturl text='Contact' %}
             </li>
             {% endif %}
             <li>
               {% assign feedurl = "/feed.xml" | relative_url %}
-              {% include icon-feed.html link=feedurl text='rss' %}
+              {% include icon-feed.html link=feedurl text='RSS' %}
             </li>
         </ul>
       </div>
@@ -27,24 +27,24 @@
         <ul class="social-media-list">
           {% if site.twitter.username %}
           <li>
-            {% include icon-twitter.html username=site.twitter.username %}
+            {% include icon-twitter.html username=site.twitter.username text='Twitter' %}
           </li>
           {% endif %}
 
           {% if site.facebook.username %}
           <li>
-            {% include icon-facebook.html username=site.facebook.username %}
+            {% include icon-facebook.html username=site.facebook.username text='Facebook' %}
           </li>
           {% endif %}
 
           {% if site.github.username %}
           <li>
-            {% include icon-github.html username=site.github.username %}
+            {% include icon-github.html username=site.github.username text='Github' %}
           </li>
           {% endif %}
           {% if site.gitlab.username %}
           <li>
-            {% include icon-gitlab.html username=site.gitlab.username %}
+            {% include icon-gitlab.html username=site.gitlab.username text='Gitlab' %}
           </li>
           {% endif %}
 
