@@ -14,6 +14,6 @@ firefox localhost:4000
 Autre méthode, avec `docker` en prérequis:
 ```bash
 docker build -t planvelo .
-docker run -p 127.0.0.1:4000:4000 -v $PWD:/srv -t planvelo
+docker run -p 127.0.0.1:4000:4000 -v $PWD:/srv -ti planvelo
 firefox localhost:4000
 ```
