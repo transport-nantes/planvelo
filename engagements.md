@@ -5,7 +5,7 @@ description: Les engagements pris par la mairie de Paris pour le plan vélo 2015
 permalink: /engagements/
 ---
 
-Le mardi 14 avril 2015, le Conseil de Paris a dévoilé son Plan Vélo 2015-2020. Ce plan prévoit un investissement de plus de 150 millions d'euros pour faire de Paris "La Capitale mondiale du vélo". Le réseau express Vélo (REVe) prévoyant la création de voies entièrement dédiées aux vélos nous paraît l'un des engagements les plus fort et susceptible de faire croître le vélo de façon significative.
+Le mardi 14 avril 2015, le Conseil de Paris a dévoilé son Plan Vélo 2015-2020. Ce plan prévoit un investissement de plus de 150 millions d'euros pour faire de Paris "La Capitale mondiale du vélo". Le Réseau Express Vélo (REVe) prévoyant la création de voies entièrement dédiées aux vélos nous paraît l'un des engagements les plus fort et susceptible de faire croître le vélo de façon significative.
 
 Depuis, cette volonté a été maintes fois réaffirmée dans les communiqués de La ville de Paris. C'est ici que vous pouvez les retrouver, à commencer par les Vœux 2017:
 
