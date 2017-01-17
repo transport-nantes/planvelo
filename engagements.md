@@ -9,7 +9,7 @@ Le mardi 14 avril 2015, le Conseil de Paris a dévoilé son Plan Vélo 2015-2020
 
 Depuis, cette volonté a été maintes fois réaffirmée dans les communiqués de La ville de Paris. C'est ici que vous pouvez les retrouver, à commencer par les Vœux 2017:
 
-<iframe frameborder="0" width="500" height="290" src="//www.dailymotion.com/embed/video/x561m4u" allowfullscreen></iframe><br /><a href="http://www.dailymotion.com/video/x561m4u_decouvrez-les-voeux-d-anne-hidalgo-aux-parisiens-pour-l-annee-2017_news" target="_blank">D&eacute;couvrez les voeux d&#039;Anne Hidalgo aux...</a> <i>par <a href="http://www.dailymotion.com/mairiedeparis" target="_blank">mairiedeparis</a></i>
+<iframe frameborder="0" width="500" height="290" src="//www.dailymotion.com/embed/video/x561m4u" allowfullscreen></iframe><br />
 
 {% twitter https://twitter.com/C_Najdovski/status/817325377647480832 %}
 
