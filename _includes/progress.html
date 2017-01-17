@@ -6,8 +6,8 @@
       return Math.round(Math.max(0, Math.min(100, 100 * (elapsedMillis / totalMillisInRange))));
   }
   // display
-  function disp(value) {
-      var timebar = document.getElementById('timebar');
+  function disp(value, element) {
+      var timebar = document.getElementById(element);
       timebar.style = "width:"+value+"%";
       timebar.innerHTML = value+"%";
   }
@@ -16,16 +16,16 @@
   {
     var start = moment('2014-04-05T00:00:00');
     var end = moment('2020-04-05T00:00:00');
-    disp(percent(start,end));
+    disp(4, 'done');
+    disp(percent(start,end), 'timebar');
   }
 </script>
 <div class="panel panel-default">
   <div class="panel-body">
     Avancement de la réalisation
     <div class="progress">
-     <div class="progress-bar" role="progressbar"
-     aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:4%">
-      4%
+     <div id="done" class="progress-bar" role="progressbar"
+     aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
      </div>
    </div>
    Temps de mandature écoulé
