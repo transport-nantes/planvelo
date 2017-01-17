@@ -21,11 +21,12 @@ social:
   links:
     - https://twitter.com/parisenselle
     - https://www.facebook.com/parisenselle
-image:
-  twitter: /assets/logo.png
-  facebook: /assets/logo.png
-  height: 100
-  width: 100
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/logo.png
 
 # Build settings
 markdown: kramdown
@@ -34,6 +35,10 @@ gems:
   - jekyll-feed
   - jekyll-paginate
   - jekyll-seo-tag
+  - jekyll-sitemap
 exclude:
   - Gemfile
   - Gemfile.lock
+  - .gitlab-ci.yml
+  - Dockerfile
+  - README.md
