@@ -1,6 +1,7 @@
 ---
 layout: page
 title: À propos
+description: À propos de l'observatoire du plan vélo de Paris
 permalink: /a-propos/
 ---
 
