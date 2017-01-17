@@ -6,3 +6,5 @@ categories: press
 author: Olivier Razemon, Le Monde
 link: http://transports.blog.lemonde.fr/2016/12/07/paris-velo-eau/
 ---
+
+[{{ page.link }}]({{ page.link }})
