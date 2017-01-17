@@ -4,7 +4,7 @@ layout: default
 
 <div class="home">
 
-  <h1 class="page-heading">Suivi du plan vélo</h1>
+  <h1 class="post-title">Suivi du plan vélo</h1>
 
   {{ content }}
 
@@ -19,14 +19,14 @@ layout: default
     {% endfor %}
   </ul>
 
-  <h1 class="page-heading">Presse</h1>
+  <h1 class="post-title">Articles de presse</h1>
 
   <ul class="post-list">
     {% for post in site.categories.press %}
       <li>
         <span class="post-meta">{{ post.date | date: "%d/%m/%Y" }} • {{ post.author }}</span>
         <h2>
-          <a class="post-link" href="{{ post.link }}">{{ post.title | escape }}</a>
+          <a class="post-link" href="{{ post.link }}">{{ post.title | escape }} <img src="{{ 'assets/external.png' | relative_url }}" alt="external"></a>
         </h2>
       </li>
     {% endfor %}
