@@ -36,9 +36,11 @@ gems:
   - jekyll-paginate
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-twitter-plugin
 exclude:
   - Gemfile
   - Gemfile.lock
   - .gitlab-ci.yml
   - Dockerfile
   - README.md
+  - .tweet-cache
