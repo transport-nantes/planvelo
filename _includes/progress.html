@@ -1,9 +1,7 @@
 <script>
   function percent(start,end) {
-      var now = moment();
-      var totalMillisInRange = end.valueOf() - start.valueOf();
-      var elapsedMillis = now.valueOf() - start.valueOf();
-      return Math.round(Math.max(0, Math.min(100, 100 * (elapsedMillis / totalMillisInRange))));
+      var now = new Date() ;
+      return Math.round(Math.max(0, Math.min(100, ( 100.0 * (now - start) ) /  (end - start) )));
   }
   // display
   function disp(value, element) {
@@ -13,9 +11,9 @@
   }
 
   window.onload = function ()
-  {
-    var start = moment('2014-04-05T00:00:00');
-    var end = moment('2020-04-05T00:00:00');
+  { 
+    var start = new Date("04/05/2014") ;;
+    var end = new Date("04/05/2020") ;
     disp(4, 'done');
     disp(percent(start,end), 'timebar');
   }
