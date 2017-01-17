@@ -5,6 +5,7 @@ date:   2016-12-07 00:42:00 +0100
 categories: press
 author: Olivier Razemon, Le Monde
 link: http://transports.blog.lemonde.fr/2016/12/07/paris-velo-eau/
+sitemap: false
 ---
 
 [{{ page.link }}]({{ page.link }})
