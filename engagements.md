@@ -9,7 +9,7 @@ Le mardi 14 avril 2015, le Conseil de Paris a dévoilé son Plan Vélo 2015-2020
 
 Depuis, cette volonté a été maintes fois réaffirmée dans les communiqués de La ville de Paris. C'est ici que vous pouvez les retrouver, à commencer par les Vœux 2017:
 
-<iframe frameborder="0" width="500" height="290" src="//www.dailymotion.com/embed/video/x561m4u" allowfullscreen></iframe><br />
+<iframe id="videoFrame" frameborder="0" src="//www.dailymotion.com/embed/video/x561m4u" allowfullscreen></iframe><br />
 
 {% twitter https://twitter.com/C_Najdovski/status/817325377647480832 %}
 
