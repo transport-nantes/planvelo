@@ -26,7 +26,7 @@ layout: default
       <li>
         <span class="post-meta">{{ post.date | date: "%d/%m/%Y" }} • {{ post.author }}</span>
         <h2>
-          <a target="_blank" class="post-link" href="{{ post.link }}">{{ post.title | escape }} <img src="{{ 'assets/external.png' | relative_url }}" alt="external"></a>
+          <a target="_blank" rel="nofollow" class="post-link" href="{{ post.link }}">{{ post.title | escape }} <img src="{{ 'assets/external.png' | relative_url }}" alt="external"></a>
         </h2>
       </li>
     {% endfor %}
