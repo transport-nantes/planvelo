@@ -9,7 +9,7 @@ description: >
   d'être tenus informés des avancées du plan vélo voté par la mairie de Paris
   en avril 2015.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://beta.planvelo.paris" # the base hostname & protocol for your site, e.g. http://example.com
 twitter:
   username: parisenselle
 gitlab:
