@@ -4,7 +4,7 @@ Ce site web utilise `jekyll`. Ce logiciel fonctionne sans base de données et tr
 
 Chaque modification donne lieu à la regénération complète des pages par `Gitlab`. Pour les curieux, voir `.gitlab-ci.yml`.
 
-[![build status](https://gitlab.com/ParisEnSelle/planvelo/badges/master/build.svg)](https://gitlab.com/ParisEnSelle/planvelo/commits/master)
+[![build status](https://framagit.org/ParisEnSelle/planvelo/badges/master/build.svg)](https://framagit.org/ParisEnSelle/planvelo/commits/master)
 
 ## Contribuer
 
