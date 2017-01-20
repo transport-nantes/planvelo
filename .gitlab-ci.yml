@@ -2,24 +2,39 @@
 # Full project: https://gitlab.com/pages/jekyll
 image: ruby:2.3
 
+stages:
+  - test
+  - deploy
+
+before_script:
+- rm -Rf $LOCAL_DIR_TEST $LOCAL_DIR_STAGE $LOCAL_DIR_PROD
+- bundle install
+
 test:
   stage: test
   script:
-  - bundle install
-  - jekyll build -d test
+  - jekyll build -d $LOCAL_DIR_TEST
   artifacts:
     paths:
-    - test
-  except:
-  - master
+    - $LOCAL_DIR_TEST
 
-pages:
+deploy-stage:
   stage: deploy
   script:
-  - bundle install
-  - jekyll build -d public
-  artifacts:
-    paths:
-    - public
-  only:
-  - master
+  - jekyll build -d $LOCAL_DIR_STAGE
+  - apt-get update -qq && apt-get install -y -qq lftp
+  - lftp -c "set ftp:ssl-allow no; open -u $FTP_USER,$FTP_PASSWORD $FTP_HOST; mirror -Rev --ignore-time --parallel=10 --exclude-glob .git* --exclude .git/ $LOCAL_DIR_STAGE $FTP_REMOTE_DIR_STAGE"
+  environment:
+    name: stage
+    url: https://test.planvelo.paris/
+
+deploy-prod:
+  stage: deploy
+  script:
+  - jekyll build -d $LOCAL_DIR_PROD
+  - apt-get update -qq && apt-get install -y -qq lftp
+  - lftp -c "set ftp:ssl-allow no; open -u $FTP_USER,$FTP_PASSWORD $FTP_HOST; mirror -Rev --ignore-time --parallel=10 --exclude-glob .git* --exclude .git/ $LOCAL_DIR_PROD $FTP_REMOTE_DIR_PROD"
+  when: manual
+  environment:
+    name: prod
+    url: https://prod.planvelo.paris/
