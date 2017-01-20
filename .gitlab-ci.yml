@@ -27,7 +27,6 @@ deploy-stage:
   - lftp -c "set ftp:ssl-allow no; open -u $FTP_USER,$FTP_PASSWORD $FTP_HOST; mirror -Rev --ignore-time --parallel=10 --exclude-glob .git* --exclude .git/ $LOCAL_DIR_STAGE $FTP_REMOTE_DIR_STAGE"
   environment:
     name: stage
-    url: https://test.planvelo.paris/
 
 deploy-prod:
   stage: deploy
@@ -38,4 +37,3 @@ deploy-prod:
   when: manual
   environment:
     name: prod
-    url: https://prod.planvelo.paris/
