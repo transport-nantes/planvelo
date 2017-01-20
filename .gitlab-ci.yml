@@ -9,6 +9,7 @@ stages:
 before_script:
 - rm -Rf $LOCAL_DIR_TEST $LOCAL_DIR_STAGE $LOCAL_DIR_PROD
 - bundle install
+- jekyll clean
 
 test:
   stage: test
