@@ -1,6 +1,6 @@
 lang: fr
 title: Observatoire du plan vélo
-logo: /assets/logo.png
+logo: /assets/images/logo.png
 website: http://www.parisenselle.fr
 website-desc: Paris En Selle
 author: parisenselle
@@ -26,7 +26,7 @@ defaults:
   - scope:
       path: ""
     values:
-      image: /assets/logo.png
+      image: /assets/images/logo.png
 
 # Build settings
 markdown: kramdown
