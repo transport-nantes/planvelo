@@ -18,7 +18,7 @@
             {% endif %}
             <li>
               {% assign feedurl = "/feed.xml" | relative_url %}
-              {% include icon-feed.html link=feedurl text='RSS' %}
+              {% include icon-feed.html link=feedurl text='Flux RSS' %}
             </li>
         </ul>
       </div>
@@ -44,7 +44,7 @@
           {% endif %}
           {% if site.gitlab.username %}
           <li>
-            {% include icon-gitlab.html username=site.gitlab.username text='Gitlab' %}
+            {% include icon-gitlab.html username=site.gitlab.username text='Framagit' %}
           </li>
           {% endif %}
 
