@@ -44,3 +44,4 @@ exclude:
   - Dockerfile
   - README.md
   - .tweet-cache
+  - doc
