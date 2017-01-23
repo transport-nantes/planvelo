@@ -5,7 +5,7 @@ date:   2016-12-06 00:42:00 +0100
 author: Charles Maguin
 categories: article
 link: http://www.parisenselle.fr/pollution-paris-renonce-solution-velo/
-image: assets/images/articles/en-plein-pic-de-pollution-paris-tourne-le-dos.jpg
+image: assets/images/articles/pollution-paris-renonce-solution-velo.jpg
 ---
 
 [![capture]({{ page.image | relative_url }})]({{ page.link }})

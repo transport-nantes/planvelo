@@ -2,10 +2,12 @@
 layout: post
 title:  "Paris : un an de retard pour le plan vélo"
 date:   2017-01-11 17:06:00 +0100
-categories: press
+categories: presse
 author: Matthieu Quiret, Les Echos
 link: http://www.lesechos.fr/politique-societe/regions/0211681908517-paris-un-an-de-retard-pour-le-plan-velo-2056347.php
-sitemap: false
+image: assets/images/articles/paris-un-an-de-retard-pour-le-plan-velo.jpg
 ---
 
-[{{ page.link }}]({{ page.link }})
+[![capture]({{ page.image | relative_url }})]({{ page.link }}){:rel='nofollow'}
+
+Lire cet [article]({{ page.link }}){:rel='nofollow'}.

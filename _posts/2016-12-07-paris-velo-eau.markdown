@@ -2,10 +2,12 @@
 layout: post
 title:  "Paris : le « plan vélo » prend l’eau"
 date:   2016-12-07 00:42:00 +0100
-categories: press
+categories: presse
 author: Olivier Razemon, Le Monde
 link: http://transports.blog.lemonde.fr/2016/12/07/paris-velo-eau/
-sitemap: false
+image: assets/images/articles/paris-velo-eau.jpg
 ---
 
-[{{ page.link }}]({{ page.link }})
+[![capture]({{ page.image | relative_url }})]({{ page.link }}){:rel='nofollow'}
+
+Lire cet [article]({{ page.link }}){:rel='nofollow'}.
