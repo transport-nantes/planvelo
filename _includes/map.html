@@ -8,7 +8,8 @@
       {
         if (feature.properties && feature.properties.name) 
         {
-          layer.bindPopup("<b>"+feature.properties.name+"</b><br/>Longueur : "+turf.lineDistance(feature)+"km");
+          var lengthFeature = Math.round( 10 * turf.lineDistance(feature) ) / 10 ; 
+          layer.bindPopup("<b>"+feature.properties.name+"</b><br/>Longueur : "+lengthFeature+"km");
         }
       }
 
