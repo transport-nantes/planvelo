@@ -1,5 +1,8 @@
 # Site de l'observatoire du plan vélo de Paris
-Sommaire:
+
+Ce projet contient le code du site web de l'observatoire du plan vélo de Paris 2015-2020.
+
+### Sommaire
 <!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [Contribuer](#contribuer)
@@ -11,7 +14,7 @@ Sommaire:
 		- [Modifier une page](#modifier-une-page)
 	- [Contribuer au code](#contribuer-au-code)
 		- [Tester en local](#tester-en-local)
-- [Déploiement](#dploiement)
+- [Déploiement](#déploiement)
 
 <!-- /TOC -->
 
@@ -52,7 +55,7 @@ Il existe 2 catégories d'articles:
 * "article": articles écrits par les membres de Paris En Selle
 * "presse": articles de la presse, qui peuvent éventuellement contenir une revue de presse en plus du lien vers l'article.
 
-Dans le 2 cas, il s'agit de créer un fichier dans le dossier `_post` de ce projet.
+Dans les 2 cas, il s'agit de créer un fichier dans le dossier `_post` de ce projet.
 
 * Pour cela, se placer dans le répertoire `_post`, sélectionnez "New file".
 
@@ -150,7 +153,7 @@ firefox localhost:4000
 
 Ce site web utilise `jekyll`. Ce logiciel fonctionne sans base de données et transforme le code présent en pages html.
 
-Chaque modification donne lieu à la regénération complète des pages par `Framagit`. Les modifications peuvent être visibles environ 2 minutes après, sur le site de test: https://test.planvelo.paris.
+Chaque modification donne lieu à la regénération complète des pages. Les modifications peuvent être visibles moins d'une minute après, sur le site de test: https://test.planvelo.paris.
 
 Le déploiement sur le site de production nécessite, quant à lui, une intervention manuelle dans l'écran "Pipeline > Builds". Bouton "Play".
 
