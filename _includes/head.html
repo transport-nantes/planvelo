@@ -15,6 +15,11 @@
 
   {% if page.layout == 'home' %}
   <link rel="stylesheet" href="{{ "/assets/css/bootstrap.min_3.3.7.css" | relative_url }}">
+  <!-- Include file for Leaflet.js -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+  <script src="{{ "/assets/js/leaflet.ajax.min.js" | relative_url }}"></script>
+  
   <!--<script src="{{ "/assets/js/bootstrap-native.min_1.0.6.js" | relative_url }}"></script>-->
   {% endif %}
 

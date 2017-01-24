@@ -1,6 +1,22 @@
 <div class="panel panel-default">
   <div class="panel-body">
-    <iframe id="mapFrame" frameBorder="0" src="https://umap.openstreetmap.fr/en/map/observatoire-du-plan-velo_110654?scaleControl=false&miniMap=false&scrollWheelZoom=true&zoomControl=true&allowEdit=false&moreControl=true&searchControl=null&tilelayersControl=null&embedControl=null&datalayersControl=expanded&onLoadPanel=none&captionBar=false#12/48.8548/2.3576" allowfullscreen></iframe>
+    <div id="mapFrame"></div>
+    <!-- Build the map using Leaflet.js -->
+    <script type="text/javascript">
+      var map = L.map('map').setView([48.8548, 2.3576], 12);
+
+      L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw', {
+        maxZoom: 18,
+        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+          '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+          'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+        id: 'mapbox.light'
+      }).addTo(map);
+
+      var geojsonLayer = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/planvelo.geojson");       
+      geojsonLayer.addTo(map);
+
+    </script>
     <ul class="legend">
       <li><span class="grey"></span>Plan Vélo (Projet)</li><br>
       <li><span class="green"></span>Réalisé - Satisfaisant</li><br>
