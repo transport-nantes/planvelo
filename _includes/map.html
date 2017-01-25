@@ -6,11 +6,17 @@
       // Helper function to create a popup for each feature
       function popup(feature, layer) 
       {
+        var popupContent = '' ; 
+        var lengthFeature = Math.round( 10 * turf.lineDistance(feature) ) / 10 ;
+
         if (feature.properties && feature.properties.name) 
-        {
-          var lengthFeature = Math.round( 10 * turf.lineDistance(feature) ) / 10 ; 
-          layer.bindPopup("<b>"+feature.properties.name+"</b><br/>Longueur : "+lengthFeature+"km");
-        }
+          popupContent += "<b>"+feature.properties.name+"</b><br/>" ;      
+        if (feature.properties && feature.properties.description) 
+          popupContent += feature.properties.description+"<br/>" ; 
+
+        popupContent += "Longueur : "+lengthFeature+"km";
+
+        layer.bindPopup(popupContent) ;
       }
 
       // Create the map with Mapbox tiles
