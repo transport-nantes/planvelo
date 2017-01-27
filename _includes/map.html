@@ -19,6 +19,66 @@
         layer.bindPopup(popupContent) ;
       }
 
+      // Function to convert a color in RGB color space to HSV color space
+      function rgbToHsl(r, g, b)
+      {
+        r /= 255.0, g /= 255.0, b /= 255.0;
+        var max = Math.max(r, g, b), min = Math.min(r, g, b);
+        var h, s, l = (max + min) / 2.0;
+
+        if(max == min)
+        {
+          h = s = 0; // achromatic
+        }
+        else
+        {
+          var d = max - min;
+          s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+          switch(max)
+          {
+            case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+            case g: h = (b - r) / d + 2; break;
+            case b: h = (r - g) / d + 4; break;
+          }
+          h /= 6.0;
+        }
+
+        return [h, s, l];
+      }
+
+
+      // Function to get the style to apply to a feature
+      function styleFeature(feature)
+      {  
+        var finalColor, finalWidth ;
+
+        if ( feature.properties.stroke )
+        {
+          // Get the color, make the conversion from RGB to HSV
+          var colorHexa = feature.properties.stroke.substr(1), colorHLS ;
+          colorHLS = rgbToHsl ( parseInt(colorHexa.substr(0,2), 16), parseInt(colorHexa.substr(2,2), 16), parseInt(colorHexa.substr(4,2), 16) ) ; 
+
+          // Compare the distance between H and references H for green, red and orange
+          var distanceMin = 1, references = [ [0.3333333333333333, "green"], [0, "red"], [0.08300653594771241, "orange"] ] ; 
+          for ( var iColor = 0 ; iColor < references.length ; iColor++ )
+          {
+            if ( Math.abs(colorHLS[0] - references[iColor][0]) < distanceMin )
+            {
+              finalColor = references[iColor][1] ;
+              distanceMin = Math.abs(colorHLS[0] - references[iColor][0]) ;
+            } 
+          }
+
+        }
+        else
+          finalColor = 'grey' ; 
+
+        finalWidth = ( features.properties.stroke-width ? features.properties.stroke-width : 1 ) ;
+
+        return {"color": finalColor, "stroke-width" : finalWidth} ; 
+      }
+
+
       // Create the map with Mapbox tiles
       var map = L.map('mapFrame').setView([48.8548, 2.3576], 12);
       L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
@@ -30,7 +90,7 @@
       // Add the GeoJSON features to the map
       var geojsonLayer = new L.GeoJSON.AJAX(
         "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/planvelo.geojson", 
-        {onEachFeature: popup, style: {color:'grey'}} );       
+        {onEachFeature: popup, style: styleFeature } );       
       geojsonLayer.addTo(map);
 
     </script>
