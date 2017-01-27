@@ -58,17 +58,23 @@
           var colorHexa = feature.properties.stroke.substr(1), colorHLS ;
           colorHLS = rgbToHsl ( parseInt(colorHexa.substr(0,2), 16), parseInt(colorHexa.substr(2,2), 16), parseInt(colorHexa.substr(4,2), 16) ) ; 
 
-          // Compare the distance between H and references H for green, red and orange
-          var distanceMin = 1, references = [ [0.33333, "#228b22"], [0, "#ff0000"], [0.10784, "#ffa500"] ] ; 
-          for ( var iColor = 0 ; iColor < references.length ; iColor++ )
+          if ( colorHLS[1] < 0.3 && colorHLS[2] < 0.5 )
           {
-            if ( Math.abs(colorHLS[0] - references[iColor][0]) < distanceMin )
-            {
-              finalColor = references[iColor][1] ;
-              distanceMin = Math.abs(colorHLS[0] - references[iColor][0]) ;
-            } 
+            finalColor = 'grey' ; 
           }
-
+          else
+          {
+            // Compare the distance between H and references H for green, red and orange
+            var distanceMin = 1, references = [ [0.33333, "#228b22"], [0, "#ff0000"], [0.10784, "#ffa500"] ] ; 
+            for ( var iColor = 0 ; iColor < references.length ; iColor++ )
+            {
+              if ( Math.abs(colorHLS[0] - references[iColor][0]) < distanceMin )
+              {
+                finalColor = references[iColor][1] ;
+                distanceMin = Math.abs(colorHLS[0] - references[iColor][0]) ;
+              } 
+            }
+          }
         }
         else
           finalColor = 'grey' ; 
