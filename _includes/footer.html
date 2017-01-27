@@ -37,17 +37,16 @@
           </li>
           {% endif %}
 
-          {% if site.github.username %}
-          <li>
-            {% include icon-github.html username=site.github.username text='Github' %}
-          </li>
-          {% endif %}
           {% if site.gitlab.username %}
           <li>
-            {% include icon-gitlab.html username=site.gitlab.username text='Framagit' %}
+            {% include icon-gitlab.html username=site.gitlab.username linktext='Framagit' linkdesc=' (site web)' %}
           </li>
           {% endif %}
-
+          {% if site.github.username %}
+          <li>
+            {% include icon-github.html username=site.github.username linktext='Github' linkdesc=' (carte)' %}
+          </li>
+          {% endif %}
         </ul>
       </div>
 
