@@ -99,7 +99,7 @@
         {onEachFeature: popup, style: styleFeature } );       
       var horsPlanVeloLayer = new L.GeoJSON.AJAX(
         "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/hors-planvelo.geojson", 
-        {onEachFeature: popup } );       
+        {onEachFeature: popup, style: styleFeature } );       
       planVeloLayer.addTo(map);      
       
 
