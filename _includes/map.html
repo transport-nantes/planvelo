@@ -93,11 +93,23 @@
         subdomains: 'abcd',
       }).addTo(map);
 
-      // Add the GeoJSON features to the map
-      var geojsonLayer = new L.GeoJSON.AJAX(
+      // Load the different layers and display the default one (planVelo) on the map
+      var planVeloLayer = new L.GeoJSON.AJAX(
         "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/planvelo.geojson", 
         {onEachFeature: popup, style: styleFeature } );       
-      geojsonLayer.addTo(map);
+      var horsPlanVeloLayer = new L.GeoJSON.AJAX(
+        "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/hors-planvelo.geojson", 
+        {onEachFeature: popup } );       
+      planVeloLayer.addTo(map);      
+      
+
+      // Add control to display or hide layers
+      var overlayLayers = {
+        "Plan vélo": planVeloLayer,
+        "Hors plan vélo": horsPlanVeloLayer};
+      L.control.layers(null, overlayLayers).addTo(map);
+
+      
 
     </script>
     <ul class="legend">
