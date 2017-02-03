@@ -39,12 +39,12 @@
 
           {% if site.gitlab.username %}
           <li>
-            {% include icon-gitlab.html username=site.gitlab.username linktext='Framagit' linkdesc=' (site web)' %}
+            {% include icon-gitlab.html username=site.gitlab.username linkurl='https://framagit.org/ParisEnSelle/planvelo' linktext='Framagit' linkdesc=' (site web)' %}
           </li>
           {% endif %}
           {% if site.github.username %}
           <li>
-            {% include icon-github.html username=site.github.username linktext='Github' linkdesc=' (carte)' %}
+            {% include icon-github.html username=site.github.username linkurl='https://parisenselle.github.io/planvelo-carte/' linktext='Github' linkdesc=' (carte)' %}
           </li>
           {% endif %}
         </ul>
