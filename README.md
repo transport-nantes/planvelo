@@ -9,7 +9,7 @@ Ce projet contient le code du site web de l'observatoire du plan vélo de Paris 
 	- [Contribuer au contenu](#contribuer-au-contenu)
 		- [Ajouter une image](#ajouter-une-image)
 		- [Ajouter un article](#ajouter-un-article)
-			- [Ecrire un article](#ecrire-un-article)
+			- [Écrire un article](#ecrire-un-article)
 			- [Ajouter un article de presse](#ajouter-un-article-de-presse)
 		- [Modifier une page](#modifier-une-page)
 	- [Contribuer au code](#contribuer-au-code)
@@ -27,7 +27,7 @@ Ce projet contient le code du site web de l'observatoire du plan vélo de Paris 
 
 ### Contribuer au contenu
 
-Le language de balisage choisi pour rédiger du contenu est le `Kramdown`. C'est une variante **très** proche du `Markdown`, plus populaire.
+Le langage de balisage choisi pour rédiger du contenu est le `Kramdown`. C'est une variante **très** proche du `Markdown`, plus populaire.
 
 * Syntaxe: https://kramdown.gettalong.org/syntax.html
 
@@ -35,7 +35,7 @@ Le language de balisage choisi pour rédiger du contenu est le `Kramdown`. C'est
 
 #### Ajouter une image
 
-* Préparer son image au format `jpg`, de préférence. La nommer en reprenant le titre de l'article, sans caractères spéciaux, ni accents. Par exemple pour un titre `Paris : le « plan vélo » prend l’eau`, on peut choisir `plan-velo-eau.jpg` auquel correspond l'article `2016-12-07-paris-velo-eau.markdown`.
+* Préparer son image, au format `jpg` de préférence. La nommer en reprenant le titre de l'article, sans caractères spéciaux, ni accents. Par exemple pour un titre `Paris : le « plan vélo » prend l’eau`, on peut choisir `plan-velo-eau.jpg` auquel correspond l'article `2016-12-07-paris-velo-eau.markdown`.
 
 * Se placer dans le répertoire cible: `planvelo/assets/images/articles` pour les articles, `planvelo/assets/images/pages` pour les pages.
 
@@ -43,11 +43,11 @@ Le language de balisage choisi pour rédiger du contenu est le `Kramdown`. C'est
 
 ![add-image-0](doc/add-image-0.png)
 
-* Mettez un texte pour décrire la modification. Par exemple: "ajout de paris-velo-eau.jpg".
+* Mettre un texte pour décrire la modification. Par exemple: "ajout de paris-velo-eau.jpg".
 
 ![add-image-1](doc/add-image-1.png)
 
-* Cliquez sur "Upload file".
+* Cliquer sur "Upload file".
 
 #### Ajouter un article
 
@@ -61,12 +61,12 @@ Dans les 2 cas, il s'agit de créer un fichier dans le dossier `_post` de ce pro
 
 ![add-article-0](doc/add-article-0.png)
 
-* Renseignez le nom du fichier cible au format "AAAA-MM-JJ-titre-de-mon-article.markdown" (Date + titre + extension .markdown, le tout séparé de tirets `-`)
-* Quand vous avez terminé, ajoutez une description à la modification que vous avez apporté grâce au champs "Commit message".
+* Renseignez le nom du fichier cible au format "AAAA-MM-JJ-titre-de-mon-article.markdown" (Date + titre + extension .markdown, le tout séparé de traits d'union `-`)
+* Quand vous avez terminé, ajoutez une description à la modification que vous avez apportée grâce au champ "Commit message".
 
 ![add-article-1](doc/add-article-1.png)
 
-##### Ecrire un article
+##### Écrire un article
 
 Exemple:
 ```
@@ -87,7 +87,7 @@ Vous pouvez reprendre cet exemple en changeant `title`, `date`, `author`, `image
 
 L'image est facultative mais toujours bienvenue. Dans cet exemple, elle est reprise dans le contenu: `{{ page.image | relative_url }}`.
 
-Même si vous n'utilisez pas l'image dans le contenu de votre post, elle apparait dans les réseaux sociaux quand vous partagez l'article. A noter que si aucune image n'est indiquée dans l'entête, c'est le logo de Paris En Selle qui est utilisé.
+Même si vous n'utilisez pas l'image dans le contenu de votre post, elle apparaît dans les réseaux sociaux quand vous partagez l'article. À noter que si aucune image n'est indiquée dans l'entête, c'est le logo de Paris En Selle qui est utilisé.
 
 ##### Ajouter un article de presse
 
@@ -125,7 +125,7 @@ engagements.md
 
 ![edit-page-0](doc/edit-page-0.png)
 
-* Quand vous avez terminé, ajoutez une description à la modification que vous avez apporté dans le champs "Commit message".
+* Quand vous avez terminé, ajoutez une description à la modification que vous avez apportée dans le champ "Commit message".
 
 ### Contribuer au code
 
@@ -151,7 +151,7 @@ firefox localhost:4000
 
 ## Déploiement
 
-Ce site web utilise `jekyll`. Ce logiciel fonctionne sans base de données et transforme le code présent en pages html.
+Ce site web utilise `jekyll`. Ce logiciel fonctionne sans base de données et transforme le code présent en pages HTML.
 
 Chaque modification donne lieu à la regénération complète des pages. Les modifications peuvent être visibles moins d'une minute après, sur le site de test: https://test.planvelo.paris.
 
