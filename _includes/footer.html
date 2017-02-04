@@ -9,16 +9,16 @@
         <ul class="contact-list">
             {% if site.website and site.website-desc %}
             <li>
-              {% include icon-bike.html link=site.website text=site.website-desc %}
+              {% include icon-footer.html icon='icon-bike.svg' linkurl=site.website linktext=site.website-desc %}
             </li>
             <li>
               {% assign contacturl = site.website | append: '/contact' %}
-              {% include icon-contact.html link=contacturl text='Contact' %}
+              {% include icon-footer.html icon='icon-contact.svg' linkurl=contacturl linktext='Contact' %}
             </li>
             {% endif %}
             <li>
               {% assign feedurl = "/feed.xml" | relative_url %}
-              {% include icon-feed.html link=feedurl text='Flux RSS' %}
+              {% include icon-footer.html icon='icon-feed.svg' linkurl=feedurl linktext='Flux RSS' %}
             </li>
         </ul>
       </div>
@@ -27,24 +27,24 @@
         <ul class="social-media-list">
           {% if site.twitter.username %}
           <li>
-            {% include icon-twitter.html username=site.twitter.username text='Twitter' %}
+            {% include icon-footer.html icon='icon-twitter.svg' linkurl='https://twitter.com/parisenselle' linktext='Twitter' %}
           </li>
           {% endif %}
 
           {% if site.facebook.username %}
           <li>
-            {% include icon-facebook.html username=site.facebook.username text='Facebook' %}
+            {% include icon-footer.html icon='icon-facebook.svg' linkurl='https://www.facebook.com/parisenselle' linktext='Facebook' %}
           </li>
           {% endif %}
 
           {% if site.gitlab.username %}
           <li>
-            {% include icon-gitlab.html username=site.gitlab.username linkurl='https://framagit.org/ParisEnSelle/planvelo' linktext='Framagit' linkdesc=' (site web)' %}
+            {% include icon-footer.html icon='icon-gitlab.svg' linkurl='https://framagit.org/parisenselle/planvelo' linktext='Framagit' linkdesc=' (site web)' %}
           </li>
           {% endif %}
           {% if site.github.username %}
           <li>
-            {% include icon-github.html username=site.github.username linkurl='https://parisenselle.github.io/planvelo-carte/' linktext='Github' linkdesc=' (carte)' %}
+            {% include icon-footer.html icon='icon-github.svg' linkurl='https://parisenselle.github.io/planvelo-carte/' linktext='Github' linkdesc=' (carte)' %}
           </li>
           {% endif %}
         </ul>
