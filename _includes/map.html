@@ -21,6 +21,11 @@
         info.update() ;
       }
 
+      function zoomToFeature(e) 
+      {
+        map.fitBounds(e.target.getBounds());
+      }
+
       function updateInfo(feature) 
       {
         var content = '' ; 
@@ -46,7 +51,8 @@
         layer.on(
         {
           mouseover: highlightFeature,
-          mouseout: resetStyleFeature
+          mouseout: resetStyleFeature,
+          click: zoomToFeature
         });
       }
 
