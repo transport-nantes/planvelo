@@ -11,29 +11,38 @@
         previousStyle.weight += 2 ; 
 
         layer.setStyle(previousStyle) ; 
+        info.update(layer.feature.properties) ;
       }
 
       function resetStyleFeature(e)
       {
         var layer = e.target;
         layer.setStyle(styleFeature(layer.feature)) ;
+        info.update() ;
       }
 
-
-      function popup(feature, layer) 
+      function updateInfo(properties) 
       {
-        var popupContent = '' ; 
-        var lengthFeature = Math.round( 10 * turf.lineDistance(feature) ) / 10 ;
+        var content = '' ; 
+        if ( properties )
+        {
+          var lengthFeature = Math.round( 10 * turf.lineDistance(feature) ) / 10 ;
 
-        if (feature.properties && feature.properties.name) 
-          popupContent += "<b>"+feature.properties.name+"</b><br/>" ;      
-        if (feature.properties && feature.properties.description) 
-          popupContent += feature.properties.description+"<br/>" ; 
+          if (feature.properties && feature.properties.name) 
+            content += "<b>"+feature.properties.name+"</b><br/>" ;      
+          if (feature.properties && feature.properties.description) 
+            content += feature.properties.description+"<br/>" ; 
 
-        popupContent += "Longueur : "+lengthFeature+"km";
+          content += "Longueur : "+lengthFeature+"km";
+        }
+        else
+          content = "Placez le curseur sur un segment pour plus d'informations" ; 
 
-        layer.bindPopup(popupContent) ;
+        this._div.innerHTML = '<h4>Informations</h4>' + content ;
+      }
 
+      function bindFeatureEvents(feature, layer) 
+      {
         layer.on(
         {
           mouseover: highlightFeature,
@@ -115,13 +124,24 @@
         subdomains: 'abcd',
       }).addTo(map);
 
+
+      // Add a custom control to display information
+      var info = L.control();
+      info.onAdd = function (map) 
+      {
+          this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+          this.update();
+          return this._div;
+      };
+      info.update = updateInfo ; 
+
       // Load the different layers and display the default one (planVelo) on the map
       var planVeloLayer = new L.GeoJSON.AJAX(
         "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/planvelo.geojson", 
-        {onEachFeature: popup, style: styleFeature } );       
+        {onEachFeature: bindFeatureEvents, style: styleFeature } );       
       var horsPlanVeloLayer = new L.GeoJSON.AJAX(
         "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/hors-planvelo.geojson", 
-        {onEachFeature: popup, style: styleFeature } );       
+        {onEachFeature: bindFeatureEvents, style: styleFeature } );       
       planVeloLayer.addTo(map);      
       
 
