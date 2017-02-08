@@ -4,6 +4,22 @@
     <!-- Build the map using Leaflet.js -->
     <script type="text/javascript">
       // Helper function to create a popup for each feature
+      function highlightFeature(e)
+      {
+        var layer = e.target;
+        var previousStyle = styleFeature(layer.feature) ;
+        previousStyle.weight++ ; 
+
+        layer.setStyle(previousStyle) ; 
+      }
+
+      function resetStyleFeature(e)
+      {
+        var layer = e.target;
+        layer.setStyle(styleFeature(layer.feature)) ;
+      }
+
+
       function popup(feature, layer) 
       {
         var popupContent = '' ; 
@@ -17,6 +33,12 @@
         popupContent += "Longueur : "+lengthFeature+"km";
 
         layer.bindPopup(popupContent) ;
+
+        layer.on(
+        {
+          mouseover: highlightFeature,
+          mouseout: resetStyleFeature
+        });
       }
 
       // Function to convert a color in RGB color space to HSV color space
