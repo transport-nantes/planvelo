@@ -150,7 +150,7 @@
       var overlayLayers = {
         "Plan vélo": planVeloLayer,
         "Hors plan vélo": horsPlanVeloLayer};
-      L.control.layers(null, overlayLayers).addTo(map);
+      L.control.layers(null, overlayLayers, {position: "topleft"}).addTo(map);
 
       
 
