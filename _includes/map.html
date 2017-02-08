@@ -11,7 +11,7 @@
         previousStyle.weight += 2 ; 
 
         layer.setStyle(previousStyle) ; 
-        info.update(layer.feature.properties) ;
+        info.update(layer.feature) ;
       }
 
       function resetStyleFeature(e)
@@ -21,10 +21,10 @@
         info.update() ;
       }
 
-      function updateInfo(properties) 
+      function updateInfo(feature) 
       {
         var content = '' ; 
-        if ( properties )
+        if ( feature )
         {
           var lengthFeature = Math.round( 10 * turf.lineDistance(feature) ) / 10 ;
 
@@ -134,6 +134,7 @@
           return this._div;
       };
       info.update = updateInfo ; 
+      info.addTo(map);
 
       // Load the different layers and display the default one (planVelo) on the map
       var planVeloLayer = new L.GeoJSON.AJAX(
