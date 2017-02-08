@@ -132,7 +132,7 @@
 
 
       // Add a custom control to display information
-      var info = L.control();
+      var info = L.control({position: "bottomleft"});
       info.onAdd = function (map) 
       {
           this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
@@ -156,7 +156,7 @@
       var overlayLayers = {
         "Plan vélo": planVeloLayer,
         "Hors plan vélo": horsPlanVeloLayer};
-      L.control.layers(null, overlayLayers, {position: "topleft"}).addTo(map);
+      L.control.layers(null, overlayLayers, {position: "topright"}).addTo(map);
 
       
 
