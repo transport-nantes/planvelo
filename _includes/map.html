@@ -149,13 +149,18 @@
       var horsPlanVeloLayer = new L.GeoJSON.AJAX(
         "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/hors-planvelo.geojson", 
         {onEachFeature: bindFeatureEvents, style: styleFeature } );       
+      var zonesApaiseesLayer = new L.GeoJSON.AJAX(
+        "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/zonesApaisees.geojson", 
+        { style: { fillColor: "#00FF00", weight: 2, opacity: 1, color: 'white', dashArray: '3', fillOpacity: 0.7} } );       
       planVeloLayer.addTo(map);      
       
 
       // Add control to display or hide layers
       var overlayLayers = {
         "Plan vélo": planVeloLayer,
-        "Hors plan vélo": horsPlanVeloLayer};
+        "Hors plan vélo": horsPlanVeloLayer, 
+        "Zones apaisées": zonesApaiseesLayer
+      };
       L.control.layers(null, overlayLayers, {position: "topright"}).addTo(map);
 
       
