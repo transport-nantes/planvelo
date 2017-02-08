@@ -3,7 +3,13 @@
     <div id="mapFrame"></div>
     <!-- Build the map using Leaflet.js -->
     <script type="text/javascript">
-      // Helper function to create a popup for each feature
+      var areaZonesApaisees = 0 ; 
+
+      function areaFeature(feature) 
+      {
+        areaZonesApaisees = Math.round( 10 * turf.area(feature) ) / 10 ;
+      }
+
       function highlightFeature(e)
       {
         var layer = e.target;
@@ -151,7 +157,7 @@
         {onEachFeature: bindFeatureEvents, style: styleFeature } );       
       var zonesApaiseesLayer = new L.GeoJSON.AJAX(
         "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/zonesApaisees.geojson", 
-        { style: { fillColor: "#00FF00", weight: 2, opacity: 0.7, color: 'white', dashArray: '3', fillOpacity: 0.4} } );       
+        { onEachFeature: areaFeature, style: { fillColor: "#00FF00", weight: 2, opacity: 0.7, color: 'white', dashArray: '3', fillOpacity: 0.4} } );       
       planVeloLayer.addTo(map);      
       
 
