@@ -156,7 +156,7 @@
         "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/hors-planvelo.geojson", 
         {onEachFeature: bindFeatureEvents, style: styleFeature } );       
       var zonesApaiseesLayer = new L.GeoJSON.AJAX(
-        "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/zonesApaisees.geojson", 
+        "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/opendata.paris.fr/zones-de-circulation-apaisee_PeS.geojson", 
         { onEachFeature: areaFeature, style: { fillColor: "#00FF00", weight: 2, opacity: 0.7, color: 'white', dashArray: '3', fillOpacity: 0.4} } );       
       planVeloLayer.addTo(map);      
       
