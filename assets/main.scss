@@ -79,7 +79,8 @@ $on-laptop:        1000px;
 .legend li { float: left; margin-right: 10px; }
 .legend span { border-radius: 25px; float: left; width: 40px; height: 12px; margin: 2px; }
 /* map legend: item color */
-.legend .grey { background-color: #555555; }
+.legend .grey { background-color: #adadad; }
 .legend .green { background-color: #228b22; }
 .legend .orange { background-color: #ffa500; }
 .legend .red { background-color: #ff0000; }
+.legend .blue { background-color: #3456d9 ; background-color: rgba(52,86,217,0.7); }
