@@ -2,9 +2,9 @@
 layout: post
 title:  "En plein pic de pollution, Paris tourne le dos à la Solution Vélo"
 date:   2016-12-06 00:42:00 +0100
-author: Charles Maguin
+author: Paris en Selle • Communiqué
 categories: article
-link: http://www.parisenselle.fr/pollution-paris-renonce-solution-velo/
+link: https://parisenselle.fr/pollution-paris-renonce-solution-velo/
 image: assets/images/articles/pollution-paris-renonce-solution-velo.jpg
 ---
 
