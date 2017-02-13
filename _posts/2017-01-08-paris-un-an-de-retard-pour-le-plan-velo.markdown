@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Paris : un an de retard pour le plan vélo"
+title:  "Paris : un an de retard pour le Plan Vélo"
 date:   2017-01-11 17:06:00 +0100
 categories: presse
 author: Matthieu Quiret, Les Echos

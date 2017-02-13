@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Les engagements
-description: Les engagements pris par la mairie de Paris pour le plan vélo 2015-2020
+description: Les engagements pris par la mairie de Paris pour le Plan Vélo 2015-2020
 permalink: /engagements/
 image: assets/images/pages/engagements_carte-officielle-umap.jpg
 ---

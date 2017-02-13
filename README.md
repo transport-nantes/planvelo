@@ -1,6 +1,6 @@
-# Site de l'observatoire du plan vélo de Paris
+# Site de l'observatoire du Plan Vélo de Paris
 
-Ce projet contient le code du site web de l'observatoire du plan vélo de Paris 2015-2020.
+Ce projet contient le code du site web de l'observatoire du Plan Vélo de Paris 2015-2020.
 
 ### Sommaire
 <!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
@@ -35,7 +35,7 @@ Le langage de balisage choisi pour rédiger du contenu est le `Kramdown`. C'est 
 
 #### Ajouter une image
 
-* Préparer son image, au format `jpg` de préférence. La nommer en reprenant le titre de l'article, sans caractères spéciaux, ni accents. Par exemple pour un titre `Paris : le « plan vélo » prend l’eau`, on peut choisir `plan-velo-eau.jpg` auquel correspond l'article `2016-12-07-paris-velo-eau.markdown`.
+* Préparer son image, au format `jpg` de préférence. La nommer en reprenant le titre de l'article, sans caractères spéciaux, ni accents. Par exemple pour un titre `Paris : le « Plan Vélo » prend l’eau`, on peut choisir `plan-velo-eau.jpg` auquel correspond l'article `2016-12-07-paris-velo-eau.markdown`.
 
 * Se placer dans le répertoire cible: `planvelo/assets/images/articles` pour les articles, `planvelo/assets/images/pages` pour les pages.
 
@@ -95,7 +95,7 @@ Exemple:
 ```
 ---
 layout: post
-title:  "Paris : le « plan vélo » prend l’eau"
+title:  "Paris : le « Plan Vélo » prend l’eau"
 date:   2016-12-07 00:42:00 +0100
 categories: presse
 author: Olivier Razemon, Le Monde

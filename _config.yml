@@ -1,12 +1,12 @@
 lang: fr
-title: Observatoire du plan vélo
+title: Observatoire du Plan Vélo
 logo: /assets/images/logo.png
 website: https://parisenselle.fr
 website-desc: Paris En Selle
 author: parisenselle
 description: >
   À travers cet observatoire, l'association Paris en Selle souhaite permettre à tous
-  d'être tenus informés des avancées du plan vélo voté par la mairie de Paris
+  d'être tenus informés des avancées du Plan Vélo voté par la mairie de Paris
   en avril 2015.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
