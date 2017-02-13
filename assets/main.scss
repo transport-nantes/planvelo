@@ -60,18 +60,18 @@ $on-laptop:        1000px;
   height:500px;
 }
 
-.info { 
-  padding: 6px 8px; 
-  font: 14px/16px Arial, Helvetica, sans-serif; 
-  background: white; 
-  background: rgba(255,255,255,0.8); 
-  box-shadow: 0 0 15px rgba(0,0,0,0.2); 
-  border-radius: 5px; 
-} 
+.info {
+  padding: 6px 8px;
+  font: 14px/16px Arial, Helvetica, sans-serif;
+  background: white;
+  background: rgba(255,255,255,0.8);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+}
 
-.info h4 { 
-  margin: 0 0 5px; 
-  color: #777; 
+.info h4 {
+  margin: 0 0 5px;
+  color: #777;
 }
 
 .hiddenElement { display:none; }
@@ -86,3 +86,14 @@ $on-laptop:        1000px;
 .legend .orange { background-color: #ffa500; }
 .legend .red { background-color: #ff0000; }
 .legend .blue { background-color: #3456d9 ; background-color: rgba(52,86,217,0.4); }
+
+/* image caption */
+.image-wrapper {
+    text-align: center;
+
+    .image-caption {
+        color: $grey-color;
+        font-size: 13px;
+        margin-top: $spacing-unit / 3;
+    }
+}
