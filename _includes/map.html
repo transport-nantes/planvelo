@@ -5,6 +5,21 @@
     <script type="text/javascript">
       var areaZonesApaisees = 0 ; 
 
+      function toggleLegend(e)
+      {
+        if (e.name == "Zones apaisées")
+        {
+          if ( e.type == "overlayadd")
+          {
+            $("#zonesApaiseesLegend").slideDown("fast");
+          }
+          else
+          {
+            $("#zonesApaiseesLegend").slideUp("fast");
+          }
+        }
+      }
+
       function areaFeature(feature) 
       {
         areaZonesApaisees += Math.round( 10 * turf.area(feature) ) / 10 ;
@@ -176,13 +191,17 @@
       L.control.layers(null, overlayLayers, {position: "topright"}).addTo(map);
 
       
+      // Add event listeners to display/hide legend items
+      map.on("overlayremove overlayadd", toggleLegend) ; 
+
 
     </script>
     <ul class="legend">
       <li><span class="grey"></span>Plan Vélo (Projet)</li><br>
       <li><span class="green"></span>Réalisé - Satisfaisant</li><br>
       <li><span class="orange"></span>Réalisé - Non Satisfaisant</li><br>
-      <li><span class="red"></span>Abandonné</li>
+      <li><span class="red"></span>Abandonné</li><br>
+      <li class="hiddenElement" id="zonesApaiseesLegend"><span class="blue"></span>Zones apaisées</li>
     </ul>
  </div>
 </div>

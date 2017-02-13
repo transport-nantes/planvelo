@@ -74,6 +74,8 @@ $on-laptop:        1000px;
   color: #777; 
 }
 
+.hiddenElement { display:none; }
+
 /* map legend: item position */
 .legend { list-style: none; margin-top: 12px; }
 .legend li { float: left; margin-right: 10px; }
