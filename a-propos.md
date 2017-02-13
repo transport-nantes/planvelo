@@ -3,17 +3,49 @@ layout: page
 title: À propos
 description: À propos de l'observatoire du Plan Vélo de Paris
 permalink: /a-propos/
-image: assets/images/pages/a-propos_carte-schema_directeur_2015-2020.jpeg
 ---
 
-La Maire de Paris a fait du vélo l'un de ses engagements phares pour la mandature 2014-2020. Votre association, [Paris en Selle]({{ site.website }}), suit les avancées, fait des propositions, et souhaite vous tenir informé(e)s en temps réel. C'est pourquoi nous avons créé cet observatoire qui vous aidera à vous faire votre propre opinion.
+# Informer les citoyens sur l’avancement du Plan Vélo
 
-En gris, vous retrouverez tous les projets d'aménagement cyclable annoncés par la Ville. Les traits plus épais correspondent aux axes structurants et les pointillés roses aux itinéraires du Réseau Express Vélo (REVe). Nous vous invitons à consulter la rubrique "[Les engagements]({{ site.baseurl }}{% link engagements.md %})" pour en savoir plus.
+Les chiffres de l’INSEE[^insee] le montrent : Paris n’est pas encore une ville cyclable. 4% seulement des Parisiens utilisent le vélo pour se rendre au travail, contre 11,8% à Bordeaux, 15,2% à Grenoble et 16% à Strasbourg. La capitale manque cruellement des infrastructures (pistes cyclables, stationnement) indispensables pour que le vélo devienne une solution de mobilité accessible au plus grand nombre, dans de bonnes conditions de confort et de sécurité.
 
-[![carte_officielle]({{ page.image | relative_url }})]({{ page.image | relative_url }})
+Anne Hidalgo a mis le vélo au cœur de son programme pour transformer Paris. Matérialisation de l’ambition municipale, le Plan Vélo prévoit de consacrer 30M€ par an au développement de l’usage du vélo, notamment par la mise en place d’une nouvelle génération de pistes cyclables dédiées, larges et sécurisantes. Elles sont l’une des clés de la promesse « Capitale du Vélo ».
 
-Notre [carte]({{ site.baseurl }}{% link index.md %}) ne comporte que les pointillés de la carte ci-dessus, donc pas ce que la mairie considère comme déja réalisé. Elle sera régulièrement mise à jour et nous espérons que les parties en vert, qui représentent les segments réalisés et de bonne qualité, deviennent de plus en plus nombreuses. A contrario, nous espérons user du rouge (projet abandonné) et du orange (projet réalisé et non satisfaisant) avec parcimonie.
+**Paris en Selle est l’association pour le développement de l’usage du vélo à Paris**. Nous souhaitons que le Plan Vélo soit un succès et contribue ainsi à résoudre les difficultés de la capitale en matière de mobilité et de pollution. Au travers de l’Observatoire du Plan Vélo nous informons les citoyens de l’avancement du programme municipal d’amélioration des conditions de circulation à vélo dans la Capitale.
 
-Dans "[Actualités]({{ site.baseurl }}{% link articles.md %})", nous ne manquerons de vous tenir informé(e)s sur l'avancée des projets en fonction des informations qui nous parviendront au cours des comités vélos ou autres réunions publiques auxquelles participent nos membres. C'est pourquoi, pour faire avancer le vélo à Paris, nous avons besoin de vous!
+# Méthodologie de construction de l’observatoire
 
-Vous pouvez nous aider à faire avancer le vélo (et le Plan Vélo) à Paris en [adhérant]({{ site.website }}/association-velo/) et/ou en faisant un [don]({{ site.website }}/faire-un-don/). Si vous souhaitez recevoir nos informations, vous pouvez également vous inscrire à notre [newsletter]({{ site.website }}/newsletter/), ou nous suivre sur les réseaux sociaux, sur [Twitter](https://twitter.com/parisenselle){:rel='nofollow'} ou [Facebook](https://www.facebook.com/parisenselle){:rel='nofollow'}.
+Nous avons conçu notre carte à partir de la carte du Plan Vélo publiée par la mairie de Paris. Seuls les itinéraires « projets », en pointillé sur la carte municipale, sont pris pour référence pour la mesure de l’avancement du Plan Vélo. La mairie n’a pas pris d’engagement sur les autres itinéraires, en traits continus (infrastructures déjà existantes). Certaines infrastructures cyclables sont réalisées dans le cadre d’autres programmes que le Plan Vélo (Budget Participatif, rénovation de voirie en lien avec la loi LAURE, autres projets).
+
+Les traits les plus épais correspondent au « Réseau Express Vélo » (en rose sur la carte municipale). Les traits plus fins correspondent au « Réseau Structurant » et au « Réseau Secondaire ». En-dehors des axes principaux, le déploiement des zones 30 s’accompagne de la mise en place systématique de double-sens cyclables. Ceux-ci ne sont pas comptabilisés comme des infrastructures cyclables pour la mesure de l’avancement.
+
+Pour chacun des segments ayant fait l’objet de travaux récents en matière de cyclabilité, nous indiquons par une couleur notre évaluation du résultat : vert (satisfaisant) ou jaune (non satisfaisant). Le rouge est une couleur que nous espérons ne pas avoir à utiliser et qui symboliserait le renoncement à l’ambition du Plan Vélo sur un segment donné (abandon, choix d’un design en contradiction forte avec le cahier des charges).
+
+Le pourcentage d’avancement est calculé sur la base du linéaire réalisé (vert + jaune) par rapport à l’ensemble du linéaire prejeté dans le Plan Vélo (en gris).
+
+L’Observatoire du Plan Vélo sera mis à jour régulièrement, au fur et à mesure des réalisations. Les citoyens sont invités à nous signaler les nouvelles infrastructures réalisées à Paris et à nous donner leurs impressions sur celles-ci.
+
+# Le vélo : une solution pour la mobilité des grandes métropoles
+
+Outre les métropoles danoises, néerlandaises et allemandes, de plus en plus de métropoles de dimension internationales se tournent vers le vélo comme solution évidente pour la mobilité en zone urbaine dense, où l’espace est rare et les ressources pour développer de nouveaux transports en commun sont limitées[^limitees].
+
+C’est le cas de New York, Barcelone, et, de l’autre côté de la Manche, du Grand Londres. Sous l’impulsion de Boris Johnson, précédent maire de Londres, un grand programme de Cycling Super Highways a été initié et est aujourd’hui poursuivi et accéléré par son successeur, Sadiq Khan, qui a annoncé près d’1 milliard d’euros sur 5 ans pour le développement du vélo.
+
+Le programme de Cycling Super Highways est analogue au schéma de Réseau Express Vélo mais il est porté par Transports For London, l’autorité des transports du Grand Londres. Pour cette raison, le schéma cyclable s’étend jusque loin dans les quartiers populaires de la banlieue londonienne, qui, ainsi desservis, peuvent accéder à la solution vélo pour leur mobilité.
+
+Les résultats sont impressionnants, avec des infrastructures qui transportent dans certains cas plus de personnes que des voies de bus à haut niveau de service, constituant ainsi des investissements extrêmement efficaces et rentables en matière de mobilité urbaine.
+
+{% include video.html url='www.youtube.com/watch?v=QLCm2hoM9aE' %}
+
+# Soutenir le développement du vélo
+
+Le succès du Plan Vélo ne sera possible qu’avec l’appui du plus grand nombre, aussi nous vous proposons de soutenir Paris en Selle en rejoignant[^adherer] l’association ou en faisant un don[^don] (déductible de vos impôts). Pour rester informé, retrouvez Paris en Selle sur Facebook[^facebook] et sur Twitter[^twitter] et inscrivez-vous à notre newsletter[^newsletter].
+
+[^insee]: Chiffres INSEE: [https://www.insee.fr/fr/statistiques/2557426](https://www.insee.fr/fr/statistiques/2557426)
+[^limitees]: Paris a déjà le réseau de transports en commun le plus développé du monde
+
+[^adherer]: Adhérer: [{{ site.website }}/association-velo/]({{ site.website }}/association-velo/)
+[^twitter]: Twitter: [https://twitter.com/parisenselle](https://twitter.com/parisenselle){:rel='nofollow'}
+[^facebook]: Facebook: [https://www.facebook.com/parisenselle](https://www.facebook.com/parisenselle){:rel='nofollow'}.
+[^newsletter]: Newsletter; [{{ site.website }}/newsletter/]({{ site.website }}/newsletter/)
+[^don]: Don: [{{ site.website }}/faire-un-don/]({{ site.website }}/faire-un-don/)
