@@ -31,7 +31,7 @@ deploy-stage:
 deploy-prod:
   stage: deploy
   script:
-  - jekyll build --config _config.yml,_config_prod.yml --destination $LOCAL_DIR_PROD
+  - JEKYLL_ENV=production jekyll build --config _config.yml,_config_prod.yml --destination $LOCAL_DIR_PROD
   - apt-get update -qq && apt-get install -y -qq lftp
   - lftp -c "set ftp:ssl-allow no; open -u $FTP_USER,$FTP_PASSWORD $FTP_HOST; mirror -Rev --ignore-time --parallel=10 --exclude-glob .git* --exclude .git/ $LOCAL_DIR_PROD $FTP_REMOTE_DIR_PROD"
   when: manual

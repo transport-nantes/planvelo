@@ -3,4 +3,8 @@ layout: null
 permalink: robots.txt
 ---
 User-agent: *
+{% if jekyll.environment == 'production' %}
 Sitemap: {{ site.url }}/sitemap.xml
+{% else %}
+Disallow: /
+{% endif %}
