@@ -21,7 +21,7 @@ Les traits les plus épais correspondent au « Réseau Express Vélo » (en ro
 
 Pour chacun des segments ayant fait l’objet de travaux récents en matière de cyclabilité, nous indiquons par une couleur notre évaluation du résultat : vert (satisfaisant) ou jaune (non satisfaisant). Le rouge est une couleur que nous espérons ne pas avoir à utiliser et qui symboliserait le renoncement à l’ambition du Plan Vélo sur un segment donné (abandon, choix d’un design en contradiction forte avec le cahier des charges).
 
-Le pourcentage d’avancement est calculé sur la base du linéaire réalisé (vert + jaune) par rapport à l’ensemble du linéaire prejeté dans le Plan Vélo (en gris).
+Le pourcentage d’avancement est calculé sur la base du linéaire réalisé (vert + jaune) par rapport à l’ensemble du linéaire projeté dans le Plan Vélo (en gris).
 
 L’Observatoire du Plan Vélo sera mis à jour régulièrement, au fur et à mesure des réalisations. Les citoyens sont invités à nous signaler les nouvelles infrastructures réalisées à Paris et à nous donner leurs impressions sur celles-ci.
 
@@ -35,7 +35,7 @@ Le programme de Cycling Super Highways est analogue au schéma de Réseau Expres
 
 Les résultats sont impressionnants, avec des infrastructures qui transportent dans certains cas plus de personnes que des voies de bus à haut niveau de service, constituant ainsi des investissements extrêmement efficaces et rentables en matière de mobilité urbaine.
 
-{% include video.html url='www.youtube.com/watch?v=QLCm2hoM9aE' %}
+{% include video.html url='www.youtube.com/embed/QLCm2hoM9aE' %}
 
 # Soutenir le développement du vélo
 
