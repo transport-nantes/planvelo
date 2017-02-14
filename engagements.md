@@ -78,7 +78,7 @@ Le Plan Vélo est articulé autour de 4 axes :
 
 * **8 décembre 2016** : « 2017 sera l’année de la bicyclette » a annoncé M. Christophe Najdvoski, maire-adjoint en charge des mobilités, sur Twitter.
 
-{% twitter https://twitter.com/C_Najdovski/status/806876227185348608 %}
+{% twitter https://twitter.com/C_Najdovski/status/806876227185348608 align='center' %}
 
 * **6 janvier 2017** : « 2017 sera l’année du vélo » annonce à son tour Anne Hidalgo, lors de ses vœux, plaçant le vélo en tête des priorités. Elle évoque des segments du Réseau Express Vélo qui seront réalisés prochainement, notamment sur la rue de Rivoli et les Champs-Elysées.
 
