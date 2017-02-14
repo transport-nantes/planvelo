@@ -48,5 +48,5 @@ Le succès du Plan Vélo ne sera possible qu’avec l’appui du plus grand nomb
 [^adherer]: Adhérer: [{{ site.website }}/association-velo/]({{ site.website }}/association-velo/)
 [^twitter]: Twitter: [https://twitter.com/parisenselle](https://twitter.com/parisenselle){:rel='nofollow'}
 [^facebook]: Facebook: [https://www.facebook.com/parisenselle](https://www.facebook.com/parisenselle){:rel='nofollow'}.
-[^newsletter]: Newsletter; [{{ site.website }}/newsletter/]({{ site.website }}/newsletter/)
-[^don]: Don: [{{ site.website }}/faire-un-don/]({{ site.website }}/faire-un-don/)
+[^newsletter]: Newsletter: [{{ site.website }}/newsletter/]({{ site.website }}/newsletter/)
+[^don]: Faire un don: [{{ site.website }}/faire-un-don/]({{ site.website }}/faire-un-don/)
