@@ -174,12 +174,13 @@
 
 
       // Create the map with Mapbox tiles
-      var map = L.map('mapFrame', {fullscreenControl: true}).setView([48.8548, 2.3576], 12);
+      var map = L.map('mapFrame', {fullscreenControl: true}) ;
       L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a> | Paris en Selle',
         subdomains: 'abcd',
       }).addTo(map);
+      map.fitBounds([ [48.9021449, 2.4699208], [48.815573, 2.224199] ]) ; 
 
 
       // Add a custom control to display information
