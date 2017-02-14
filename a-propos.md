@@ -3,6 +3,7 @@ layout: page
 title: À propos
 description: À propos de l'observatoire du Plan Vélo de Paris
 permalink: /a-propos/
+toc: true
 ---
 
 # Informer les citoyens sur l’avancement du Plan Vélo

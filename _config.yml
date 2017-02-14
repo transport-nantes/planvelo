@@ -39,6 +39,7 @@ gems:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-twitter-plugin
+  - jekyll-toc
 exclude:
   - Gemfile
   - Gemfile.lock

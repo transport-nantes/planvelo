@@ -10,4 +10,5 @@ group :jekyll_plugins do
    gem "jekyll-seo-tag"
    gem "jekyll-sitemap"
    gem "jekyll-twitter-plugin"
+   gem "jekyll-toc", "~> 0.2.0"
 end
