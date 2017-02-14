@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Les engagements
+title: Engagements
 description: Les engagements pris par la mairie de Paris pour le Plan Vélo 2015-2020
 permalink: /engagements/
 image: assets/images/pages/engagements_schema.jpg
