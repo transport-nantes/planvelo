@@ -219,7 +219,7 @@
         "Hors Plan Vélo": horsPlanVeloLayer, 
         "Zones apaisées": zonesApaiseesLayer
       };
-      L.control.layers(null, overlayLayers, {position: "topright"}).addTo(map);
+      L.control.layers(null, overlayLayers, {position: "topright", collapsed: false}).addTo(map);
 
       
       // Add event listeners to display/hide legend items
