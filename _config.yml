@@ -28,7 +28,7 @@ defaults:
   - scope:
       path: ""
     values:
-      image: /assets/images/logo.png
+      image: /assets/images/logo-og.png
 
 # Build settings
 markdown: kramdown
