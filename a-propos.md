@@ -25,15 +25,7 @@ Anne Hidalgo a mis le vélo au cœur de son programme pour transformer Paris. Ma
 
 # Méthodologie de construction de l’observatoire
 
-Nous avons conçu notre carte à partir de la carte du Plan Vélo publiée par la mairie de Paris. Seuls les itinéraires « projets », en pointillé sur la carte municipale, sont pris pour référence pour la mesure de l’avancement du Plan Vélo. La mairie n’a pas pris d’engagement sur les autres itinéraires, en traits continus (infrastructures déjà existantes). Certaines infrastructures cyclables sont réalisées dans le cadre d’autres programmes que le Plan Vélo (Budget Participatif, rénovation de voirie en lien avec la loi LAURE, autres projets).
-
-Les traits les plus épais correspondent au « Réseau Express Vélo » (en rose sur la carte municipale). Les traits plus fins correspondent au « Réseau Structurant » et au « Réseau Secondaire ». En-dehors des axes principaux, le déploiement des zones 30 s’accompagne de la mise en place systématique de double-sens cyclables. Ceux-ci ne sont pas comptabilisés comme des infrastructures cyclables pour la mesure de l’avancement.
-
-Pour chacun des segments ayant fait l’objet de travaux récents en matière de cyclabilité, nous indiquons par une couleur notre évaluation du résultat : vert (satisfaisant) ou jaune (non satisfaisant). Le rouge est une couleur que nous espérons ne pas avoir à utiliser et qui symboliserait le renoncement à l’ambition du Plan Vélo sur un segment donné (abandon, choix d’un design en contradiction forte avec le cahier des charges).
-
-Le pourcentage d’avancement est calculé sur la base du linéaire réalisé (vert + jaune) par rapport à l’ensemble du linéaire projeté dans le Plan Vélo (en gris).
-
-L’Observatoire du Plan Vélo sera mis à jour régulièrement, au fur et à mesure des réalisations. Les citoyens sont invités à nous signaler les nouvelles infrastructures réalisées à Paris et à nous donner leurs impressions sur celles-ci via [Twitter](https://twitter.com/parisenselle), [Facebook](https://www.facebook.com/parisenselle) ou [Github](https://github.com/ParisEnSelle/planvelo-carte).
+{% include methode.html %}
 
 {% include image.html
             img="assets/images/pages/a-propos_quai-de-seine-small.jpg"
