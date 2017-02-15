@@ -3,7 +3,7 @@ layout: page
 title: Engagements
 description: Les engagements pris par la mairie de Paris pour le Plan Vélo 2015-2020
 permalink: /engagements/
-image: assets/images/pages/engagements_schema.jpg
+image: assets/images/pages/engagements_schema-small.jpg
 toc: true
 ---
 
@@ -54,8 +54,10 @@ Le Plan Vélo est articulé autour de 4 axes :
 
 {% include image.html
             img="assets/images/pages/engagements_cargo-small.jpg"
-            link="assets/images/pages/engagements_cargo.jpg"
-            caption="Un vélo-cargo chargé de courses."
+            link="assets/images/pages/engagements_cargo-original.jpg"
+            caption="Transport familial."
+            source-text="Serge Kalika"
+            source-link="https://www.flickr.com/photos/sklkphoto/8441513862/in/photolist-dRWXYs-4Ug7y9-dQ3hyQ-bJ7kX-dZ5t1y-7VwHgP-57wFxA-4ocwv4-5c5ULs-GEBFM-6Ln19R-pKeuAt-6gMQq5-5swMNp-mUvsfj-cCH5n9-8DskCT-df7MZw-4UcuJc-fda3aS-o5Wb9g-6UWn85-5n4iuC-4UghWs-4UguzS-8mCpxo-C2gGq-gCjWf-oncMbm-4UfLUA-o5Wcbr-59EM9U-o5WgFD-7sGctY-BhM8CU-4UbRbi-gtGQh-dqBYRB-4C7wLT-qVPDen-572DDw-a4fMH1-4C7wmv-capJrN-2fBHgH-dP58TL-a4eJ8S-51zz2d-4ocwrM-8X8mW7"
 %}
 
 # La mise en œuvre du plan vélo et le planning
