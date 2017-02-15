@@ -9,6 +9,8 @@
       {
         if (e.name == "Zones apaisées")
         {
+          e.layer.bringToBack() ; 
+
           if ( e.type == "overlayadd")
           {
             $("#zonesApaiseesLegend").css('visibility','visible').hide().slideDown("fast");
