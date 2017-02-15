@@ -31,6 +31,7 @@
 
     disp(4, 'piste');
     disp(percentTimeElapsed, 'timebar');
+    $('[data-toggle="tooltip"]').tooltip(); 
   }
 </script>
 <div class="panel panel-default">
@@ -38,19 +39,19 @@
     Avancement de la réalisation des infrastructures cyclables
     <div class="progress">
      <div id="piste" class="progress-bar" role="progressbar"
-     aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+     aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%" data-toggle="tooltip" title="Longueur totale des aménagements réalisés par rapport à la longueur totale des aménagements dans le Plan Vélo">
      </div>
    </div>    
    Avancement du déploiement des zones de circulation apaisée
     <div class="progress">
      <div id="zonesApaisees" class="progress-bar" role="progressbar"
-     aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+     aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%" data-toggle="tooltip" title="Hypothèse 100km² pour Paris hors parcs, axes majeurs, Seine et canaux">
      </div>
    </div>
    Temps de mandature écoulé
    <div class="progress">
      <div id="timebar" class="progress-bar" role="progressbar"
-     aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+     aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%" data-toggle="tooltip" title="Temps écoulé depuis le 05/04/2014 (fin supposée 05/04/2020)">
      </div>
    </div>
  </div>
