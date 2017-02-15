@@ -5,31 +5,40 @@
 
   <title>{% if page.title %}{{ page.title | escape }} - {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
   <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
-
-  <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
   {% if site.logo %}
   <link rel="shortcut icon" type="image/png" href="{{ site.logo | relative_url }}">
   {% endif %}
 
-  <script src="{{ "/assets/js/jquery-3.1.1.min.js" | relative_url }}"></script>
+
+  {% if page.layout == 'page' or page.layout == 'post'  %}
+  <!-- Include CSS for lightbox2 -->
+  <link rel="stylesheet" href="{{ "/assets/css/lightbox.min.css" | relative_url }}">
+  {% endif %}
+
 
   {% if page.layout == 'home' %}
+  <!-- Include CSS for the map -->
   <link rel="stylesheet" href="{{ "/assets/css/bootstrap.min_3.3.7.css" | relative_url }}">
-
-  <!-- Include file for Leaflet.js -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
   <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
+  {% endif %}
+
+  <!-- Include master CSS for the map -->
+  <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+
+  {% if page.layout == 'home' %}
+  <!-- Include script file for Leaflet.js -->
   <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
   <script src="{{ "/assets/js/leaflet.ajax.min.js" | relative_url }}"></script>
   <script src="{{ "/assets/js/turf.min.js" | relative_url }}"></script>
   <script src="{{ "/assets/js/Leaflet.fullscreen.min.js" | relative_url }}"></script>
+  <script src="{{ "/assets/js/jquery-3.1.1.min.js" | relative_url }}"></script>
   {% endif %}
 
   {% if page.layout == 'page' or page.layout == 'post'  %}
-  <!-- Include file for lightbox2 -->
-  <link rel="stylesheet" href="{{ "/assets/css/lightbox.min.css" | relative_url }}">
+  <!-- Include script file for lightbox2 -->
   <script src="{{ "/assets/js/lightbox.min.js" | relative_url }}"></script>
   {% endif %}
 
