@@ -5,9 +5,9 @@ website: https://parisenselle.fr
 website-desc: Paris en Selle
 author: parisenselle
 description: >
-  À travers cet observatoire, l'association Paris en Selle souhaite permettre à tous
-  d'être tenus informés des avancées du Plan Vélo voté par la mairie de Paris
-  en avril 2015.
+  Avec cet observatoire, l'association Paris en Selle informe les habitants de Paris 
+  et d’Île-de-France sur l'avancement des politiques cyclables et l'amélioration des 
+  conditions de circulation à vélo dans la capitale.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter:
