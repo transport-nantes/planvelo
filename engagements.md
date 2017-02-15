@@ -9,7 +9,7 @@ toc: true
 
 # Le plan vélo
 
-Le mardi 14 avril 2015, le Conseil de Paris a voté un Plan Vélo 2015-2020[^vote]. Ce plan prévoit d’investir 150 millions d’euros pour faire de Paris “une capitale mondiale du vélo” [^capitale].
+Le mardi 14 avril 2015, le Conseil de Paris a voté un Plan Vélo 2015-2020[^vote]. Ce plan prévoit d’investir 150 millions d’euros pour faire de Paris “une capitale mondiale du vélo”[^capitale].
 
 {% include image.html
             img="assets/images/pages/engagements_ventilation-small.png"
@@ -31,7 +31,7 @@ Le Plan Vélo est articulé autour de 4 axes :
             source-link="https://www.catherine-baratti-elbaz.fr/un-nouveau-plan-velo-pour-paris-et-la-metropole/"
 %}
 
-* **La systématisation des double sens cyclables** : le code de la route prévoit que toutes les zones 30 sont à double sens cyclable. Dans le cadre de la mise à 30km/h de Paris (hors grands axes), la mairie va donc systématiser les double-sens cyclables (DSC). Raccourcis sûrs quoique pas toujours confortables ou rassurant pour les usagers du vélo, les DSC doivent s’accompagner de réelles politiques de modération de la vitesse et de la pression automobile pour constituer des itinéraires utiles.
+* **La systématisation des double sens cyclables** : le code de la route prévoit que toutes les zones 30 sont à double sens cyclable. Dans le cadre de la mise à 30 km/h de Paris (hors grands axes), la mairie va donc systématiser les double-sens cyclables (DSC). Raccourcis sûrs quoique pas toujours confortables ou rassurants pour les usagers du vélo, les DSC doivent s’accompagner de réelles politiques de modération de la vitesse et de la pression automobile pour constituer des itinéraires utiles.
 
 {% include image.html
             img="assets/images/pages/engagements_DSC-small.jpg"
@@ -39,14 +39,14 @@ Le Plan Vélo est articulé autour de 4 axes :
             caption="Double-sens cyclable. Rue du Général Guilhem, 11ième."
 %}
 
-* **Un plan de stationnement** : 10 000 places sont prévues pour répondre au besoin des citoyens qui aujourd’hui n’ont souvent pas de solution pour stationner un vélo à l’abri du vol et du vandalisme. Différents besoins doivent être satisfaits : le stationnement temporaire pour faire une course (arceaux), le stationnement d’intermodalité sécurisé (au niveau des gares) et le stationnement résidentiel sécurisé sur voirie (pour pallier au manque d’espace dans les immeubles parisiens).
+* **Un plan de stationnement** : 10 000 places sont prévues pour répondre au besoin des citoyens qui aujourd’hui n’ont souvent pas de solution pour stationner un vélo à l’abri du vol et du vandalisme. Différents besoins doivent être satisfaits : le stationnement temporaire pour faire une course (arceaux), le stationnement d’intermodalité sécurisé (au niveau des gares) et le stationnement résidentiel sécurisé sur voirie (pour pallier le manque d’espace dans les immeubles parisiens).
 
-{% include image.html url="assets/images/pages/engagements_grenoble.jpg" description="Grenoble teste un dispositif de stationnement résidentiel sécurisé sur voirie. <a href='http://www.lametro.fr/TPL_CODE/TPL_ACTUALITE/PAR_TPL_IDENTIFIANT/1429/8-info-actualite-grenoble.htm'>Source</a>" %}
+{% include image.html url="assets/images/pages/engagements_grenoble.jpg" description="Grenoble teste un dispositif de stationnement résidentiel sécurisé sur voirie. <a href='http://www.lametro.fr/TPL_CODE/TPL_ACTUALITE/PAR_TPL_IDENTIFIANT/1429/8-info-actualite-grenoble.htm'>Source</a>" %}
 
 {% include image.html
             img="assets/images/pages/engagements_grenoble.jpg"
             link="assets/images/pages/engagements_grenoble.jpg"
-            caption="Grenoble teste un dispositif de stationnement résidentiel sécurisé sur voirie."
+            caption="Grenoble teste un dispositif de stationnement résidentiel sécurisé sur voirie."
             source-text="lametro.fr"
             source-link="http://www.lametro.fr/TPL_CODE/TPL_ACTUALITE/PAR_TPL_IDENTIFIANT/1429/8-info-actualite-grenoble.htm"
 %}
@@ -63,7 +63,7 @@ Le Plan Vélo est articulé autour de 4 axes :
 
 # La mise en œuvre du plan vélo et le planning
 
-* **Gouvernance** : le Plan Vélo est principalement piloté par la Direction de la Voirie et des Déplacements, sous la responsabilité du maire adjoint en charge des mobilités, Christophe Najdovski. A la connaissance de Paris en Selle, la ville de Paris n’a plus de Monsieur Vélo officiel chargé de porter fortement cette politique auprès des différents services, à l’instar de ce que font Londres[^londres] ou Amsterdam[^amsterdam].
+* **Gouvernance** : le Plan Vélo est principalement piloté par la Direction de la Voirie et des Déplacements, sous la responsabilité du maire adjoint en charge des mobilités, Christophe Najdovski. À la connaissance de Paris en Selle, la ville de Paris n’a plus de Monsieur Vélo officiel chargé de porter fortement cette politique auprès des différents services, à l’instar de ce que font Londres[^londres] ou Amsterdam[^amsterdam].
 
 * **Planning** : voici la carte du planning prévisionnel des travaux tel qu’il a été présenté à Paris en Selle par les services techniques de la ville de Paris lors d’un comité vélo fin 2016.
 
@@ -83,7 +83,7 @@ Le Plan Vélo est articulé autour de 4 axes :
 
 {% twitter https://twitter.com/C_Najdovski/status/806876227185348608 align='center' %}
 
-* **6 janvier 2017** : « 2017 sera l’année du vélo » annonce à son tour Anne Hidalgo, lors de ses vœux, plaçant le vélo en tête des priorités. Elle évoque des segments du Réseau Express Vélo qui seront réalisés prochainement, notamment sur la rue de Rivoli et les Champs-Elysées.
+* **6 janvier 2017** : « 2017 sera l’année du vélo » annonce à son tour Anne Hidalgo, lors de ses vœux, plaçant le vélo en tête des priorités. Elle évoque des segments du Réseau Express Vélo qui seront réalisés prochainement, notamment sur la rue de Rivoli et les Champs-Élysées.
 
 {% include video.html url='www.dailymotion.com/embed/video/x561m4u' %}
 
