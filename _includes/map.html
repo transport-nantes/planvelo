@@ -209,7 +209,7 @@
         { onEachFeature: areaFeature, style: styleFeature } );  
       zonesApaiseesLayer.on("data:loaded", function ()
         {
-          console.log("Data:loaded event, value : "+areaZonesApaisees) ; 
+          disp( Math.round( areaZonesApaisees / (1000000 * 100) * 100 ), "zonesApaisees") ; 
         }) ;      
            
       

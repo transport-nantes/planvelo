@@ -15,15 +15,21 @@
   { 
     var start = new Date("04/05/2014") ;;
     var end = new Date("04/05/2020") ;
-    disp(4, 'done');
+    disp(4, 'piste');
     disp(percent(start,end), 'timebar');
   }
 </script>
 <div class="panel panel-default">
   <div class="panel-body">
-    Avancement de la réalisation
+    Avancement de la réalisation : pistes
     <div class="progress">
-     <div id="done" class="progress-bar" role="progressbar"
+     <div id="piste" class="progress-bar" role="progressbar"
+     aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+     </div>
+   </div>    
+   Avancement de la réalisation : zones apaisées
+    <div class="progress">
+     <div id="zonesApaisees" class="progress-bar" role="progressbar"
      aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
      </div>
    </div>
