@@ -12,19 +12,32 @@
               {% include icon-footer.html icon='icon-bike.svg' linkurl=site.website linktext=site.website-desc %}
             </li>
             <li>
+              {% assign joinurl = site.website | append: '/association-velo' %}
+              {% include icon-footer.html icon='icon-join.svg' linkurl=joinurl linktext='Adhérer (5€)' %}
+            </li>
+            <li>
+              {% assign donateurl = site.website | append: '/faire-un-don' %}
+              {% include icon-footer.html icon='icon-donate.svg' linkurl=donateurl linktext='Faire un don (déductible)' %}
+            </li>
+            <li>
+              {% assign newsletterurl = site.website | append: '/newsletter' %}
+              {% include icon-footer.html icon='icon-newsletter.svg' linkurl=newsletterurl linktext='Newsletter' %}
+            </li>
+            <li>
               {% assign contacturl = site.website | append: '/contact' %}
               {% include icon-footer.html icon='icon-contact.svg' linkurl=contacturl linktext='Contact' %}
             </li>
             {% endif %}
-            <li>
-              {% assign feedurl = "/feed.xml" | relative_url %}
-              {% include icon-footer.html icon='icon-feed.svg' linkurl=feedurl linktext='Flux RSS' %}
-            </li>
+
         </ul>
       </div>
 
       <div class="footer-col footer-col-2">
         <ul class="social-media-list">
+          <li>
+            {% assign feedurl = "/feed.xml" | relative_url %}
+            {% include icon-footer.html icon='icon-feed.svg' linkurl=feedurl linktext='Flux RSS' %}
+          </li>
           {% if site.twitter.username %}
           <li>
             {% include icon-footer.html icon='icon-twitter.svg' linkurl='https://twitter.com/parisenselle' linktext='Twitter' %}
