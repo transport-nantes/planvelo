@@ -40,13 +40,12 @@ Les résultats sont impressionnants, avec des infrastructures qui transportent d
 
 # Soutenir le développement du vélo
 
-Le succès du Plan Vélo ne sera possible qu’avec l’appui du plus grand nombre, aussi nous vous proposons de soutenir Paris en Selle en rejoignant[^adherer] l’association ou en faisant un don[^don] (déductible de vos impôts). Pour rester informé, retrouvez Paris en Selle sur Facebook[^facebook] et sur Twitter[^twitter] et inscrivez-vous à notre newsletter[^newsletter].
+Le succès du Plan Vélo ne sera possible qu’avec l’appui du plus grand nombre.
+
+Pour rejoindre et soutenir Paris en Selle, c'est [5 euros seulement]({{ site.website }}/association-velo/).
+Vous pouvez aussi faire un [don (déductible de vos impôts)]({{ site.website }}/faire-un-don/).
+
+Pour rester informé, retrouvez [Paris en Selle]({{ site.website }}) sur [Facebook](https://www.facebook.com/parisenselle) et sur [Twitter](https://twitter.com/parisenselle), et inscrivez-vous à notre [newsletter]({{ site.website }}/newsletter/).
 
 [^insee]: Chiffres INSEE: [https://www.insee.fr/fr/statistiques/2557426](https://www.insee.fr/fr/statistiques/2557426)
 [^limitees]: Paris a déjà le réseau de transports en commun le plus développé du monde
-
-[^adherer]: Adhérer: [{{ site.website }}/association-velo/]({{ site.website }}/association-velo/)
-[^twitter]: Twitter: [https://twitter.com/parisenselle](https://twitter.com/parisenselle){:rel='nofollow'}
-[^facebook]: Facebook: [https://www.facebook.com/parisenselle](https://www.facebook.com/parisenselle){:rel='nofollow'}.
-[^newsletter]: Newsletter: [{{ site.website }}/newsletter/]({{ site.website }}/newsletter/)
-[^don]: Faire un don: [{{ site.website }}/faire-un-don/]({{ site.website }}/faire-un-don/)
