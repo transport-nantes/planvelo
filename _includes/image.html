@@ -1,6 +1,12 @@
-<div class="image-wrapper" >
+<script>
+    lightbox.option({
+      'resizeDuration': 200,
+    })
+</script>
+
+<div class="image-wrapper">
     {% if include.link %}
-    <a href="{{ include.link | relative_url }}" title="{{ include.caption }}">
+    <a href="{{ include.link | relative_url }}" data-lightbox="{{ include.link }}" data-title="{{ include.caption }}">
     {% endif %}
         <img src="{{ include.img | relative_url }}" alt="{{ include.caption }}"/>
     {% if include.link %}
