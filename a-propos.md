@@ -33,7 +33,7 @@ Pour chacun des segments ayant fait l’objet de travaux récents en matière de
 
 Le pourcentage d’avancement est calculé sur la base du linéaire réalisé (vert + jaune) par rapport à l’ensemble du linéaire projeté dans le Plan Vélo (en gris).
 
-L’Observatoire du Plan Vélo sera mis à jour régulièrement, au fur et à mesure des réalisations. Les citoyens sont invités à nous signaler les nouvelles infrastructures réalisées à Paris et à nous donner leurs impressions sur celles-ci.
+L’Observatoire du Plan Vélo sera mis à jour régulièrement, au fur et à mesure des réalisations. Les citoyens sont invités à nous signaler les nouvelles infrastructures réalisées à Paris et à nous donner leurs impressions sur celles-ci via [Twitter](https://twitter.com/parisenselle), [Facebook](https://www.facebook.com/parisenselle) ou [Github](https://github.com/ParisEnSelle/planvelo-carte).
 
 {% include image.html
             img="assets/images/pages/a-propos_quai-de-seine-small.jpg"
