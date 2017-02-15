@@ -11,11 +11,11 @@
         {
           if ( e.type == "overlayadd")
           {
-            $("#zonesApaiseesLegend").slideDown("fast");
+            $("#zonesApaiseesLegend").css('visibility','visible').hide().slideDown("fast");
           }
           else
           {
-            $("#zonesApaiseesLegend").slideUp("fast");
+            $("#zonesApaiseesLegend").slideUp("fast", function(){$("#zonesApaiseesLegend").css('visibility','hidden').css("display", "block")});
           }
         }
       }
