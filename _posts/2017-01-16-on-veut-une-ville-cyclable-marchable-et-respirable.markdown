@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  « On veut une ville cyclable, marchable et... respirable »
+title:  « On veut une ville cyclable, marchable et… respirable »
 date:   2017-01-16 04:46:00 +0100
 categories: presse
 author: Céline Carez, Le Parisien

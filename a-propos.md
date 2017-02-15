@@ -9,9 +9,9 @@ toc: true
 
 # Informer les citoyens sur l’avancement du Plan Vélo
 
-Les chiffres de l’INSEE[^insee] le montrent : Paris n’est pas encore une ville cyclable. 4% seulement des Parisiens utilisent le vélo pour se rendre au travail, contre 11,8% à Bordeaux, 15,2% à Grenoble et 16% à Strasbourg. La capitale manque cruellement des infrastructures (pistes cyclables, stationnement) indispensables pour que le vélo devienne une solution de mobilité accessible au plus grand nombre, dans de bonnes conditions de confort et de sécurité.
+Les chiffres de l’INSEE[^insee] le montrent : Paris n’est pas encore une ville cyclable. 4 % seulement des Parisiens utilisent le vélo pour se rendre au travail, contre 11,8 % à Bordeaux, 15,2 % à Grenoble et 16 % à Strasbourg. La capitale manque cruellement des infrastructures (pistes cyclables, stationnement) indispensables pour que le vélo devienne une solution de mobilité accessible au plus grand nombre, dans de bonnes conditions de confort et de sécurité.
 
-Anne Hidalgo a mis le vélo au cœur de son programme pour transformer Paris. Matérialisation de l’ambition municipale, le Plan Vélo prévoit de consacrer 30M€ par an au développement de l’usage du vélo, notamment par la mise en place d’une nouvelle génération de pistes cyclables dédiées, larges et sécurisantes. Elles sont l’une des clés de la promesse « Capitale du Vélo ».
+Anne Hidalgo a mis le vélo au cœur de son programme pour transformer Paris. Matérialisation de l’ambition municipale, le Plan Vélo prévoit de consacrer 30 M€ par an au développement de l’usage du vélo, notamment par la mise en place d’une nouvelle génération de pistes cyclables dédiées, larges et sécurisantes. Elles sont l’une des clés de la promesse « Capitale du Vélo ».
 
 **Paris en Selle est l’association pour le développement de l’usage du vélo à Paris**. Nous souhaitons que le Plan Vélo soit un succès et contribue ainsi à résoudre les difficultés de la capitale en matière de mobilité et de pollution. Au travers de l’Observatoire du Plan Vélo nous informons les citoyens de l’avancement du programme municipal d’amélioration des conditions de circulation à vélo dans la Capitale.
 
@@ -37,7 +37,7 @@ Anne Hidalgo a mis le vélo au cœur de son programme pour transformer Paris. Ma
 
 # Le vélo : une solution pour la mobilité des grandes métropoles
 
-Outre les métropoles danoises, néerlandaises et allemandes, de plus en plus de métropoles de dimension internationale se tournent vers le vélo comme solution évidente pour la mobilité en zone urbaine dense, où l’espace est rare et les ressources pour développer de nouveaux transports en commun sont limitées[^transports].
+Outre les métropoles danoises, néerlandaises et allemandes, de plus en plus de métropoles de dimension internationale se tournent vers le vélo comme solution évidente pour la mobilité en zone urbaine dense, où l’espace est rare et les ressources pour développer de nouveaux transports en commun limitées[^transports].
 
 C’est le cas de New York, Barcelone, et, de l’autre côté de la Manche, du Grand Londres. Sous l’impulsion de Boris Johnson, précédent maire de Londres, un grand programme de Cycling Super Highways a été initié et est aujourd’hui poursuivi et accéléré par son successeur, Sadiq Khan, qui a annoncé près d’1 milliard d’euros sur 5 ans pour le développement du vélo.
 

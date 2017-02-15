@@ -12,7 +12,7 @@
       var progressBar = document.getElementById(element);
       progressBar.style.width = value+"%" ;
       progressBar.innerHTML = value+"%";
-      progressBar.setAttribute("aria-valuenow", value) ; 
+      progressBar.setAttribute("aria-valuenow", value) ;
 
       // Adapt color of progress bar if different from bar for time elapsed
       if ( element != "timebar" )
@@ -27,11 +27,11 @@
   }
 
   window.onload = function ()
-  { 
+  {
 
     disp(4, 'piste');
     disp(percentTimeElapsed, 'timebar');
-    $('[data-toggle="tooltip"]').tooltip(); 
+    $('[data-toggle="tooltip"]').tooltip();
   }
 </script>
 <div class="panel panel-default">
@@ -41,7 +41,7 @@
      <div id="piste" class="progress-bar" role="progressbar"
      aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%" data-toggle="tooltip" title="Longueur totale des aménagements réalisés par rapport à la longueur totale des aménagements dans le Plan Vélo">
      </div>
-   </div>    
+   </div>
    Avancement du déploiement des zones de circulation apaisée
     <div class="progress">
      <div id="zonesApaisees" class="progress-bar" role="progressbar"

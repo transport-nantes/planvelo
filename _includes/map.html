@@ -3,13 +3,13 @@
     <div id="mapFrame"></div>
     <!-- Build the map using Leaflet.js -->
     <script type="text/javascript">
-      var areaZonesApaisees = 0 ; 
+      var areaZonesApaisees = 0 ;
 
       function toggleLegend(e)
       {
         if (e.name == "Zones apaisées")
         {
-          e.layer.bringToBack() ; 
+          e.layer.bringToBack() ;
 
           if ( e.type == "overlayadd")
           {
@@ -22,7 +22,7 @@
         }
       }
 
-      function areaFeature(feature, layer) 
+      function areaFeature(feature, layer)
       {
         areaZonesApaisees += Math.round( 10 * turf.area(feature) ) / 10 ;
 
@@ -38,13 +38,13 @@
       {
         var layer = e.target;
         var newStyle = styleFeature(layer.feature) ;
-        
-        if ( layer.feature.geometry.type == "Polygon")
-          newStyle.fillOpacity += 0.2 ; 
-        else
-          newStyle.weight += 2 ; 
 
-        layer.setStyle(newStyle) ; 
+        if ( layer.feature.geometry.type == "Polygon")
+          newStyle.fillOpacity += 0.2 ;
+        else
+          newStyle.weight += 2 ;
+
+        layer.setStyle(newStyle) ;
         info.update(layer.feature) ;
       }
 
@@ -55,23 +55,23 @@
         info.update() ;
       }
 
-      function zoomToFeature(e) 
+      function zoomToFeature(e)
       {
         map.fitBounds(e.target.getBounds());
       }
 
-      function updateInfo(feature) 
+      function updateInfo(feature)
       {
-        var content = '' ; 
+        var content = '' ;
         if ( typeof feature != "undefined" && feature.geometry.type == "Polygon")
         {
           var areaFeature = turf.area(feature) / 1000000.0 ;
           areaFeature = Math.round( 1000 * areaFeature ) / 1000 ;
 
-          if (feature.properties && feature.properties.name) 
-            content += "<b>"+feature.properties.name+"</b><br/>" ;      
-          if (feature.properties && feature.properties.description) 
-            content += feature.properties.description+"<br/>" ; 
+          if (feature.properties && feature.properties.name)
+            content += "<b>"+feature.properties.name+"</b><br/>" ;
+          if (feature.properties && feature.properties.description)
+            content += feature.properties.description+"<br/>" ;
 
           content += "Surface : "+areaFeature+"km²";
         }
@@ -79,20 +79,20 @@
         {
           var lengthFeature = Math.round( 10 * turf.lineDistance(feature) ) / 10 ;
 
-          if (feature.properties && feature.properties.name) 
-            content += "<b>"+feature.properties.name+"</b><br/>" ;      
-          if (feature.properties && feature.properties.description) 
-            content += feature.properties.description+"<br/>" ; 
+          if (feature.properties && feature.properties.name)
+            content += "<b>"+feature.properties.name+"</b><br/>" ;
+          if (feature.properties && feature.properties.description)
+            content += feature.properties.description+"<br/>" ;
 
           content += "Longueur : "+lengthFeature+"km";
         }
         else
-          content = "Placez le curseur sur un segment pour plus d'informations" ; 
+          content = "Placez le curseur sur un segment pour plus d'informations" ;
 
         this._div.innerHTML = '<h4>Informations</h4>' + content ;
       }
 
-      function bindFeatureEvents(feature, layer) 
+      function bindFeatureEvents(feature, layer)
       {
         layer.on(
         {
@@ -132,7 +132,7 @@
 
       // Function to get the style to apply to a feature
       function styleFeature(feature)
-      {  
+      {
         if ( feature.geometry.type == "Polygon" )
         {
           return {fillColor: "#3456d9", fillOpacity: 0.4, weight: 2, opacity: 0.7, color: 'white', dashArray: '3'} ;
@@ -145,33 +145,33 @@
           {
             // Get the color, make the conversion from RGB to HSV
             var colorHexa = feature.properties.stroke.substr(1), colorHLS ;
-            colorHLS = rgbToHsl ( parseInt(colorHexa.substr(0,2), 16), parseInt(colorHexa.substr(2,2), 16), parseInt(colorHexa.substr(4,2), 16) ) ; 
+            colorHLS = rgbToHsl ( parseInt(colorHexa.substr(0,2), 16), parseInt(colorHexa.substr(2,2), 16), parseInt(colorHexa.substr(4,2), 16) ) ;
 
             if ( colorHLS[1] < 0.3 && colorHLS[2] < 0.5 )
             {
-              finalColor = '#adadad' ; 
+              finalColor = '#adadad' ;
             }
             else
             {
               // Compare the distance between H and references H for green, red and orange
-              var distanceMin = 1, references = [ [0.33333, "#228b22"], [0, "#ff0000"], [0.10784, "#ffa500"] ] ; 
+              var distanceMin = 1, references = [ [0.33333, "#228b22"], [0, "#ff0000"], [0.10784, "#ffa500"] ] ;
               for ( var iColor = 0 ; iColor < references.length ; iColor++ )
               {
                 if ( Math.abs(colorHLS[0] - references[iColor][0]) < distanceMin )
                 {
                   finalColor = references[iColor][1] ;
                   distanceMin = Math.abs(colorHLS[0] - references[iColor][0]) ;
-                } 
+                }
               }
             }
           }
           else
-            finalColor = '#adadad' ; 
+            finalColor = '#adadad' ;
 
           finalWidth = Math.max(4, ( feature.properties["stroke-width"] ? feature.properties["stroke-width"] : 4 ) ) ;
 
 
-          return {"color": finalColor, "weight": finalWidth } ; 
+          return {"color": finalColor, "weight": finalWidth } ;
         }
       }
 
@@ -183,57 +183,57 @@
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a> | Paris en Selle',
         subdomains: 'abcd',
       }).addTo(map);
-      map.fitBounds([ [48.9021449, 2.4699208], [48.815573, 2.224199] ]) ; 
+      map.fitBounds([ [48.9021449, 2.4699208], [48.815573, 2.224199] ]) ;
 
 
       // Add a custom control to display information
       var info = L.control({position: "bottomleft"});
-      info.onAdd = function (map) 
+      info.onAdd = function (map)
       {
           this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
           this.update();
           return this._div;
       };
-      info.update = updateInfo ; 
+      info.update = updateInfo ;
       info.addTo(map);
 
       // Load the different layers and display the default one (planVelo) on the map
       var planVeloLayer = new L.GeoJSON.AJAX(
-        "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/planvelo.geojson", 
-        {onEachFeature: bindFeatureEvents, style: styleFeature } );    
-      planVeloLayer.addTo(map); 
+        "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/planvelo.geojson",
+        {onEachFeature: bindFeatureEvents, style: styleFeature } );
+      planVeloLayer.addTo(map);
 
       var horsPlanVeloLayer = new L.GeoJSON.AJAX(
-        "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/hors-planvelo.geojson", 
-        {onEachFeature: bindFeatureEvents, style: styleFeature } );       
+        "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/hors-planvelo.geojson",
+        {onEachFeature: bindFeatureEvents, style: styleFeature } );
       var zonesApaiseesLayer = new L.GeoJSON.AJAX(
-        "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/opendata.paris.fr/zones-de-circulation-apaisee_PeS.geojson", 
-        { onEachFeature: areaFeature, style: styleFeature } );  
+        "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/opendata.paris.fr/zones-de-circulation-apaisee_PeS.geojson",
+        { onEachFeature: areaFeature, style: styleFeature } );
       zonesApaiseesLayer.on("data:loaded", function ()
         {
-          disp( Math.round( areaZonesApaisees / (1000000 * 100) * 100 ), "zonesApaisees") ; 
-        }) ;      
-           
-      
+          disp( Math.round( areaZonesApaisees / (1000000 * 100) * 100 ), "zonesApaisees") ;
+        }) ;
+
+
 
       // Add control to display or hide layers
       var overlayLayers = {
         "Plan Vélo": planVeloLayer,
-        "Hors Plan Vélo": horsPlanVeloLayer, 
+        "Hors Plan Vélo": horsPlanVeloLayer,
         "Zones apaisées": zonesApaiseesLayer
       };
       L.control.layers(null, overlayLayers, {position: "topright", collapsed: false}).addTo(map);
 
-      
+
       // Add event listeners to display/hide legend items
-      map.on("overlayremove overlayadd", toggleLegend) ; 
+      map.on("overlayremove overlayadd", toggleLegend) ;
 
 
     </script>
     <ul class="legend">
       <li><span class="grey"></span>Plan Vélo (Projet)</li><br>
-      <li><span class="green"></span>Réalisé - Satisfaisant</li><br>
-      <li><span class="orange"></span>Réalisé - Non Satisfaisant</li><br>
+      <li><span class="green"></span>Réalisé – Satisfaisant</li><br>
+      <li><span class="orange"></span>Réalisé – Non satisfaisant</li><br>
       <li><span class="red"></span>Abandonné</li><br>
       <li class="hiddenElement" id="zonesApaiseesLegend"><span class="blue"></span>Zones apaisées</li>
     </ul>
