@@ -63,7 +63,7 @@ Le Plan Vélo est articulé autour de 4 axes :
 
 # La mise en œuvre du plan vélo et le planning
 
-* **Gouvernance** : le Plan Vélo est principalement piloté par la Direction de la Voirie et des Déplacements, sous la responsabilité du maire adjoint en charge des mobilités, Christopjhe Najdovski. A la connaissance de Paris en Selle, la ville de Paris n’a plus de Monsieur Vélo officiel chargé de porter fortement cette politique auprès des différents services, à l’instar de ce que font Londres[^londres] ou Amsterdam[^amsterdam].
+* **Gouvernance** : le Plan Vélo est principalement piloté par la Direction de la Voirie et des Déplacements, sous la responsabilité du maire adjoint en charge des mobilités, Christophe Najdovski. A la connaissance de Paris en Selle, la ville de Paris n’a plus de Monsieur Vélo officiel chargé de porter fortement cette politique auprès des différents services, à l’instar de ce que font Londres[^londres] ou Amsterdam[^amsterdam].
 
 * **Planning** : voici la carte du planning prévisionnel des travaux tel qu’il a été présenté à Paris en Selle par les services techniques de la ville de Paris lors d’un comité vélo fin 2016.
 
