@@ -45,6 +45,7 @@ Le Plan Vélo est articulé autour de 4 axes :
 
 {% include image.html
             img="assets/images/pages/engagements_grenoble.jpg"
+            link="assets/images/pages/engagements_grenoble.jpg"
             caption="Grenoble teste un dispositif de stationnement résidentiel sécurisé sur voirie."
             source-text="lametro.fr"
             source-link="http://www.lametro.fr/TPL_CODE/TPL_ACTUALITE/PAR_TPL_IDENTIFIANT/1429/8-info-actualite-grenoble.htm"
