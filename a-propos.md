@@ -37,7 +37,7 @@ Anne Hidalgo a mis le vélo au cœur de son programme pour transformer Paris. Ma
 
 # Le vélo : une solution pour la mobilité des grandes métropoles
 
-Outre les métropoles danoises, néerlandaises et allemandes, de plus en plus de métropoles de dimension internationales se tournent vers le vélo comme solution évidente pour la mobilité en zone urbaine dense, où l’espace est rare et les ressources pour développer de nouveaux transports en commun sont limitées[^transports].
+Outre les métropoles danoises, néerlandaises et allemandes, de plus en plus de métropoles de dimension internationale se tournent vers le vélo comme solution évidente pour la mobilité en zone urbaine dense, où l’espace est rare et les ressources pour développer de nouveaux transports en commun sont limitées[^transports].
 
 C’est le cas de New York, Barcelone, et, de l’autre côté de la Manche, du Grand Londres. Sous l’impulsion de Boris Johnson, précédent maire de Londres, un grand programme de Cycling Super Highways a été initié et est aujourd’hui poursuivi et accéléré par son successeur, Sadiq Khan, qui a annoncé près d’1 milliard d’euros sur 5 ans pour le développement du vélo.
 
