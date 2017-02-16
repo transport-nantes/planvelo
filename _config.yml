@@ -4,10 +4,13 @@ logo: /assets/images/logo.png
 website: https://parisenselle.fr
 website-desc: Paris en Selle
 author: parisenselle
-description: >
-  Avec cet observatoire, l'association Paris en Selle informe les habitants de Paris 
-  et d’Île-de-France sur l'avancement des politiques cyclables et l'amélioration des 
+description_footer: >
+  Avec cet observatoire, l'association Paris en Selle informe les habitants de Paris
+  et d’Île-de-France sur l'avancement des politiques cyclables et l'amélioration des
   conditions de circulation à vélo dans la capitale.
+description: >
+  Une carte conçue par l'association Paris en Selle pour suivre le développement du
+  réseau de pistes cyclables et l'avancement du Plan Vélo à Paris
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter:
