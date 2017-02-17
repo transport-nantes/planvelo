@@ -5,9 +5,15 @@ date:   2017-02-16 08:50:00 +0100
 author: Paris en Selle • Communiqué
 categories: article
 link: https://parisenselle.fr/observatoire-plan-velo-lancement/
-image: assets/images/articles/observatoire-plan-velo-lancement.jpg
+image: assets/images/articles/2017-02-16-pes-observatoire-plan-velo-lancement.jpg
 ---
 
-[![capture]({{ page.image | relative_url }})]({{ page.link }})
+{% include image.html
+            img=page.image
+            link=page.image
+            caption=page.title
+            source-text=page.author
+            source-link=page.link
+%}
 
 Lire cet [article]({{ page.link }}).
