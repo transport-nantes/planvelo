@@ -13,7 +13,7 @@ Les chiffres de l’INSEE[^insee] le montrent : Paris n’est pas encore une vi
 
 Anne Hidalgo a mis le vélo au cœur de son programme pour transformer Paris. Matérialisation de l’ambition municipale, le Plan Vélo prévoit de consacrer 30 M€ par an au développement de l’usage du vélo, notamment par la mise en place d’une nouvelle génération de pistes cyclables dédiées, larges et sécurisantes. Elles sont l’une des clés de la promesse « Capitale du Vélo ».
 
-**Paris en Selle est l’association pour le développement de l’usage du vélo à Paris**. Nous souhaitons que le Plan Vélo soit un succès et contribue ainsi à résoudre les difficultés de la capitale en matière de mobilité et de pollution. Au travers de l’Observatoire du Plan Vélo nous informons les citoyens de l’avancement du programme municipal d’amélioration des conditions de circulation à vélo dans la Capitale.
+**Paris en Selle est une association pour le développement de l’usage du vélo à Paris**. Nous souhaitons que le Plan Vélo soit un succès et contribue ainsi à résoudre les difficultés de la capitale en matière de mobilité et de pollution. Au travers de l’Observatoire du Plan Vélo nous informons les citoyens de l’avancement du programme municipal d’amélioration des conditions de circulation à vélo dans la Capitale.
 
 {% include image.html
             img="assets/images/pages/a-propos_circulation-douce-small.jpg"
