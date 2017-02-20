@@ -2,6 +2,7 @@
 layout: page
 title: Actualités
 permalink: /articles/
+description: Suivez l'avancement du Plan Vélo à travers nos comptes-rendus et notre sélection d'articles de presse / tweets.
 toc: true
 ---
 
