@@ -1,4 +1,4 @@
-FROM ruby:2.3
+FROM ruby:2.4
 COPY Gemfile /tmp
 WORKDIR /tmp
 RUN bundle install
