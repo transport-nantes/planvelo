@@ -1,0 +1,8 @@
+<ul class="post-list">
+  {% for post in include.cat %}
+    <li>
+      <span class="post-meta">{{ post.date | date: "%d/%m/%Y" }} • {{ post.author }}</span>
+        <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape | truncatewords: include.truncate }}</a>
+    </li>
+  {% endfor %}
+</ul>
