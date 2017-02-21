@@ -34,12 +34,20 @@ defaults:
     values:
       image: /assets/images/logo-og.png
 
+# Pagination Settings
+pagination:
+  enabled: true
+  per_page: 5
+  limit: 0
+  sort_field: 'date'
+  sort_reverse: true
+
 # Build settings
 markdown: kramdown
 theme: minima
 gems:
   - jekyll-feed
-  - jekyll-paginate
+  - jekyll-paginate-v2
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-twitter-plugin
