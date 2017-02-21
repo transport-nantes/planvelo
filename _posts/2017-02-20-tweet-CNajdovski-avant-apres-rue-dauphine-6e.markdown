@@ -1,8 +1,16 @@
 ---
 layout: post
-title:  "AVANT/APRES. Un exemple de notre action rue Dauphine (6e) : élargissement des trottoirs et création d'un double sens cyclable !"
+title:  "AVANT/APRES. Un exemple de notre action ..."
 date:   2017-02-20 18:25:00 +0100
 categories: tweets
 author: Christophe Najdovski • @C_Najdovski
 ---
 {% twitter https://twitter.com/C_Najdovski/status/833729283369615361 align='center' %}
+<br>
+{% twitter https://twitter.com/C_Najdovski/status/833970851087269888 align='center' %}
+<br>
+{% twitter https://twitter.com/C_Najdovski/status/833973071501463556 align='center' %}
+<br>
+{% twitter https://twitter.com/C_Najdovski/status/834048202185773056 align='center' %}
+<br>
+{% twitter https://twitter.com/C_Najdovski/status/834049709014712321 align='center' %}
