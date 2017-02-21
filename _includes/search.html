@@ -1,0 +1,16 @@
+<div id="search-container">
+  <input type="text" id="search-input" placeholder="Chercher...">
+  <ul id="results-container"></ul>
+</div>
+<script type="text/javascript">
+  SimpleJekyllSearch({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '{{ site.baseurl }}/search.json',
+    searchResultTemplate: '<li><a href="{url}" title="{category}">{title}</a></li>',
+    noResultsText: 'Aucun résultat',
+    limit: 10,
+    fuzzy: false,
+    exclude: ['']
+  })
+</script>
