@@ -7,8 +7,8 @@
     searchInput: document.getElementById('search-input'),
     resultsContainer: document.getElementById('results-container'),
     json: '{{ site.baseurl }}/search.json',
-    searchResultTemplate: '<li><a href="{url}" title="{date} • {author} • Catégorie: {category}">{title}</a></li>',
-    noResultsText: 'Aucun résultat',
+    searchResultTemplate: '<li>{author}: <a href="{url}" title="{date} • {author} • Catégorie: {category}">{title}</a></li>',
+    noResultsText: '<li>Aucun résultat</li>',
     limit: 10,
     fuzzy: false,
     exclude: ['']

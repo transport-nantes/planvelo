@@ -104,5 +104,12 @@ ul.pager li {display: inline;border: 1px solid grey; padding: 10px; margin: 5px;
 
 /* search box */
 #search-input {
-  width:97%;
+  width:98%;
+  border: 1px solid $grey-color;
+  padding: 4px 4px;
+  border-radius: 4px;
+}
+.footer-col-search {
+  width: -webkit-calc(65% - (#{$spacing-unit} / 2));
+  width:         calc(65% - (#{$spacing-unit} / 2));
 }
