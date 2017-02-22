@@ -5,11 +5,11 @@ layout: null
   {% for post in site.posts %}
     {
       "title"    : "{{ post.title | escape }}",
-      "category" : "Catégorie: {{ post.categories }}",
+      "category" : "{{ post.categories }}",
       "desc"     : "{{ post.description }}",
       "tags"     : "{{ post.tags | join: ', ' }}",
       "url"      : "{{ site.baseurl }}{{ post.url }}",
-      "date"     : "{{ post.date }}",
+      "date"     : "{{ post.date | date: "%d/%m/%Y" }}",
       "content"  : "{{ post.content | strip_html | strip_newlines }}"
     } {% unless forloop.last %},{% endunless %}
   {% endfor %}
@@ -18,11 +18,11 @@ layout: null
    {
      {% if page.title != nil %}
         "title"    : "{{ page.title | escape }}",
-        "category" : "Catégorie: pages",
+        "category" : "pages",
         "desc"     : "{{ page.description }}",
         "tags"     : "{{ page.tags | join: ', ' }}",
         "url"      : "{{ site.baseurl }}{{ page.url }}",
-        "date"     : "{{ page.date }}",
+        "date"     : "N/A",
         "content"  : "{{ page.content | strip_html | strip_newlines }}"
      {% endif %}
    } {% unless forloop.last %},{% endunless %}
