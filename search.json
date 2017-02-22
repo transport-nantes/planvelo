@@ -8,6 +8,7 @@ layout: null
       "category" : "{{ post.categories }}",
       "desc"     : "{{ post.description }}",
       "tags"     : "{{ post.tags | join: ', ' }}",
+      "author"   : "{{ post.author }}",
       "url"      : "{{ site.baseurl }}{{ post.url }}",
       "date"     : "{{ post.date | date: "%d/%m/%Y" }}",
       "content"  : "{{ post.content | strip_html | strip_newlines }}"
@@ -21,6 +22,7 @@ layout: null
         "category" : "pages",
         "desc"     : "{{ page.description }}",
         "tags"     : "{{ page.tags | join: ', ' }}",
+        "author"   : "N/A",
         "url"      : "{{ site.baseurl }}{{ page.url }}",
         "date"     : "N/A",
         "content"  : "{{ page.content | strip_html | strip_newlines }}"
