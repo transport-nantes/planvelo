@@ -109,7 +109,43 @@ ul.pager li {display: inline;border: 1px solid grey; padding: 10px; margin: 5px;
   padding: 4px 4px;
   border-radius: 4px;
 }
+
+.footer-col-heading {
+  width: -webkit-calc(33% - (#{$spacing-unit} / 2));
+  width:         calc(33% - (#{$spacing-unit} / 2));
+}
+
 .footer-col-search {
-  width: -webkit-calc(65% - (#{$spacing-unit} / 2));
-  width:         calc(65% - (#{$spacing-unit} / 2));
+  width: -webkit-calc(67% - (#{$spacing-unit} / 2));
+  width:         calc(67% - (#{$spacing-unit} / 2));
+}
+
+.footer-col-1 {
+  width: -webkit-calc(33% - (#{$spacing-unit} / 2));
+  width:         calc(33% - (#{$spacing-unit} / 2));
+}
+
+.footer-col-2 {
+  width: -webkit-calc(25% - (#{$spacing-unit} / 2));
+  width:         calc(25% - (#{$spacing-unit} / 2));
+}
+
+.footer-col-3 {
+  width: -webkit-calc(42% - (#{$spacing-unit} / 2));
+  width:         calc(42% - (#{$spacing-unit} / 2));
+}
+
+@include media-query($on-laptop) {
+  .footer-col-1,
+  .footer-col-2 {
+    width: -webkit-calc(50% - (#{$spacing-unit} / 2));
+    width:         calc(50% - (#{$spacing-unit} / 2));
+  }
+
+  .footer-col-heading,
+  .footer-col-search,
+  .footer-col-3 {
+    width: -webkit-calc(100% - (#{$spacing-unit} / 2));
+    width:         calc(100% - (#{$spacing-unit} / 2));
+  }
 }
