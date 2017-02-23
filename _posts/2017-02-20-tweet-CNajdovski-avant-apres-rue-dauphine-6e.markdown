@@ -18,3 +18,7 @@ author: Christophe Najdovski • @C_Najdovski
 {% twitter https://twitter.com/C_Najdovski/status/834390390216196097 align='center' %}
 <br>
 {% twitter https://twitter.com/C_Najdovski/status/834431422106595328 align='center' %}
+<br>
+{% twitter https://twitter.com/C_Najdovski/status/834698146060128256 align='center' %}
+<br>
+{% twitter https://twitter.com/C_Najdovski/status/834783547223371776 align='center' %}
