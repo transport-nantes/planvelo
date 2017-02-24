@@ -8,27 +8,27 @@ toc: true
 
 # Suivi du Plan Vélo
 
-{% include articles.html
+{% include actualites.html
   cat_permalink='/articles'
   cat=site.categories.articles
-  button='Articles précédents'
+  previous_button_text='Articles précédents'
   limit=4
   truncate=12 %}
 
 # Articles de presse
 
-{% include articles.html
+{% include actualites.html
   cat_permalink='/presse'
   cat=site.categories.presse
-  button='Articles précédents'
+  previous_button_text='Articles précédents'
   limit=4
   truncate=12 %}
 
 # Tweets
 
-{% include articles.html
+{% include actualites.html
   cat_permalink='/tweets'
   cat=site.categories.tweets
-  button='Tweets précédents'
+  previous_button_text='Tweets précédents'
   limit=4
   truncate=9 %}
