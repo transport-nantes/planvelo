@@ -9,7 +9,7 @@
 {% if include.cat.size > include.limit %}
 <ul class="pager">
     <li class="next">
-        <a href="{{ site.baseurl | append: include.cat_permalink }}">{{ include.button }} &rarr;</a>
+        <a href="{{ site.baseurl | append: include.cat_permalink }}">{{ include.previous_button_text }} &rarr;</a>
     </li>
 </ul>
 {% endif %}
