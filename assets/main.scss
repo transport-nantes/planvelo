@@ -152,3 +152,16 @@ ul.pager li {display: inline;border: 1px solid grey; padding: 10px; margin: 5px;
     width:         calc(100% - (#{$spacing-unit} / 2));
   }
 }
+
+/* disable bootstrap box-sizing http://stackoverflow.com/questions/34790054/css-disable-bootstrap-box-sizing */
+* {
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+}
