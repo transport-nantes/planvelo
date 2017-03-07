@@ -28,8 +28,8 @@
 
   window.onload = function ()
   {
-
     disp(4, 'piste');
+    disp(40, 'parkings');
     disp(percentTimeElapsed, 'timebar');
     $('[data-toggle="tooltip"]').tooltip();
   }
@@ -46,6 +46,12 @@
     <div class="progress">
      <div id="zonesApaisees" class="progress-bar" role="progressbar"
      aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%" data-toggle="tooltip" title="Hypothèse 100km² pour Paris hors parcs, axes majeurs, Seine et canaux">
+     </div>
+   </div>
+   Avancement du déploiement des places de stationnement vélo
+    <div class="progress">
+     <div id="parkings" class="progress-bar" role="progressbar"
+     aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%" data-toggle="tooltip" title="4000 places déployées sur un objectif de 10000. Source @C_Najdovski">
      </div>
    </div>
    Temps de mandature écoulé
