@@ -3,7 +3,9 @@
     <div id="mapFrame"></div>
     <!-- Build the map using Leaflet.js -->
     <script type="text/javascript">
-      var areaZonesApaisees = 0 ;
+      var areaZonesApaisees = 0, lengthLanesTheory = 0, lengthLanes = 0 ;
+      var planVeloPratiqueLayer ; 
+      var hueReferences = [ [0, "#ff0000"], [0.33333, "#228b22"], [0.10784, "#ffa500"] ] ;
 
       function toggleLegend(e)
       {
@@ -19,6 +21,14 @@
           {
             $("#zonesApaiseesLegend").slideUp("fast", function(){$("#zonesApaiseesLegend").css('visibility','hidden').css("display", "block")});
           }
+        }
+
+        if ( e.name == "Plan Vélo" )
+        {
+          if ( e.type == "overlayadd")
+            map.addLayer(planVeloPratiqueLayer) ; 
+          else
+            map.removeLayer(planVeloPratiqueLayer) ; 
         }
       }
 
@@ -101,6 +111,24 @@
           click: zoomToFeature
         });
       }
+      // Compute the total length of bike lanes
+      function bindFeatureEventsAndComputeTheoryLanesLength(feature, layer)
+      {
+        if ( typeof feature != "undefined" && feature.geometry.type == "LineString" )
+          lengthLanesTheory += turf.lineDistance(feature) ;
+
+        bindFeatureEvents(feature, layer) ; 
+      }
+      // Compute the total length of "acceptable" bikes lanes
+      function bindFeatureEventsAndComputeLanesLength(feature, layer)
+      {
+        var colorFeature = styleFeature(feature).color ; 
+
+        if ( typeof feature != "undefined" && feature.geometry.type == "LineString" && colorFeature != hueReferences[0][1] )
+          lengthLanes += turf.lineDistance(feature) ;
+
+        bindFeatureEvents(feature, layer) ; 
+      }
 
       // Function to convert a color in RGB color space to HSV color space
       function rgbToHsl(r, g, b)
@@ -154,13 +182,13 @@
             else
             {
               // Compare the distance between H and references H for green, red and orange
-              var distanceMin = 1, references = [ [0.33333, "#228b22"], [0, "#ff0000"], [0.10784, "#ffa500"] ] ;
-              for ( var iColor = 0 ; iColor < references.length ; iColor++ )
+              var distanceMin = 1  ;
+              for ( var iColor = 0 ; iColor < hueReferences.length ; iColor++ )
               {
-                if ( Math.abs(colorHLS[0] - references[iColor][0]) < distanceMin )
+                if ( Math.abs(colorHLS[0] - hueReferences[iColor][0]) < distanceMin )
                 {
-                  finalColor = references[iColor][1] ;
-                  distanceMin = Math.abs(colorHLS[0] - references[iColor][0]) ;
+                  finalColor = hueReferences[iColor][1] ;
+                  distanceMin = Math.abs(colorHLS[0] - hueReferences[iColor][0]) ;
                 }
               }
             }
@@ -198,10 +226,22 @@
       info.addTo(map);
 
       // Load the different layers and display the default one (planVelo) on the map
-      var planVeloLayer = new L.GeoJSON.AJAX(
-        "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/planvelo.geojson",
-        {onEachFeature: bindFeatureEvents, style: styleFeature } );
-      planVeloLayer.addTo(map);
+      var planVeloTheorieLayer = new L.GeoJSON.AJAX(
+        "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/planvelo-theorie.geojson",
+        {onEachFeature: bindFeatureEventsAndComputeTheoryLanesLength, style: styleFeature } );
+      planVeloTheorieLayer.addTo(map);
+      planVeloTheorieLayer.on("data:loaded", function ()
+      {
+         planVeloPratiqueLayer = new L.GeoJSON.AJAX(
+          "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/planvelo-pratique.geojson",
+          {onEachFeature: bindFeatureEventsAndComputeLanesLength, style: styleFeature } );
+        planVeloPratiqueLayer.addTo(map);
+        planVeloPratiqueLayer.on("data:loaded", function ()
+        {
+          console.log(lengthLanes / lengthLanesTheory * 100) ; 
+          disp( Math.round( lengthLanes / lengthLanesTheory * 100 ), "piste") ;
+        }) ;
+      }) ;
 
       var horsPlanVeloLayer = new L.GeoJSON.AJAX(
         "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/hors-planvelo.geojson",
@@ -218,7 +258,7 @@
 
       // Add control to display or hide layers
       var overlayLayers = {
-        "Plan Vélo": planVeloLayer,
+        "Plan Vélo": planVeloTheorieLayer,
         "Hors Plan Vélo": horsPlanVeloLayer,
         "Zones apaisées": zonesApaiseesLayer
       };
