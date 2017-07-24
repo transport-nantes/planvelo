@@ -87,9 +87,15 @@ Le Plan Vélo est articulé autour de 4 axes :
 
 {% include video.html url='www.dailymotion.com/embed/video/x561m4u' %}
 
+* **17 juillet 2017** : Dans un communiqué[^CommuniqueMairieJuillet2017], Anne Hidalgo et son adjoint Christophe Najdovski annoncent que la Ville de Paris intensifie les travaux pendant l’été[^SiteWebIntensificationTravauxEte2017] dans le cadre de son Plan Vélo.
+
+---
+
 [^vote]: Paris se dote d'un nouveau Plan Vélo [http://www.paris.fr/actualites/paris-se-dote-d-un-nouveau-plan-velo-2255](http://www.paris.fr/actualites/paris-se-dote-d-un-nouveau-plan-velo-2255){:rel='nofollow'}
 [^capitale]: 2020 : Paris, capitale du vélo, les objectifs pour la Ville [http://www.paris.fr/velo#2020-paris-capitale-du-velo-les-objectifs-pour-la-ville_3](http://www.paris.fr/velo#2020-paris-capitale-du-velo-les-objectifs-pour-la-ville_3){:rel='nofollow'}
 [^prefiguration]: Le Plan Vélo en détails (PDF) [https://api-site.paris.fr/images/78376](https://api-site.paris.fr/images/78376){:rel='nofollow'}
 [^londres]: [Andrew Gilligan](https://twitter.com/mragilligan){:rel='nofollow'} a été le « Tsar du Vélo » de Londres sous Boris Johnson. Will Norman, a récemment été nommé par Sadiq Khan pour le remplacer : [http://www.standard.co.uk/news/mayor/sadiq-khan-hires-nike-executive-for-98k-walking-and-cycling-czar-role-a3424481.html](http://www.standard.co.uk/news/mayor/sadiq-khan-hires-nike-executive-for-98k-walking-and-cycling-czar-role-a3424481.html){:rel='nofollow'}
 [^amsterdam]: "Amsterdam Is Appointing a Bike Mayor" [http://www.citylab.com/cityfixer/2016/04/amsterdam-is-appointing-a-bike-mayor/479901/](http://www.citylab.com/cityfixer/2016/04/amsterdam-is-appointing-a-bike-mayor/479901/){:rel='nofollow'}
 [^parisien]: "A Paris, à vélo, on dépasse (presque) les autos !" [http://www.leparisien.fr/espace-premium/seine-et-marne-77/a-paris-a-velo-on-depasse-presque-les-autos-15-01-2016-5452291.php](http://www.leparisien.fr/espace-premium/seine-et-marne-77/a-paris-a-velo-on-depasse-presque-les-autos-15-01-2016-5452291.php){:rel='nofollow'}
+[^CommuniqueMairieJuillet2017]: Communiqué de presse de la Mairie de Paris du 17 juillet 2017. [https://presse.paris.fr/wp-content/uploads/2017/07/Plan-V%C3%A9lo-la-Ville-de-Paris-intensifie-les-travaux-pendant-l%E2%80%99%C3%A9t%C3%A9.pdf](https://presse.paris.fr/wp-content/uploads/2017/07/Plan-V%C3%A9lo-la-Ville-de-Paris-intensifie-les-travaux-pendant-l%E2%80%99%C3%A9t%C3%A9.pdf){:rel='nofollow'}. [Copie]({{ '/assets/pdf/pages/engagements_CommuniqueMairieJuillet2017.pdf' | relative_url }})
+[^SiteWebIntensificationTravauxEte2017]: « Plan Vélo: la Ville de Paris intensifie les travaux pendant l’été » [https://www.paris.fr/actualites/plan-velo-la-ville-de-paris-intensifie-les-travaux-pendant-l-ete-5036](https://www.paris.fr/actualites/plan-velo-la-ville-de-paris-intensifie-les-travaux-pendant-l-ete-5036){:rel='nofollow'}
