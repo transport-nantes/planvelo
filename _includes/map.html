@@ -233,7 +233,7 @@
       planVeloTheorieLayer.on("data:loaded", function ()
       {
          planVeloPratiqueLayer = new L.GeoJSON.AJAX(
-          "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/fin-2017/planvelo-pratique.geojson",
+          "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/planvelo-pratique.geojson",
           {onEachFeature: bindFeatureEventsAndComputeLanesLength, style: styleFeature } );
         planVeloPratiqueLayer.addTo(map);
         planVeloPratiqueLayer.on("data:loaded", function ()
