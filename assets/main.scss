@@ -1,14 +1,16 @@
 ---
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
-
-$spacing-unit: 30px !default;
-$grey-color: #828282 !default;
-
 // Width of the content area
 $content-width:    1000px;
 $on-palm:          770px;
 $on-laptop:        1000px;
+
+$spacing-unit: 30px !default;
+$grey-color: #828282 !default;
+$base-font-size: 16px !default;
+$base-line-height: 1.5 !default;
+$grey-color-dark: darken($grey-color, 25%) !default;
 
 @mixin media-query($device) {
   @media screen and (max-width: $device) {
@@ -16,6 +18,17 @@ $on-laptop:        1000px;
   }
 }
 
+@mixin relative-font-size($ratio) {
+  font-size: $base-font-size * $ratio;
+}
+
+@import "minima";
+
+.site-title {
+  @include relative-font-size(1.1);
+  letter-spacing: -1px;
+  letter-spacing: 0.05vmin;
+}
 
 #videoFrame {
   width:100%;
@@ -138,5 +151,3 @@ ul.pager li {display: inline;border: 1px solid grey; padding: 10px; margin: 5px;
      -moz-box-sizing: content-box;
           box-sizing: content-box;
 }
-
-@import "minima";
