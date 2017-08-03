@@ -42,10 +42,14 @@ pagination:
   sort_field: 'date'
   sort_reverse: true
 
+# Date format
+minima:
+  date_format: "%d/%m/%Y"
+
 # Build settings
 markdown: kramdown
 theme: minima
-gems:
+plugins:
   - jekyll-feed
   - jekyll-paginate-v2
   - jekyll-seo-tag

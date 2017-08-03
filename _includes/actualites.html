@@ -1,7 +1,8 @@
 <ul class="post-list">
   {% for post in include.cat limit:include.limit %}
     <li>
-      <span class="post-meta">{{ post.date | date: "%d/%m/%Y" }} • {{ post.author }}</span>
+      {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+      <span class="post-meta">{{ post.date | date: date_format }} • {{ post.author }}</span>
         <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape | truncatewords: include.truncate }}</a>
     </li>
   {% endfor %}
