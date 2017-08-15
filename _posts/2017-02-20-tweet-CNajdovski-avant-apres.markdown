@@ -4,6 +4,7 @@ title:  "AVANT/APRES. Un exemple de notre action ..."
 date:   2017-02-20 18:25:00 +0100
 categories: tweets
 author: Christophe Najdovski • @C_Najdovski
+image: assets/images/articles/2017-02-20-tweet-CNajdovski-avant-apres.jpg
 ---
 {% twitter https://twitter.com/C_Najdovski/status/833729283369615361 align='center' %}
 <br>
