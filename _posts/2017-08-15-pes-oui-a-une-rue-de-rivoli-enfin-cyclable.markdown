@@ -25,8 +25,6 @@ En s’accrochant à l’idéologie pompidolienne de la ville « tuyau à voitur
             img=page.image
             link=page.image
             caption=page.title
-            source-text=page.author
-            source-link=page.link
 %}
 
 ### [Télécharger ce communiqué de presse]({{ page.link | relative_url }})
