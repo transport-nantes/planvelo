@@ -30,3 +30,15 @@ author: Christophe Najdovski • @C_Najdovski
 {% twitter https://twitter.com/C_Najdovski/status/837303727350505472 align='center' %}
 <br>
 {% twitter https://twitter.com/C_Najdovski/status/837619295060377600 align='center' %}
+<br>
+{% twitter https://twitter.com/C_Najdovski/status/874576987070898176 align='center' %}
+<br>
+{% twitter https://twitter.com/C_Najdovski/status/874928306029817862 align='center' %}
+<br>
+{% twitter https://twitter.com/C_Najdovski/status/874929721259298816 align='center' %}
+<br>
+{% twitter https://twitter.com/C_Najdovski/status/889868855639670784 align='center' %}
+<br>
+{% twitter https://twitter.com/C_Najdovski/status/893040467910287360 align='center' %}
+<br>
+{% twitter https://twitter.com/C_Najdovski/status/895601020969000962 align='center' %}
