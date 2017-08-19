@@ -6,15 +6,15 @@
 
 <div class="image-wrapper">
     {% if include.link %}
-    <a href="{{ include.link | relative_url }}" data-lightbox="{{ include.link }}" data-title="{{ include.caption }}">
+    <a href="{{ include.link | relative_url }}" data-lightbox="{{ include.link }}" data-title="{{ include.caption | escape }}">
     {% endif %}
-        <img src="{{ include.img | relative_url }}" alt="{{ include.caption }}"/>
+        <img src="{{ include.img | relative_url }}" alt="{{ include.caption | escape }}"/>
     {% if include.link %}
     </a>
     {% endif %}
     {% if include.caption %}
         <p class="image-caption">
-          {{ include.caption }}
+          {{ include.caption | escape }}
           {% if include.source-text %}
             • Source:
             {% if include.source-link %}
