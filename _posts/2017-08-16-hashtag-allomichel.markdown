@@ -10,9 +10,8 @@ articles:
 - http://www.leprogres.fr/france-monde/2017/08/19/allomichel-un-hashtag-pour-denoncer-les-policiers-mal-gares
 - http://www.leparisien.fr/insolite/paris-allomichel-un-hashtag-pour-moquer-les-voitures-de-police-mal-garees-19-08-2017-7201914.php
 - http://france3-regions.francetvinfo.fr/paris-ile-de-france/paris/allomichel-riposte-cyclistes-au-prefet-police-twitter-1313877.html
-- https://www.sciencesetavenir.fr/nature-environnement/le-velo-petite-reine-en-devenir-a-paris_115644
 - http://www.ledauphine.com/france-monde/2017/08/19/allomichel-un-hashtag-pour-denoncer-les-policiers-mal-gares
-author: BFMParis, LCI, Europe1, AFP, FranceTvInfo, LeDauphine, LeProgrès
+author: BFMParis, LCI, Europe1, FranceTvInfo, LeDauphine, LeProgrès
 image: assets/images/articles/2017-08-16-hashtag-allomichel.jpg
 ---
 
