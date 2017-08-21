@@ -24,3 +24,5 @@ image: assets/images/articles/2017-08-16-hashtag-allomichel.jpg
 </li>
 {% endfor %}
 </ul>
+
+{% twitter https://twitter.com/ParisEnSelle/status/899725853822783488 align='center' %}
