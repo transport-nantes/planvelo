@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Hashtag #AlloMichel"
-date:   2017-08-16 15:52:00 +0100
+date:   2017-08-22 8:52:00 +0100
 categories: presse
 articles:
 - http://auto.bfmtv.com/actualite/allomichel-ce-hashtag-qui-interpelle-le-prefet-contre-les-vehicules-de-police-mal-gares-a-paris-1238020.html
@@ -11,7 +11,8 @@ articles:
 - http://www.leparisien.fr/insolite/paris-allomichel-un-hashtag-pour-moquer-les-voitures-de-police-mal-garees-19-08-2017-7201914.php
 - http://france3-regions.francetvinfo.fr/paris-ile-de-france/paris/allomichel-riposte-cyclistes-au-prefet-police-twitter-1313877.html
 - http://www.ledauphine.com/france-monde/2017/08/19/allomichel-un-hashtag-pour-denoncer-les-policiers-mal-gares
-author: BFMParis, LCI, Europe1, FranceTvInfo, LeDauphine, LeParisien, LeProgrès
+- https://www.francebleu.fr/infos/societe/paris-allomichel-un-hashtag-pour-epingler-les-voitures-de-police-mal-garees-1503386701
+author: BFMParis, LCI, Europe1, FranceTvInfo, LeDauphine, LeParisien, LeProgrès, FranceBleu
 image: assets/images/articles/2017-08-16-hashtag-allomichel.jpg
 ---
 
