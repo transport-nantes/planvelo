@@ -13,7 +13,8 @@ articles:
 - http://www.ledauphine.com/france-monde/2017/08/19/allomichel-un-hashtag-pour-denoncer-les-policiers-mal-gares
 - https://www.francebleu.fr/infos/societe/paris-allomichel-un-hashtag-pour-epingler-les-voitures-de-police-mal-garees-1503386701
 - http://www.20minutes.fr/paris/2119831-20170822-paris-allomichel-hashtag-epingle-voitures-police-mal-garees
-author: BFMParis, LCI, Europe1, FranceTvInfo, LeDauphine, LeParisien, LeProgrès, FranceBleu, 20minutes
+- http://www.francesoir.fr/societe-faits-divers/buzz-allomichel-en-reponse-au-prefet-de-police-les-internautes-denoncent-les-policiers-mal-gare-stationne-twitter-reseau-social-paris-en-selle
+author: BFMParis, LCI, Europe1, FranceTvInfo, LeDauphine, LeParisien, LeProgrès, FranceBleu, 20minutes, FranceSoir
 image: assets/images/articles/2017-08-16-hashtag-allomichel.jpg
 ---
 
