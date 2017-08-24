@@ -17,7 +17,9 @@ articles:
 - http://www.lepoint.fr/societe/allomichel-les-internautes-epinglent-les-policiers-mal-gares-22-08-2017-2151552_23.php
 - http://www.letelegramme.fr/france/allomichel-le-hastag-qui-epingle-les-voitures-de-police-mal-garees-23-08-2017-11638158.php
 - http://www.lefigaro.fr/flash-actu/2017/08/22/97001-20170822FILWWW00028-un-hashtag-denonce-les-policiers-mal-gares.php
-author: BFMParis, LCI, Europe1, FranceTvInfo, LeDauphiné, LeParisien, LeProgrès, FranceBleu, 20minutes, FranceSoir, LePoint, LeTélégramme, LeFigaro
+- http://actu.orange.fr/societe/insolite/allomichel-quand-les-cyclistes-provoquent-le-prefet-de-police-de-paris-magic-CNT000000MybQU.html
+- http://www.francetvinfo.fr/economie/transports/ce-ne-sont-pas-les-vehicules-de-police-qui-posent-des-problemes-de-circulation-le-prefet-de-paris-repond-a-allomichel_2336403.html
+author: BFMParis, LCI, Europe1, FranceTvInfo, France3, LeDauphiné, LeParisien, LeProgrès, FranceBleu, 20minutes, FranceSoir, LePoint, LeTélégramme, LeFigaro, OrangeInfo
 image: assets/images/articles/2017-08-16-hashtag-allomichel.jpg
 ---
 
