@@ -28,7 +28,7 @@ Le Plan Vélo est articulé autour de 4 axes :
             link="assets/images/pages/engagements_schema.jpg"
             caption="Schéma directeur 2015-2020 du Plan Vélo."
             source-text="Mairie De Paris"
-            source-link="https://www.catherine-baratti-elbaz.fr/un-nouveau-plan-velo-pour-paris-et-la-metropole/"
+            source-link="https://www.paris.fr/velo"
 %}
 
 * **La systématisation des double sens cyclables** : le code de la route prévoit que toutes les zones 30 sont à double sens cyclable. Dans le cadre de la mise à 30 km/h de Paris (hors grands axes), la mairie va donc systématiser les double-sens cyclables (DSC). Raccourcis sûrs quoique pas toujours confortables ou rassurants pour les usagers du vélo, les DSC doivent s’accompagner de réelles politiques de modération de la vitesse et de la pression automobile pour constituer des itinéraires utiles.
