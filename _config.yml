@@ -46,6 +46,9 @@ pagination:
 minima:
   date_format: "%d/%m/%Y"
 
+# Piwik
+piwik_siteid: 3
+
 # Build settings
 markdown: kramdown
 theme: minima
