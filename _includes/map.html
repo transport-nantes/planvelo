@@ -265,7 +265,7 @@
           disp( Math.round( lengthLanesSatisfying / lengthLanesTheory * 100 ), "pisteSatisfying") ;
           disp( Math.round( lengthLanesUnsatisfying / lengthLanesTheory * 100 ), "pisteUnsatisfying") ;
           disp( Math.round( lengthLanesDropped / lengthLanesTheory * 100 ), "pisteDropped") ;
-          disp( 100 - Math.round( lengthLanesDropped / lengthLanesTheory * 100 ) - Math.round( lengthLanesUnsatisfying / lengthLanesTheory * 100 ) - Math.round( lengthLanesSatisfying / lengthLanesTheory * 100 ), "pisteTheory")  
+          disp( Math.max(0, 100 - Math.round( lengthLanesDropped / lengthLanesTheory * 100 ) - Math.round( lengthLanesUnsatisfying / lengthLanesTheory * 100 ) - Math.round( lengthLanesSatisfying / lengthLanesTheory * 100 ) ), "pisteTheory") ;   
         }) ;
       }) ;
 
