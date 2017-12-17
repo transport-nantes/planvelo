@@ -95,6 +95,13 @@
 
           content += "Longueur : "+lengthFeature+"km";
         }
+        else if ( typeof feature != "undefined" && feature.geometry.type == "Point" )
+        {
+          if (feature.properties && feature.properties.name)
+            content += "<b>"+feature.properties.name+"</b><br/>" ;
+          if (feature.properties && feature.properties.description)
+            content += feature.properties.description+"<br/>" ;
+        }
         else
           content = "Placez le curseur sur un segment pour plus d'informations" ;
 
@@ -202,6 +209,15 @@
         }
       }
 
+      var pointStyle = {
+        radius: 8,
+        fillColor: "#000000",
+        color: "#101010",
+        weight: 4,
+        stroke: false,
+        fillOpacity: 1.0
+      };
+
 
       // Create the map with Mapbox tiles
       var map = L.map('mapFrame', {fullscreenControl: true}) ;
@@ -233,7 +249,11 @@
       {
          planVeloPratiqueLayer = new L.GeoJSON.AJAX(
           "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/planvelo-pratique.geojson",
-          {onEachFeature: bindFeatureEventsAndComputeLanesLength, style: styleFeature } );
+          {
+            onEachFeature: bindFeatureEventsAndComputeLanesLength, 
+            style: styleFeature, 
+            pointToLayer: function (feature, latlng) { return L.circleMarker(latlng, pointStyle); }
+          } );
         planVeloPratiqueLayer.addTo(map);
         planVeloPratiqueLayer.on("data:loaded", function ()
         {
