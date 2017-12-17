@@ -3,9 +3,9 @@
     <div id="mapFrame"></div>
     <!-- Build the map using Leaflet.js -->
     <script type="text/javascript">
-      var areaZonesApaisees = 0, lengthLanesTheory = 0, lengthLanes = 0 ;
+      var areaZonesApaisees = 0, lengthLanesTheory = 0, lengthLanesSatisfying = 0, lengthLanesUnsatisfying = 0, lengthLanesDropped = 0 ;
       var planVeloPratiqueLayer ; 
-      var hueReferences = [ [0, "#ff0000"], [0.33333, "#228b22"], [0.10784, "#ffa500"] ] ;
+      var hueReferences = [ [0, "#ff0000"], [0.33333, "#228b22"], [0.10784, "#ffa500"] ] ; // Red, green, orange
 
       function toggleLegend(e)
       {
@@ -130,8 +130,12 @@
       {
         var colorFeature = styleFeature(feature).color ; 
 
-        if ( typeof feature != "undefined" && feature.geometry.type == "LineString" && colorFeature != hueReferences[0][1] )
-          lengthLanes += turf.lineDistance(feature) ;
+        if ( typeof feature != "undefined" && feature.geometry.type == "LineString" && colorFeature == hueReferences[1][1] )
+          lengthLanesSatisfying += turf.lineDistance(feature) ;
+        if ( typeof feature != "undefined" && feature.geometry.type == "LineString" && colorFeature == hueReferences[2][1] )
+          lengthLanesUnsatisfying += turf.lineDistance(feature) ;
+        if ( typeof feature != "undefined" && feature.geometry.type == "LineString" && colorFeature == hueReferences[0][1] )
+          lengthLanesDropped += turf.lineDistance(feature) ;
 
         bindFeatureEvents(feature, layer) ; 
       }
@@ -257,8 +261,11 @@
         planVeloPratiqueLayer.addTo(map);
         planVeloPratiqueLayer.on("data:loaded", function ()
         {
-          console.log(lengthLanes / lengthLanesTheory * 100) ; 
-          disp( Math.round( lengthLanes / lengthLanesTheory * 100 ), "piste") ;
+          console.log("Satisfaisant " + lengthLanesSatisfying + "\nNon-satisfaisant " + lengthLanesUnsatisfying + "\nAbandonné " + lengthLanesDropped + "\nTotal " + lengthLanesTheory ) ; 
+          disp( Math.round( lengthLanesSatisfying / lengthLanesTheory * 100 ), "pisteSatisfying") ;
+          disp( Math.round( lengthLanesUnsatisfying / lengthLanesTheory * 100 ), "pisteUnsatisfying") ;
+          disp( Math.round( lengthLanesDropped / lengthLanesTheory * 100 ), "pisteDropped") ;
+          disp( 100 - Math.round( lengthLanesDropped / lengthLanesTheory * 100 ) - Math.round( lengthLanesUnsatisfying / lengthLanesTheory * 100 ) - Math.round( lengthLanesSatisfying / lengthLanesTheory * 100 ), "pisteTheory")  
         }) ;
       }) ;
 
