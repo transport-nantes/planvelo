@@ -3,7 +3,7 @@
     <div id="mapFrame"></div>
     <!-- Build the map using Leaflet.js -->
     <script type="text/javascript">
-      var areaZonesApaisees = 0, lengthLanesTheory = 0, lengthLanesSatisfying = 0, lengthLanesUnsatisfying = 0, lengthLanesDropped = 0 ;
+      var areaZonesApaisees = 0, lengthLanesTheory = 0, lengthLanesSatisfying = 0, lengthLanesUnsatisfying = 0, lengthLanesDropped = 0, layersLoaded = 0 ;
       var planVeloPratiqueLayer ; 
       var hueReferences = [ [0, "#ff0000"], [0.33333, "#228b22"], [0.10784, "#ffa500"] ] ; // Red, green, orange
 
@@ -212,6 +212,21 @@
           return {"color": finalColor, "weight": finalWidth } ;
         }
       }
+      // Function to display set the width of the progress bar 
+      function displayProgressBars()
+      {
+        layersLoaded++ ;
+
+        // If the two layers have been loaded, perform the update of width and log everything in console
+        if ( layersLoaded == 2 )
+        {
+          console.log("Satisfaisant " + lengthLanesSatisfying + "\nNon-satisfaisant " + lengthLanesUnsatisfying + "\nAbandonné " + lengthLanesDropped + "\nTotal " + lengthLanesTheory ) ; 
+          disp( Math.round( lengthLanesSatisfying / lengthLanesTheory * 100 ), "pisteSatisfying") ;
+          disp( Math.round( lengthLanesUnsatisfying / lengthLanesTheory * 100 ), "pisteUnsatisfying") ;
+          disp( Math.round( lengthLanesDropped / lengthLanesTheory * 100 ), "pisteDropped") ;
+          disp( Math.max(0, 100 - Math.round( lengthLanesDropped / lengthLanesTheory * 100 ) - Math.round( lengthLanesUnsatisfying / lengthLanesTheory * 100 ) - Math.round( lengthLanesSatisfying / lengthLanesTheory * 100 ) ), "pisteTheory") ;   
+        }
+      }
 
       var pointStyle = {
         radius: 4,
@@ -259,16 +274,14 @@
             pointToLayer: function (feature, latlng) { return L.circleMarker(latlng, pointStyle); }
           } );
         planVeloPratiqueLayer.addTo(map);
-        planVeloPratiqueLayer.on("data:loaded", function ()
-        {
-          console.log("Satisfaisant " + lengthLanesSatisfying + "\nNon-satisfaisant " + lengthLanesUnsatisfying + "\nAbandonné " + lengthLanesDropped + "\nTotal " + lengthLanesTheory ) ; 
-          disp( Math.round( lengthLanesSatisfying / lengthLanesTheory * 100 ), "pisteSatisfying") ;
-          disp( Math.round( lengthLanesUnsatisfying / lengthLanesTheory * 100 ), "pisteUnsatisfying") ;
-          disp( Math.round( lengthLanesDropped / lengthLanesTheory * 100 ), "pisteDropped") ;
-          disp( Math.max(0, 100 - Math.round( lengthLanesDropped / lengthLanesTheory * 100 ) - Math.round( lengthLanesUnsatisfying / lengthLanesTheory * 100 ) - Math.round( lengthLanesSatisfying / lengthLanesTheory * 100 ) ), "pisteTheory") ;   
-        }) ;
+        planVeloPratiqueLayer.on("data:loaded", function () { displayProgressBars() ; }) ;
       }) ;
 
+
+      var anterieurPlanVeloLayer = new L.GeoJSON.AJAX(
+        "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/planvelo-anterieur.geojson",
+        {onEachFeature: bindFeatureEvents, style: styleFeature } );
+      anterieurPlanVeloLayer.on("data:loaded", function () { displayProgressBars() ; }) ;
       var horsPlanVeloLayer = new L.GeoJSON.AJAX(
         "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/hors-planvelo.geojson",
         {onEachFeature: bindFeatureEvents, style: styleFeature } );
@@ -276,15 +289,16 @@
         "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/opendata.paris.fr/zones-de-circulation-apaisee_PeS.geojson",
         { onEachFeature: areaFeature, style: styleFeature } );
       zonesApaiseesLayer.on("data:loaded", function ()
-        {
-          disp( Math.round( areaZonesApaisees / (1000000 * 100) * 100 ), "zonesApaisees") ;
-        }) ;
+      {
+        disp( Math.round( areaZonesApaisees / (1000000 * 100) * 100 ), "zonesApaisees") ;
+      }) ;
 
 
 
       // Add control to display or hide layers
       var overlayLayers = {
         "Plan Vélo": planVeloTheorieLayer,
+        "Antérieur au Plan Vélo": anterieurPlanVeloLayer,
         "Hors Plan Vélo": horsPlanVeloLayer,
         "Zones apaisées": zonesApaiseesLayer
       };
