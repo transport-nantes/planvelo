@@ -281,6 +281,7 @@
       var anterieurPlanVeloLayer = new L.GeoJSON.AJAX(
         "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/planvelo-anterieur.geojson",
         {onEachFeature: bindFeatureEvents, style: styleFeature } );
+      anterieurPlanVeloLayer.addTo(map) ; 
       anterieurPlanVeloLayer.on("data:loaded", function () { displayProgressBars() ; }) ;
       var horsPlanVeloLayer = new L.GeoJSON.AJAX(
         "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/hors-planvelo.geojson",
