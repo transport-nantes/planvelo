@@ -267,9 +267,9 @@
         "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/planvelo-theorie.geojson",
         {onEachFeature: bindFeatureEventsAndComputeTheoryLanesLength, style: styleFeature } );
       planVeloTheorieLayer.addTo(map);
-      planVeloTheorieLayer.bringToBack() ;
       planVeloTheorieLayer.on("data:loaded", function ()
       {
+         planVeloTheorieLayer.bringToBack() ;
          planVeloPratiqueLayer = new L.GeoJSON.AJAX(
           "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/planvelo-pratique.geojson",
           {
@@ -278,8 +278,7 @@
             pointToLayer: function (feature, latlng) { return L.circleMarker(latlng, pointStyle); }
           } );
         planVeloPratiqueLayer.addTo(map);
-        planVeloPratiqueLayer.bringToFront() ; 
-        planVeloPratiqueLayer.on("data:loaded", function () { displayProgressBars() ; }) ;
+        planVeloPratiqueLayer.on("data:loaded", function () { displayProgressBars() ; planVeloPratiqueLayer.bringToFront() ; }) ;
       }) ;
 
 
@@ -287,8 +286,7 @@
         "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/planvelo-anterieur.geojson",
         {onEachFeature: bindFeatureEvents, style: styleFeature } );
       anterieurPlanVeloLayer.addTo(map) ; 
-      anterieurPlanVeloLayer.bringToFront() ; 
-      anterieurPlanVeloLayer.on("data:loaded", function () { displayProgressBars() ; }) ;
+      anterieurPlanVeloLayer.on("data:loaded", function () { displayProgressBars() ; anterieurPlanVeloLayer.bringToFront() ;  }) ;
       var horsPlanVeloLayer = new L.GeoJSON.AJAX(
         "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/hors-planvelo.geojson",
         {onEachFeature: bindFeatureEvents, style: styleFeature } );
