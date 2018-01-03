@@ -20,7 +20,7 @@ deploy-stage:
   stage: deploy
   script:
   - jekyll build --config _config.yml,_config_stage.yml --destination $LOCAL_DIR_STAGE
-  - lftp -e "set dns:order inet; mirror -Rev --parallel=10 --exclude-glob .git* --exclude .git/ $LOCAL_DIR_STAGE $FTP_REMOTE_DIR_STAGE" -u $FTP_USER,$FTP_PASSWORD $FTP_HOST
+  - lftp -e "set dns:order inet; set file:charset utf8; mirror -Rev --parallel=10 --exclude-glob .git* --exclude .git/ $LOCAL_DIR_STAGE $FTP_REMOTE_DIR_STAGE" -u $FTP_USER,$FTP_PASSWORD $FTP_HOST
   environment:
     name: stage
 
@@ -28,7 +28,7 @@ deploy-prod:
   stage: deploy
   script:
   - JEKYLL_ENV=production jekyll build --config _config.yml,_config_prod.yml --destination $LOCAL_DIR_PROD
-  - lftp -e "set dns:order inet; mirror -Rev --parallel=10 --exclude-glob .git* --exclude .git/ $LOCAL_DIR_PROD $FTP_REMOTE_DIR_PROD" -u $FTP_USER,$FTP_PASSWORD $FTP_HOST
+  - lftp -e "set dns:order inet; set file:charset utf8; mirror -Rev --parallel=10 --exclude-glob .git* --exclude .git/ $LOCAL_DIR_PROD $FTP_REMOTE_DIR_PROD" -u $FTP_USER,$FTP_PASSWORD $FTP_HOST
   when: manual
   environment:
     name: prod
