@@ -42,7 +42,7 @@
         {
           mouseover: highlightFeature,
           mouseout: resetStyleFeature,
-          click: zoomToFeature
+          click: function (e) { info.update(e.target.feature) ; }
         });
       }
 
@@ -117,7 +117,7 @@
         {
           mouseover: highlightFeature,
           mouseout: resetStyleFeature,
-          click: zoomToFeature
+          click: function (e) { info.update(e.target.feature) ; }
         });
       }
       // Compute the total length of bike lanes
@@ -249,7 +249,8 @@
         subdomains: 'abcd',
       }).addTo(map);
       map.fitBounds([ [48.9021449, 2.4699208], [48.815573, 2.224199] ]) ;
-
+      map.on('movestart', function(e) { info.update() ; });
+      map.on('zoomstart', function(e) { info.update() ; });
 
       // Add a custom control to display information
       var info = L.control({position: "bottomleft"});
