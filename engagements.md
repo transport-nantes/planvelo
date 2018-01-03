@@ -87,7 +87,7 @@ Le Plan Vélo est articulé autour de 4 axes :
 
 {% include video.html url='www.dailymotion.com/embed/video/x561m4u' %}
 
-* **30 mars 2017**: Sur son compte twitter, la ville annonce[^200km] 200km de pistes cyclables supplémentaires pour l'année 2017 dans le cadre du Plan Vélo.
+* **30 mars 2017**: Sur son compte Twitter, la ville annonce[^200km] 200km de pistes cyclables supplémentaires pour l'année 2017 dans le cadre du Plan Vélo.
 
 {% twitter https://twitter.com/Anne_Hidalgo/status/889145583465791489 align='center' %}
 
