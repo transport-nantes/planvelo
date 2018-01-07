@@ -5,6 +5,8 @@
     <script type="text/javascript">
       var areaZonesApaisees = 0, lengthLanesTheory = [0, 0], lengthLanesSatisfying = [0, 0], lengthLanesUnsatisfying = [0, 0], lengthLanesDropped = [0, 0], layersLoaded = 0 ;
       var iPlanVelo = 0, iREVe = 1 ;  
+      var markers = [] ; 
+      var zoomLevelToMarkerSize = { 11: 24, 12: 24, 13: 24, 14: 24, 15: 32, 16: 32, 17: 48, 18: 48, 19: 64 } ; 
       var planVeloPratiqueLayer ; 
       var hueReferences = [ [0, "#ff0000"], [0.33333, "#228b22"], [0.10784, "#ffa500"] ] ; // Red, green, orange
 
@@ -268,6 +270,15 @@
       map.fitBounds([ [48.9021449, 2.4699208], [48.815573, 2.224199] ]) ;
       map.on('movestart', function(e) { info.update() ; });
       map.on('zoomstart', function(e) { info.update() ; });
+      map.on('zoomend', function(e) 
+      {
+        var iconSize = zoomLevelToMarkerSize[ map.getZoom() ] ;
+        var icon = L.icon({ iconUrl: 'assets/images/warning'+iconSize+'.png', iconSize: [iconSize, iconSize], iconAnchor: [iconSize/2, iconSize/2] }) ;
+        for ( var iMarker = 0 ; iMarker < markers.length ; iMarker++ )
+        {
+          markers[iMarker].setIcon(icon) ; 
+        }
+      }) ; 
 
       // Add a custom control to display information
       var info = L.control({position: "bottomleft"});
@@ -293,7 +304,12 @@
           {
             onEachFeature: bindFeatureEventsAndComputeLanesLength, 
             style: styleFeature, 
-            pointToLayer: function (feature, latlng) { return L.marker(latlng, {icon: L.icon({ iconUrl: 'assets/images/warning.png', iconSize: [64, 64], iconAnchor: [32, 32] }) }) ; }
+            pointToLayer: function (feature, latlng) 
+            { 
+              var iconSize = zoomLevelToMarkerSize[ map.getZoom() ] ;
+              markers.push( L.marker(latlng, {icon: L.icon({ iconUrl: 'assets/images/warning'+iconSize+'.png', iconSize: [iconSize, iconSize], iconAnchor: [iconSize/2, iconSize/2] }) }) ) ;
+              return markers[markers.length - 1] ;  
+            }
           } );
         planVeloPratiqueLayer.addTo(map);
         planVeloPratiqueLayer.on("data:loaded", function () { displayProgressBars() ; planVeloPratiqueLayer.bringToFront() ; }) ;
