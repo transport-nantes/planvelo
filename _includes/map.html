@@ -3,7 +3,8 @@
     <div id="mapFrame"></div>
     <!-- Build the map using Leaflet.js -->
     <script type="text/javascript">
-      var areaZonesApaisees = 0, lengthLanesTheory = 0, lengthLanesSatisfying = 0, lengthLanesUnsatisfying = 0, lengthLanesDropped = 0, layersLoaded = 0 ;
+      var areaZonesApaisees = 0, lengthLanesTheory = [0, 0], lengthLanesSatisfying = [0, 0], lengthLanesUnsatisfying = [0, 0], lengthLanesDropped = [0, 0], layersLoaded = 0 ;
+      var iPlanVelo = 0, iREVe = 1 ;  
       var planVeloPratiqueLayer ; 
       var hueReferences = [ [0, "#ff0000"], [0.33333, "#228b22"], [0.10784, "#ffa500"] ] ; // Red, green, orange
 
@@ -124,7 +125,11 @@
       function bindFeatureEventsAndComputeTheoryLanesLength(feature, layer)
       {
         if ( typeof feature != "undefined" && feature.geometry.type == "LineString" )
-          lengthLanesTheory += turf.lineDistance(feature) ;
+        {
+          lengthLanesTheory[iPlanVelo] += turf.lineDistance(feature) ;
+          if ( styleFeature(feature).weight == 8 )
+            lengthLanesTheory[iREVe] += turf.lineDistance(feature) ;
+        }
 
         bindFeatureEvents(feature, layer) ; 
       }
@@ -134,11 +139,23 @@
         var colorFeature = styleFeature(feature).color ; 
 
         if ( typeof feature != "undefined" && feature.geometry.type == "LineString" && colorFeature == hueReferences[1][1] )
-          lengthLanesSatisfying += turf.lineDistance(feature) ;
+        {
+          lengthLanesSatisfying[iPlanVelo] += turf.lineDistance(feature) ;
+          if ( styleFeature(feature).weight == 8 )
+            lengthLanesSatisfying[iREVe] += turf.lineDistance(feature) ;
+        }
         if ( typeof feature != "undefined" && feature.geometry.type == "LineString" && colorFeature == hueReferences[2][1] )
-          lengthLanesUnsatisfying += turf.lineDistance(feature) ;
+        {
+          lengthLanesUnsatisfying[iPlanVelo] += turf.lineDistance(feature) ;
+          if ( styleFeature(feature).weight == 8 )
+            lengthLanesUnsatisfying[iREVe] += turf.lineDistance(feature) ;
+        }
         if ( typeof feature != "undefined" && feature.geometry.type == "LineString" && colorFeature == hueReferences[0][1] )
-          lengthLanesDropped += turf.lineDistance(feature) ;
+        {
+          lengthLanesDropped[iPlanVelo] += turf.lineDistance(feature) ;
+          if ( styleFeature(feature).weight == 8 )
+            lengthLanesDropped[iREVe] += turf.lineDistance(feature) ;
+        }
 
         bindFeatureEvents(feature, layer) ; 
       }
@@ -223,11 +240,19 @@
         // If the two layers have been loaded, perform the update of width and log everything in console
         if ( layersLoaded == 2 )
         {
-          console.log("Satisfaisant " + lengthLanesSatisfying + "\nNon-satisfaisant " + lengthLanesUnsatisfying + "\nAbandonné " + lengthLanesDropped + "\nTotal " + lengthLanesTheory ) ; 
-          disp( Math.round( lengthLanesSatisfying / lengthLanesTheory * 100 ), "pisteSatisfying") ;
-          disp( Math.round( lengthLanesUnsatisfying / lengthLanesTheory * 100 ), "pisteUnsatisfying") ;
-          disp( Math.round( lengthLanesDropped / lengthLanesTheory * 100 ), "pisteDropped") ;
-          disp( Math.max(0, 100 - Math.round( lengthLanesDropped / lengthLanesTheory * 100 ) - Math.round( lengthLanesUnsatisfying / lengthLanesTheory * 100 ) - Math.round( lengthLanesSatisfying / lengthLanesTheory * 100 ) ), "pisteTheory") ;   
+          console.log("Sati " + lengthLanesSatisfying[iPlanVelo] + " *** " + (lengthLanesSatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100) + 
+                      "\nNon-sati " + lengthLanesUnsatisfying[iPlanVelo] + " *** " + (lengthLanesUnsatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100) +  
+                      "\nAbandonné " + lengthLanesDropped[iPlanVelo] + " *** " + (lengthLanesDropped[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100) +
+                      "\nTotal " + lengthLanesTheory[iPlanVelo] ) ; 
+          console.log("Sati " + lengthLanesSatisfying[iREVe] + " *** " + (lengthLanesSatisfying[iREVe] / lengthLanesTheory[iREVe] * 100) + 
+                      "\nNon-sati " + lengthLanesUnsatisfying[iREVe] + " *** " + (lengthLanesUnsatisfying[iREVe] / lengthLanesTheory[iREVe] * 100) +  
+                      "\nAbandonné " + lengthLanesDropped[iREVe] + " *** " + (lengthLanesDropped[iREVe] / lengthLanesTheory[iREVe] * 100) +
+                      "\nTotal " + lengthLanesTheory[iREVe] ) ; 
+
+          disp( Math.round( lengthLanesSatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ), "pisteSatisfying") ;
+          disp( Math.round( lengthLanesUnsatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ), "pisteUnsatisfying") ;
+          disp( Math.round( lengthLanesDropped[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ), "pisteDropped") ;
+          disp( Math.max(0, 100 - Math.round( lengthLanesDropped[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ) - Math.round( lengthLanesUnsatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ) - Math.round( lengthLanesSatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ) ), "pisteTheory") ;   
         }
       }
 
