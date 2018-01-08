@@ -52,21 +52,31 @@
       function highlightFeature(e)
       {
         var layer = e.target;
-        var newStyle = styleFeature(layer.feature) ;
+        
+        // Nothing to highlight for a point, so don't change its style
+        if ( layer.feature.geometry.type != "Point" )
+        {
+          var newStyle = styleFeature(layer.feature) ;
 
-        if ( layer.feature.geometry.type == "Polygon")
-          newStyle.fillOpacity += 0.2 ;
-        else
-          newStyle.weight += 2 ;
+          if ( layer.feature.geometry.type == "Polygon")
+            newStyle.fillOpacity += 0.2 ;
+          else
+            newStyle.weight += 2 ;
 
-        layer.setStyle(newStyle) ;
+          layer.setStyle(newStyle) ;
+        }
+
         info.update(layer.feature) ;
       }
 
       function resetStyleFeature(e)
       {
         var layer = e.target;
-        layer.setStyle(styleFeature(layer.feature)) ;
+        if ( layer.feature.geometry.type != "Point" )
+        {
+          layer.setStyle(styleFeature(layer.feature)) ;
+        }
+        
         info.update() ;
       }
 
