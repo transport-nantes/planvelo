@@ -12,8 +12,6 @@ image: assets/images/articles/2018-01-09-leparisien-plan-velo-les-cyclistes-dema
             img=page.image
             link=page.image
             caption=page.title
-            source-text=page.author
-            source-link=page.link
 %}
 
-Lire cet [article]({{ page.link }}){:rel='nofollow'}.
+Source: [{{ page.link }}]({{ page.link }}){:rel='nofollow'}

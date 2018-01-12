@@ -12,8 +12,6 @@ image: assets/images/articles/2016-12-07-lemonde-paris-velo-eau.jpg
             img=page.image
             link=page.image
             caption=page.title
-            source-text=page.author
-            source-link=page.link
 %}
 
-Lire cet [article]({{ page.link }}){:rel='nofollow'}.
+Source: [{{ page.link }}]({{ page.link }}){:rel='nofollow'}

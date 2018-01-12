@@ -12,8 +12,6 @@ image: assets/images/articles/2017-07-19-bfmparis-plan-velo-la-carte-des-travaux
             img=page.image
             link=page.image
             caption=page.title
-            source-text=page.author
-            source-link=page.link
 %}
 
-Lire cet [article]({{ page.link }}){:rel='nofollow'}.
+Source: [{{ page.link }}]({{ page.link }}){:rel='nofollow'}

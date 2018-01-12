@@ -12,8 +12,6 @@ image: assets/images/articles/2017-07-25-pes-madame-hidalgo-il-faut-sauver-le-pl
             img=page.image
             link=page.image
             caption=page.title
-            source-text=page.author
-            source-link=page.link
 %}
 
-Lire cet [article]({{ page.link }}).
+Source: [{{ page.link }}]({{ page.link }}){:rel='nofollow'}

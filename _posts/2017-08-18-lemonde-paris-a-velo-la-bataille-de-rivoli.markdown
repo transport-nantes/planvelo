@@ -12,8 +12,6 @@ image: assets/images/articles/2017-08-18-lemonde-paris-a-velo-la-bataille-de-riv
             img=page.image
             link=page.image
             caption=page.title
-            source-text=page.author
-            source-link=page.link
 %}
 
-Lire cet [article]({{ page.link }}){:rel='nofollow'}.
+Source: [{{ page.link }}]({{ page.link }}){:rel='nofollow'}

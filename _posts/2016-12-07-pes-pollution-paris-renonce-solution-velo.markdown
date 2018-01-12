@@ -12,8 +12,6 @@ image: assets/images/articles/2016-12-07-pes-pollution-paris-renonce-solution-ve
             img=page.image
             link=page.image
             caption=page.title
-            source-text=page.author
-            source-link=page.link
 %}
 
-Lire cet [article]({{ page.link }}).
+Source: [{{ page.link }}]({{ page.link }}){:rel='nofollow'}
