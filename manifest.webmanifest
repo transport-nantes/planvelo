@@ -1,0 +1,15 @@
+{
+  "background_color": "white",
+  "description": "Avec cet observatoire, l'association Paris en Selle informe les habitants de Paris et d’Île-de-France sur l'avancement des politiques cyclables et l'amélioration des conditions de circulation à vélo dans la capitale.",
+  "display": "fullscreen",
+  "icons": [
+    {
+      "src": "assets/images/logo.png",
+      "sizes": "200x200",
+      "type": "image/png"
+    }
+  ],
+  "name": "Observatoire du Plan Vélo",
+  "short_name": "Plan Vélo",
+  "start_url": "/index.html"
+}
