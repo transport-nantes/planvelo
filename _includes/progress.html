@@ -8,11 +8,17 @@
       return Math.round(Math.max(0, Math.min(100, ( 100.0 * (now - start) ) /  (end - start) )));
   }
   // display
-  function disp(value, element)
+  function disp(value, element, text)
   {
       var progressBar = document.getElementById(element);
       progressBar.style.width = value+"%" ;
-      progressBar.innerHTML = value+"%";
+      if (text)
+      {
+        progressBar.innerHTML = text ;
+      }
+      else {
+        progressBar.innerHTML = value+"%" ;
+      }
       progressBar.setAttribute("aria-valuenow", value) ;
 
       // Adapt color of progress bar if different from bar for time elapsed
@@ -29,7 +35,7 @@
 
   window.onload = function ()
   {
-    disp(100, 'parkings');
+    disp(100, 'parkings', '10000 places');
     disp(percentTimeElapsed, 'timebar');
     $('[data-toggle="tooltip"]').tooltip();
   }
