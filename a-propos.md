@@ -51,10 +51,10 @@ Les résultats sont impressionnants, avec des infrastructures qui transportent d
 
 Le succès du Plan Vélo ne sera possible qu’avec l’appui du plus grand nombre.
 
-Pour rejoindre et soutenir Paris en Selle, c'est [5 euros seulement]({{ site.website }}/association-velo/).
-Vous pouvez aussi faire un [don (déductible de vos impôts)]({{ site.website }}/faire-un-don/).
+Pour rejoindre et soutenir Paris en Selle, c'est [5 euros seulement]({{ site.website }}/adherer/).
+Vous pouvez aussi faire un [don (déductible de vos impôts)](https://www.helloasso.com/associations/paris-en-selle/collectes/pes-campagne-de-dons).
 
-Pour rester informé, retrouvez [Paris en Selle]({{ site.website }}) sur [Facebook](https://www.facebook.com/parisenselle) et sur [Twitter](https://twitter.com/parisenselle), et inscrivez-vous à notre [newsletter]({{ site.website }}/newsletter/).
+Pour rester informé, retrouvez [Paris en Selle]({{ site.website }}) sur [Facebook](https://www.facebook.com/parisenselle) et sur [Twitter](https://twitter.com/parisenselle), et inscrivez-vous à notre [newsletter]({{ site.website }}/contact/).
 
 [^insee]: Chiffres INSEE: [https://www.insee.fr/fr/statistiques/2557426](https://www.insee.fr/fr/statistiques/2557426)
 [^transports]: Paris a déjà le réseau de transports en commun le plus développé du monde. [https://www.itdp.org/people-near-rapid-transit-metric/](https://www.itdp.org/people-near-rapid-transit-metric/)
