@@ -18,15 +18,14 @@
               {% include icon-footer.html icon='icon-bike.svg' linkurl=site.website linktext=site.website-desc %}
             </li>
             <li>
-              {% assign joinurl = site.website | append: '/association-velo' %}
+              {% assign joinurl = site.website | append: '/adherer' %}
               {% include icon-footer.html icon='icon-join.svg' linkurl=joinurl linktext='Adhérer' linkdesc=' (5€)' %}
             </li>
             <li>
-              {% assign donateurl = site.website | append: '/faire-un-don' %}
-              {% include icon-footer.html icon='icon-donate.svg' linkurl=donateurl linktext='Faire un don' linkdesc=' (déductible)' %}
+              {% include icon-footer.html icon='icon-donate.svg' linkurl='https://www.helloasso.com/associations/paris-en-selle/collectes/pes-campagne-de-dons' linktext='Faire un don' linkdesc=' (déductible)' %}
             </li>
             <li>
-              {% assign newsletterurl = site.website | append: '/newsletter' %}
+              {% assign newsletterurl = site.website | append: '/contact' %}
               {% include icon-footer.html icon='icon-newsletter.svg' linkurl=newsletterurl linktext='Newsletter' %}
             </li>
             <li>
