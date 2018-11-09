@@ -4,10 +4,10 @@
     <!-- Build the map using Leaflet.js -->
     <script type="text/javascript">
       var areaZonesApaisees = 0, lengthLanesTheory = [0, 0], lengthLanesSatisfying = [0, 0], lengthLanesUnsatisfying = [0, 0], lengthLanesDropped = [0, 0], layersLoaded = 0 ;
-      var iPlanVelo = 0, iREVe = 1 ;  
-      var markers = [] ; 
-      var zoomLevelToMarkerSize = { 11: 24, 12: 24, 13: 24, 14: 24, 15: 32, 16: 32, 17: 48, 18: 48, 19: 64 } ; 
-      var planVeloPratiqueLayer ; 
+      var iPlanVelo = 0, iREVe = 1 ;
+      var markers = [] ;
+      var zoomLevelToMarkerSize = { 11: 24, 12: 24, 13: 24, 14: 24, 15: 32, 16: 32, 17: 48, 18: 48, 19: 64 } ;
+      var planVeloPratiqueLayer ;
       var hueReferences = [ [0, "#ff0000"], [0.33333, "#228b22"], [0.10784, "#ffa500"] ] ; // Red, green, orange
 
       function toggleLegend(e)
@@ -17,7 +17,7 @@
           if ( e.type == "overlayadd")
           {
             $("#zonesApaiseesLegend").css('visibility','visible').hide().slideDown("fast");
-            e.layer.bringToBack() ; 
+            e.layer.bringToBack() ;
           }
           else
           {
@@ -29,11 +29,11 @@
         {
           if ( e.type == "overlayadd")
           {
-            map.addLayer(planVeloPratiqueLayer) ; 
-            e.layer.bringToBack() ; 
+            map.addLayer(planVeloPratiqueLayer) ;
+            e.layer.bringToBack() ;
           }
           else
-            map.removeLayer(planVeloPratiqueLayer) ; 
+            map.removeLayer(planVeloPratiqueLayer) ;
         }
       }
 
@@ -52,7 +52,7 @@
       function highlightFeature(e)
       {
         var layer = e.target;
-        
+
         // Nothing to highlight for a point, so don't change its style
         if ( layer.feature.geometry.type != "Point" )
         {
@@ -76,7 +76,7 @@
         {
           layer.setStyle(styleFeature(layer.feature)) ;
         }
-        
+
         info.update() ;
       }
 
@@ -139,12 +139,12 @@
             lengthLanesTheory[iREVe] += turf.lineDistance(feature) ;
         }
 
-        bindFeatureEvents(feature, layer) ; 
+        bindFeatureEvents(feature, layer) ;
       }
       // Compute the total length of "acceptable" bikes lanes
       function bindFeatureEventsAndComputeLanesLength(feature, layer)
       {
-        var colorFeature = styleFeature(feature).color ; 
+        var colorFeature = styleFeature(feature).color ;
 
         if ( typeof feature != "undefined" && feature.geometry.type == "LineString" && colorFeature == hueReferences[1][1] )
         {
@@ -165,7 +165,7 @@
             lengthLanesDropped[iREVe] += turf.lineDistance(feature) ;
         }
 
-        bindFeatureEvents(feature, layer) ; 
+        bindFeatureEvents(feature, layer) ;
       }
 
       // Function to convert a color in RGB color space to HSV color space
@@ -240,7 +240,7 @@
           return {"color": finalColor, "weight": finalWidth } ;
         }
       }
-      // Function to display set the width of the progress bar 
+      // Function to display set the width of the progress bar
       function displayProgressBars()
       {
         layersLoaded++ ;
@@ -248,27 +248,27 @@
         // If the two layers have been loaded, perform the update of width and log everything in console
         if ( layersLoaded == 2 )
         {
-          console.log("Sati " + lengthLanesSatisfying[iPlanVelo] + " *** " + (lengthLanesSatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100) + 
-                      "\nNon-sati " + lengthLanesUnsatisfying[iPlanVelo] + " *** " + (lengthLanesUnsatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100) +  
+          console.log("Sati " + lengthLanesSatisfying[iPlanVelo] + " *** " + (lengthLanesSatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100) +
+                      "\nNon-sati " + lengthLanesUnsatisfying[iPlanVelo] + " *** " + (lengthLanesUnsatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100) +
                       "\nAbandonné " + lengthLanesDropped[iPlanVelo] + " *** " + (lengthLanesDropped[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100) +
-                      "\nTotal " + lengthLanesTheory[iPlanVelo] ) ; 
-          console.log("Sati " + lengthLanesSatisfying[iREVe] + " *** " + (lengthLanesSatisfying[iREVe] / lengthLanesTheory[iREVe] * 100) + 
-                      "\nNon-sati " + lengthLanesUnsatisfying[iREVe] + " *** " + (lengthLanesUnsatisfying[iREVe] / lengthLanesTheory[iREVe] * 100) +  
+                      "\nTotal " + lengthLanesTheory[iPlanVelo] ) ;
+          console.log("Sati " + lengthLanesSatisfying[iREVe] + " *** " + (lengthLanesSatisfying[iREVe] / lengthLanesTheory[iREVe] * 100) +
+                      "\nNon-sati " + lengthLanesUnsatisfying[iREVe] + " *** " + (lengthLanesUnsatisfying[iREVe] / lengthLanesTheory[iREVe] * 100) +
                       "\nAbandonné " + lengthLanesDropped[iREVe] + " *** " + (lengthLanesDropped[iREVe] / lengthLanesTheory[iREVe] * 100) +
-                      "\nTotal " + lengthLanesTheory[iREVe] ) ; 
+                      "\nTotal " + lengthLanesTheory[iREVe] ) ;
 
           disp( Math.round( lengthLanesSatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ), "pisteSatisfying") ;
           disp( Math.round( lengthLanesUnsatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ), "pisteUnsatisfying") ;
           disp( Math.round( lengthLanesDropped[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ), "pisteDropped") ;
-          disp( Math.max(0, 100 - Math.round( lengthLanesDropped[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ) - Math.round( lengthLanesUnsatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ) - Math.round( lengthLanesSatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ) ), "pisteTheory") ;   
+          disp( Math.max(0, 100 - Math.round( lengthLanesDropped[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ) - Math.round( lengthLanesUnsatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ) - Math.round( lengthLanesSatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ) ), "pisteTheory") ;
         }
       }
 
       // Create the map with Mapbox tiles
-      var map = L.map('mapFrame', 
+      var map = L.map('mapFrame',
         {
-          fullscreenControl: true, 
-          maxBounds: [ [48.9021449, 2.4699208], [48.815573, 2.224199] ], 
+          fullscreenControl: true,
+          maxBounds: [ [48.9021449, 2.4699208], [48.815573, 2.224199] ],
           maxBoundsViscosity: 1.0,
           minZoom: 11
         }) ;
@@ -280,15 +280,15 @@
       map.fitBounds([ [48.9021449, 2.4699208], [48.815573, 2.224199] ]) ;
       map.on('movestart', function(e) { info.update() ; });
       map.on('zoomstart', function(e) { info.update() ; });
-      map.on('zoomend', function(e) 
+      map.on('zoomend', function(e)
       {
         var iconSize = zoomLevelToMarkerSize[ map.getZoom() ] ;
         var icon = L.icon({ iconUrl: 'assets/images/warning'+iconSize+'.png', iconSize: [iconSize, iconSize], iconAnchor: [iconSize/2, iconSize/2] }) ;
         for ( var iMarker = 0 ; iMarker < markers.length ; iMarker++ )
         {
-          markers[iMarker].setIcon(icon) ; 
+          markers[iMarker].setIcon(icon) ;
         }
-      }) ; 
+      }) ;
 
       // Add a custom control to display information
       var info = L.control({position: "bottomleft"});
@@ -312,13 +312,13 @@
          planVeloPratiqueLayer = new L.GeoJSON.AJAX(
           "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/planvelo-pratique.geojson",
           {
-            onEachFeature: bindFeatureEventsAndComputeLanesLength, 
-            style: styleFeature, 
-            pointToLayer: function (feature, latlng) 
-            { 
+            onEachFeature: bindFeatureEventsAndComputeLanesLength,
+            style: styleFeature,
+            pointToLayer: function (feature, latlng)
+            {
               var iconSize = zoomLevelToMarkerSize[ map.getZoom() ] ;
               markers.push( L.marker(latlng, {icon: L.icon({ iconUrl: 'assets/images/warning'+iconSize+'.png', iconSize: [iconSize, iconSize], iconAnchor: [iconSize/2, iconSize/2] }) }) ) ;
-              return markers[markers.length - 1] ;  
+              return markers[markers.length - 1] ;
             }
           } );
         planVeloPratiqueLayer.addTo(map);
@@ -329,7 +329,7 @@
       var anterieurPlanVeloLayer = new L.GeoJSON.AJAX(
         "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/planvelo-anterieur.geojson",
         {onEachFeature: bindFeatureEvents, style: styleFeature } );
-      anterieurPlanVeloLayer.addTo(map) ; 
+      anterieurPlanVeloLayer.addTo(map) ;
       anterieurPlanVeloLayer.on("data:loaded", function () { displayProgressBars() ; anterieurPlanVeloLayer.bringToFront() ;  }) ;
       var horsPlanVeloLayer = new L.GeoJSON.AJAX(
         "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/hors-planvelo.geojson",
@@ -363,7 +363,7 @@
       <li><span class="grey"></span>Plan Vélo (Projet)</li><br>
       <li><span class="green"></span>Réalisé – Satisfaisant</li><br>
       <li><span class="orange"></span>Réalisé – Non satisfaisant</li><br>
-      <li><span class="red"></span>Abandonné</li><br>
+      <li><span class="red">Ne sera pas réalisé durant cette mandature (2014-2020)</span></li><br>
       <li class="hiddenElement" id="zonesApaiseesLegend"><span class="blue"></span>Zones apaisées</li>
     </ul>
  </div>
