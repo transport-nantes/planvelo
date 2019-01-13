@@ -316,15 +316,6 @@
         planVeloPratiqueLayer.on("data:loaded", function () { displayProgressBars() ; planVeloPratiqueLayer.bringToFront() ; }) ;
       }) ;
 
-
-
-      // Add control to display or hide layers
-      var overlayLayers = {
-        "Plan Vélo": planVeloTheorieLayer,
-      };
-      L.control.layers(null, overlayLayers, {position: "topright", collapsed: false}).addTo(map);
-
-
       // Add event listeners to display/hide legend items
       map.on("overlayremove overlayadd", toggleLegend) ;
 
