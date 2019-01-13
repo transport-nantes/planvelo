@@ -3,6 +3,11 @@
     <div id="mapFrame"></div>
     <!-- Build the map using Leaflet.js -->
     <script type="text/javascript">
+      var areaParisSquareKilometers = 
+        105.4 // https://fr.wikipedia.org/wiki/Paris#Topographie  
+          - 5.53  // Area of parks and garden, see https://fr.wikipedia.org/wiki/Liste_des_espaces_verts_de_Paris. Bois de Boulogne and Bois de Vincennes are excluded since there are roads inside those parks 
+          - 1.38 // Area of the Boulevard Péripérique https://fr.wikipedia.org/wiki/Boulevard_p%C3%A9riph%C3%A9rique_de_Paris#Voies_de_circulation
+          - 1.7 ; // Estimated area of the Seine river in Paris, rounded to the nearest 0.1km2 
       var areaZonesApaisees = 0, lengthLanesTheory = [0, 0], lengthLanesSatisfying = [0, 0], lengthLanesUnsatisfying = [0, 0], lengthLanesDropped = [0, 0], layersLoaded = 0 ;
       var iPlanVelo = 0, iREVe = 1 ;
       var markers = [] ;
