@@ -49,8 +49,7 @@
         layer.on(
         {
           mouseover: highlightFeature,
-          mouseout: resetStyleFeature,
-          click: function (e) { info.update(e.target.feature) ; }
+          mouseout: resetStyleFeature
         });
       }
 
@@ -70,8 +69,6 @@
 
           layer.setStyle(newStyle) ;
         }
-
-        info.update(layer.feature) ;
       }
 
       function resetStyleFeature(e)
@@ -81,48 +78,6 @@
         {
           layer.setStyle(styleFeature(layer.feature)) ;
         }
-
-        info.update() ;
-      }
-
-
-      function updateInfo(feature)
-      {
-        var content = '' ;
-        if ( typeof feature != "undefined" && feature.geometry.type == "Polygon")
-        {
-          var areaFeature = turf.area(feature) / 1000000.0 ;
-          areaFeature = Math.round( 1000 * areaFeature ) / 1000 ;
-
-          if (feature.properties && feature.properties.name)
-            content += "<b>"+feature.properties.name+"</b><br/>" ;
-          if (feature.properties && feature.properties.description)
-            content += feature.properties.description+"<br/>" ;
-
-          content += "Surface : "+areaFeature+"km²";
-        }
-        else if ( typeof feature != "undefined" && feature.geometry.type == "LineString" )
-        {
-          var lengthFeature = Math.round( 10 * turf.lineDistance(feature) ) / 10 ;
-
-          if (feature.properties && feature.properties.name)
-            content += "<b>"+feature.properties.name+"</b><br/>" ;
-          if (feature.properties && feature.properties.description)
-            content += feature.properties.description+"<br/>" ;
-
-          content += "Longueur : "+lengthFeature+"km";
-        }
-        else if ( typeof feature != "undefined" && feature.geometry.type == "Point" )
-        {
-          if (feature.properties && feature.properties.name)
-            content += "<b>"+feature.properties.name+"</b><br/>" ;
-          if (feature.properties && feature.properties.description)
-            content += feature.properties.description+"<br/>" ;
-        }
-        else
-          content = "Placez le curseur sur un segment pour plus d'informations" ;
-
-        this._div.innerHTML = '<h4>Informations</h4>' + content ;
       }
 
       function bindFeatureEvents(feature, layer)
@@ -130,8 +85,7 @@
         layer.on(
         {
           mouseover: highlightFeature,
-          mouseout: resetStyleFeature,
-          click: function (e) { info.update(e.target.feature) ; }
+          mouseout: resetStyleFeature
         });
       }
       // Compute the total length of bike lanes
@@ -269,8 +223,6 @@
         subdomains: 'abcd',
       }).addTo(map);
       map.fitBounds([ [48.9021449, 2.4699208], [48.815573, 2.224199] ]) ;
-      map.on('movestart', function(e) { info.update() ; });
-      map.on('zoomstart', function(e) { info.update() ; });
       map.on('zoomend', function(e)
       {
         var iconSize = zoomLevelToMarkerSize[ map.getZoom() ] ;
@@ -280,17 +232,6 @@
           markers[iMarker].setIcon(icon) ;
         }
       }) ;
-
-      // Add a custom control to display information
-      var info = L.control({position: "bottomleft"});
-      info.onAdd = function (map)
-      {
-          this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
-          this.update();
-          return this._div;
-      };
-      info.update = updateInfo ;
-      info.addTo(map);
 
       // Load the different layers and display the default one (planVelo) on the map
       var planVeloTheorieLayer = new L.GeoJSON.AJAX(
