@@ -23,7 +23,7 @@
   {% endif %}
 
 
-  {% if page.layout == 'home' %}
+  {% if page.layout == 'home' or page.layout == 'finmandature' %}
   <!-- Include CSS for the map -->
   <link rel="stylesheet" href="{{ "/assets/css/bootstrap.min.css" | relative_url }}">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
@@ -33,7 +33,7 @@
   <!-- Include master CSS -->
   <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
 
-  {% if page.layout == 'home' %}
+  {% if page.layout == 'home' or page.layout == 'finmandature' %}
   <!-- Include script file for Leaflet.js -->
   <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
   <script src="{{ "/assets/js/leaflet.ajax.min.js" | relative_url }}"></script>
