@@ -1,0 +1,341 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div id="mapFrame"></div>
+    <!-- Build the map using Leaflet.js -->
+    <script type="text/javascript">
+      var areaParisSquareKilometers = 
+        105.4 // https://fr.wikipedia.org/wiki/Paris#Topographie  
+          - 5.53  // Area of parks and garden, see https://fr.wikipedia.org/wiki/Liste_des_espaces_verts_de_Paris. Bois de Boulogne and Bois de Vincennes are excluded since there are roads inside those parks 
+          - 1.38 // Area of the Boulevard Péripérique https://fr.wikipedia.org/wiki/Boulevard_p%C3%A9riph%C3%A9rique_de_Paris#Voies_de_circulation
+          - 1.7 ; // Estimated area of the Seine river in Paris, rounded to the nearest 0.1km2 
+      var areaZonesApaisees = 0, lengthLanesTheory = [0, 0], lengthLanesSatisfying = [0, 0], lengthLanesUnsatisfying = [0, 0], lengthLanesDropped = [0, 0], layersLoaded = 0 ;
+      var iPlanVelo = 0, iREVe = 1 ;
+      var markers = [] ;
+      var zoomLevelToMarkerSize = { 11: 24, 12: 24, 13: 24, 14: 24, 15: 32, 16: 32, 17: 48, 18: 48, 19: 64 } ;
+      var planVeloPratiqueLayer ;
+      var hueReferences = [ [0, "#ff0000"], [0.33333, "#228b22"], [0.10784, "#ffa500"], [0.66, "#7980FF"] ] ; // Red, green, orange, blue
+
+      function toggleLegend(e)
+      {
+        if (e.name == "Zones apaisées")
+        {
+          if ( e.type == "overlayadd")
+          {
+            $("#zonesApaiseesLegend").css('visibility','visible').hide().slideDown("fast");
+            e.layer.bringToBack() ;
+          }
+          else
+          {
+            $("#zonesApaiseesLegend").slideUp("fast", function(){$("#zonesApaiseesLegend").css('visibility','hidden').css("display", "block")});
+          }
+        }
+
+        if ( e.name == "Plan Vélo" )
+        {
+          if ( e.type == "overlayadd")
+          {
+            map.addLayer(planVeloPratiqueLayer) ;
+            e.layer.bringToBack() ;
+          }
+          else
+            map.removeLayer(planVeloPratiqueLayer) ;
+        }
+      }
+
+      function areaFeature(feature, layer)
+      {
+        areaZonesApaisees += Math.round( 10 * turf.area(feature) ) / 10 ;
+
+        layer.on(
+        {
+          mouseover: highlightFeature,
+          mouseout: resetStyleFeature,
+          click: function (e) { info.update(e.target.feature) ; }
+        });
+      }
+
+      function highlightFeature(e)
+      {
+        var layer = e.target;
+
+        // Nothing to highlight for a point, so don't change its style
+        if ( layer.feature.geometry.type != "Point" )
+        {
+          var newStyle = styleFeature(layer.feature) ;
+
+          if ( layer.feature.geometry.type == "Polygon")
+            newStyle.fillOpacity += 0.2 ;
+          else
+            newStyle.weight += 2 ;
+
+          layer.setStyle(newStyle) ;
+        }
+
+        info.update(layer.feature) ;
+      }
+
+      function resetStyleFeature(e)
+      {
+        var layer = e.target;
+        if ( layer.feature.geometry.type != "Point" )
+        {
+          layer.setStyle(styleFeature(layer.feature)) ;
+        }
+
+        info.update() ;
+      }
+
+
+      function updateInfo(feature)
+      {
+        var content = '' ;
+        if ( typeof feature != "undefined" && feature.geometry.type == "Polygon")
+        {
+          var areaFeature = turf.area(feature) / 1000000.0 ;
+          areaFeature = Math.round( 1000 * areaFeature ) / 1000 ;
+
+          if (feature.properties && feature.properties.name)
+            content += "<b>"+feature.properties.name+"</b><br/>" ;
+          if (feature.properties && feature.properties.description)
+            content += feature.properties.description+"<br/>" ;
+
+          content += "Surface : "+areaFeature+"km²";
+        }
+        else if ( typeof feature != "undefined" && feature.geometry.type == "LineString" )
+        {
+          var lengthFeature = Math.round( 10 * turf.lineDistance(feature) ) / 10 ;
+
+          if (feature.properties && feature.properties.name)
+            content += "<b>"+feature.properties.name+"</b><br/>" ;
+          if (feature.properties && feature.properties.description)
+            content += feature.properties.description+"<br/>" ;
+
+          content += "Longueur : "+lengthFeature+"km";
+        }
+        else if ( typeof feature != "undefined" && feature.geometry.type == "Point" )
+        {
+          if (feature.properties && feature.properties.name)
+            content += "<b>"+feature.properties.name+"</b><br/>" ;
+          if (feature.properties && feature.properties.description)
+            content += feature.properties.description+"<br/>" ;
+        }
+        else
+          content = "Placez le curseur sur un segment pour plus d'informations" ;
+
+        this._div.innerHTML = '<h4>Informations</h4>' + content ;
+      }
+
+      function bindFeatureEvents(feature, layer)
+      {
+        layer.on(
+        {
+          mouseover: highlightFeature,
+          mouseout: resetStyleFeature,
+          click: function (e) { info.update(e.target.feature) ; }
+        });
+      }
+      // Compute the total length of bike lanes
+      function bindFeatureEventsAndComputeTheoryLanesLength(feature, layer)
+      {
+        if ( typeof feature != "undefined" && feature.geometry.type == "LineString" )
+        {
+          lengthLanesTheory[iPlanVelo] += turf.lineDistance(feature) ;
+          if ( styleFeature(feature).weight == 8 )
+            lengthLanesTheory[iREVe] += turf.lineDistance(feature) ;
+        }
+
+        bindFeatureEvents(feature, layer) ;
+      }
+      // Compute the total length of "acceptable" bikes lanes
+      function bindFeatureEventsAndComputeLanesLength(feature, layer)
+      {
+        var colorFeature = styleFeature(feature).color ;
+
+        if ( typeof feature != "undefined" && feature.geometry.type == "LineString" && colorFeature == hueReferences[3][1] )
+        {
+          lengthLanesSatisfying[iPlanVelo] += turf.lineDistance(feature) ;
+          if ( styleFeature(feature).weight == 8 )
+            lengthLanesSatisfying[iREVe] += turf.lineDistance(feature) ;
+        }
+
+        bindFeatureEvents(feature, layer) ;
+      }
+
+      // Function to convert a color in RGB color space to HSV color space
+      function rgbToHsl(r, g, b)
+      {
+        r /= 255.0, g /= 255.0, b /= 255.0;
+        var max = Math.max(r, g, b), min = Math.min(r, g, b);
+        var h, s, l = (max + min) / 2.0;
+
+        if(max == min)
+        {
+          h = s = 0; // achromatic
+        }
+        else
+        {
+          var d = max - min;
+          s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+          switch(max)
+          {
+            case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+            case g: h = (b - r) / d + 2; break;
+            case b: h = (r - g) / d + 4; break;
+          }
+          h /= 6.0;
+        }
+
+        return [h, s, l];
+      }
+
+
+      // Function to get the style to apply to a feature
+      function styleFeature(feature)
+      {
+        if ( feature.geometry.type == "Polygon" )
+        {
+          return {fillColor: "#3456d9", fillOpacity: 0.4, weight: 2, opacity: 0.7, color: 'white', dashArray: '3'} ;
+        }
+        else
+        {
+          var finalColor, finalWidth ;
+
+          if ( feature.properties.stroke )
+          {
+            // Get the color, make the conversion from RGB to HSV
+            var colorHexa = feature.properties.stroke.substr(1), colorHLS ;
+            colorHLS = rgbToHsl ( parseInt(colorHexa.substr(0,2), 16), parseInt(colorHexa.substr(2,2), 16), parseInt(colorHexa.substr(4,2), 16) ) ;
+
+            if ( colorHLS[1] < 0.3 && colorHLS[2] < 0.5 )
+            {
+              finalColor = '#adadad' ;
+            }
+            else
+            {
+              // Compare the distance between H and references H for green, red and orange
+              var distanceMin = 1  ;
+              for ( var iColor = 0 ; iColor < hueReferences.length ; iColor++ )
+              {
+                if ( Math.abs(colorHLS[0] - hueReferences[iColor][0]) < distanceMin )
+                {
+                  finalColor = hueReferences[iColor][1] ;
+                  distanceMin = Math.abs(colorHLS[0] - hueReferences[iColor][0]) ;
+                }
+              }
+            }
+          }
+          else
+            finalColor = '#adadad' ;
+
+          finalWidth = Math.max(4, ( feature.properties["stroke-width"] ? feature.properties["stroke-width"] : 4 ) ) ;
+
+
+          return {"color": finalColor, "weight": finalWidth } ;
+        }
+      }
+      // Function to display set the width of the progress bar
+      function displayProgressBars()
+      {
+        layersLoaded++ ;
+
+        // If the two layers have been loaded, perform the update of width and log everything in console
+        if ( layersLoaded == 2 )
+        {
+          console.log("Sati " + lengthLanesSatisfying[iPlanVelo] + " *** " + (lengthLanesSatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100) +
+                      "\nNon-sati " + lengthLanesUnsatisfying[iPlanVelo] + " *** " + (lengthLanesUnsatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100) +
+                      "\nAbandonné " + lengthLanesDropped[iPlanVelo] + " *** " + (lengthLanesDropped[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100) +
+                      "\nTotal " + lengthLanesTheory[iPlanVelo] ) ;
+          console.log("Sati " + lengthLanesSatisfying[iREVe] + " *** " + (lengthLanesSatisfying[iREVe] / lengthLanesTheory[iREVe] * 100) +
+                      "\nNon-sati " + lengthLanesUnsatisfying[iREVe] + " *** " + (lengthLanesUnsatisfying[iREVe] / lengthLanesTheory[iREVe] * 100) +
+                      "\nAbandonné " + lengthLanesDropped[iREVe] + " *** " + (lengthLanesDropped[iREVe] / lengthLanesTheory[iREVe] * 100) +
+                      "\nTotal " + lengthLanesTheory[iREVe] ) ;
+
+          disp( Math.round( lengthLanesSatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ), "pisteSatisfying") ;
+          disp( Math.max(0, 100 - Math.round( lengthLanesDropped[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ) - Math.round( lengthLanesUnsatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ) - Math.round( lengthLanesSatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ) ), "pisteTheory") ;
+        }
+      }
+
+      // Create the map with Mapbox tiles
+      var map = L.map('mapFrame',
+        {
+          fullscreenControl: true,
+          maxBounds: [ [48.9021449, 2.4699208], [48.815573, 2.224199] ],
+          maxBoundsViscosity: 1.0,
+          minZoom: 11
+        }) ;
+      L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a> | Paris en Selle',
+        subdomains: 'abcd',
+      }).addTo(map);
+      map.fitBounds([ [48.9021449, 2.4699208], [48.815573, 2.224199] ]) ;
+      map.on('movestart', function(e) { info.update() ; });
+      map.on('zoomstart', function(e) { info.update() ; });
+      map.on('zoomend', function(e)
+      {
+        var iconSize = zoomLevelToMarkerSize[ map.getZoom() ] ;
+        var icon = L.icon({ iconUrl: 'assets/images/warning'+iconSize+'.png', iconSize: [iconSize, iconSize], iconAnchor: [iconSize/2, iconSize/2] }) ;
+        for ( var iMarker = 0 ; iMarker < markers.length ; iMarker++ )
+        {
+          markers[iMarker].setIcon(icon) ;
+        }
+      }) ;
+
+      // Add a custom control to display information
+      var info = L.control({position: "bottomleft"});
+      info.onAdd = function (map)
+      {
+          this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+          this.update();
+          return this._div;
+      };
+      info.update = updateInfo ;
+      info.addTo(map);
+
+      // Load the different layers and display the default one (planVelo) on the map
+      var planVeloTheorieLayer = new L.GeoJSON.AJAX(
+        "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/planvelo-theorie.geojson",
+        {onEachFeature: bindFeatureEventsAndComputeTheoryLanesLength, style: styleFeature } );
+      planVeloTheorieLayer.addTo(map);
+      planVeloTheorieLayer.on("data:loaded", function ()
+      {
+         planVeloTheorieLayer.bringToBack() ;
+         planVeloPratiqueLayer = new L.GeoJSON.AJAX(
+          "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/planvelo-findemandature2020.geojson",
+          {
+            onEachFeature: bindFeatureEventsAndComputeLanesLength,
+            style: styleFeature,
+            pointToLayer: function (feature, latlng)
+            {
+              var iconSize = zoomLevelToMarkerSize[ map.getZoom() ] ;
+              markers.push( L.marker(latlng, {icon: L.icon({ iconUrl: 'assets/images/warning'+iconSize+'.png', iconSize: [iconSize, iconSize], iconAnchor: [iconSize/2, iconSize/2] }) }) ) ;
+              return markers[markers.length - 1] ;
+            }
+          } );
+        planVeloPratiqueLayer.addTo(map);
+        planVeloPratiqueLayer.on("data:loaded", function () { displayProgressBars() ; planVeloPratiqueLayer.bringToFront() ; }) ;
+      }) ;
+
+
+
+      // Add control to display or hide layers
+      var overlayLayers = {
+        "Plan Vélo": planVeloTheorieLayer,
+      };
+      L.control.layers(null, overlayLayers, {position: "topright", collapsed: false}).addTo(map);
+
+
+      // Add event listeners to display/hide legend items
+      map.on("overlayremove overlayadd", toggleLegend) ;
+
+
+    </script>
+    <ul class="legend">
+      <li><span class="grey"></span>Plan Vélo (Projet)</li><br>
+      <li><span class="green"></span>Réalisé – Satisfaisant</li><br>
+      <li><span class="orange"></span>Réalisé – Non satisfaisant</li><br>
+      <li><span class="red"></span>Ne sera pas réalisé durant cette mandature (2014-2020)</li><br>
+      <li class="hiddenElement" id="zonesApaiseesLegend"><span class="blue"></span>Zones apaisées</li>
+    </ul>
+ </div>
+</div>
