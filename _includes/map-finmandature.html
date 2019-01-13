@@ -195,17 +195,13 @@
         // If the two layers have been loaded, perform the update of width and log everything in console
         if ( layersLoaded == 1 )
         {
-          console.log("Sati " + lengthLanesSatisfying[iPlanVelo] + " *** " + (lengthLanesSatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100) +
-                      "\nNon-sati " + lengthLanesUnsatisfying[iPlanVelo] + " *** " + (lengthLanesUnsatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100) +
-                      "\nAbandonné " + lengthLanesDropped[iPlanVelo] + " *** " + (lengthLanesDropped[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100) +
+          console.log("Plan vélo\nDone " + lengthLanesSatisfying[iPlanVelo] + " *** " + (lengthLanesSatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100) +
                       "\nTotal " + lengthLanesTheory[iPlanVelo] ) ;
-          console.log("Sati " + lengthLanesSatisfying[iREVe] + " *** " + (lengthLanesSatisfying[iREVe] / lengthLanesTheory[iREVe] * 100) +
-                      "\nNon-sati " + lengthLanesUnsatisfying[iREVe] + " *** " + (lengthLanesUnsatisfying[iREVe] / lengthLanesTheory[iREVe] * 100) +
-                      "\nAbandonné " + lengthLanesDropped[iREVe] + " *** " + (lengthLanesDropped[iREVe] / lengthLanesTheory[iREVe] * 100) +
+          console.log("REVe\nDone " + lengthLanesSatisfying[iREVe] + " *** " + (lengthLanesSatisfying[iREVe] / lengthLanesTheory[iREVe] * 100) +
                       "\nTotal " + lengthLanesTheory[iREVe] ) ;
 
           disp( Math.round( lengthLanesSatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ), "pisteSatisfying") ;
-          disp( Math.max(0, 100 - Math.round( lengthLanesDropped[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ) - Math.round( lengthLanesUnsatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ) - Math.round( lengthLanesSatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ) ), "pisteTheory") ;
+          disp( Math.max(0, 100 - Math.round( lengthLanesSatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ) ), "pisteTheory") ;
         }
       }
 
