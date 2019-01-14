@@ -8,7 +8,7 @@
           - 5.53  // Area of parks and garden, see https://fr.wikipedia.org/wiki/Liste_des_espaces_verts_de_Paris. Bois de Boulogne and Bois de Vincennes are excluded since there are roads inside those parks 
           - 1.38 // Area of the Boulevard Péripérique https://fr.wikipedia.org/wiki/Boulevard_p%C3%A9riph%C3%A9rique_de_Paris#Voies_de_circulation
           - 1.7 ; // Estimated area of the Seine river in Paris, rounded to the nearest 0.1km2 
-      var areaZonesApaisees = 0, lengthLanesTheory = [0, 0], lengthLanesSatisfying = [0, 0], lengthLanesUnsatisfying = [0, 0], layersLoaded = 0 ;
+      var areaZonesApaisees = 0, lengthLanesTheory = [0, 0], lengthLanesSatisfying = [0, 0], lengthLanesUnsatisfying = [0, 0], lengthLanesNotPlanned = 0, layersLoaded = 0 ;
       var iPlanVelo = 0, iREVe = 1 ;
       var markers = [] ;
       var zoomLevelToMarkerSize = { 11: 24, 12: 24, 13: 24, 14: 24, 15: 32, 16: 32, 17: 48, 18: 48, 19: 64 } ;
@@ -164,6 +164,13 @@
             lengthLanesUnsatisfying[iREVe] += turf.lineDistance(feature) ;
         }
 
+        bindFeatureEvents(feature, layer) ;
+      }
+      // Compute the total length of "acceptable" bikes lanes
+      function bindFeatureEventsAndComputeLanesNotPlannedLength(feature, layer)
+      {
+        var colorFeature = styleFeature(feature).color ;
+        lengthLanesNotPlanned += turf.lineDistance(feature) ;
         bindFeatureEvents(feature, layer) ;
       }
 
@@ -329,7 +336,8 @@
       anterieurPlanVeloLayer.on("data:loaded", function () { displayProgressBars() ; anterieurPlanVeloLayer.bringToFront() ;  }) ;
       var horsPlanVeloLayer = new L.GeoJSON.AJAX(
         "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/hors-planvelo.geojson",
-        {onEachFeature: bindFeatureEvents, style: styleFeature } );
+        {onEachFeature: bindFeatureEventsAndComputeLanesNotPlannedLength, style: styleFeature } );
+      horsPlanVeloLayer.on("data:loaded", function () { console.log("Hors plan vélo : " + lengthLanesNotPlanned + "km") ; }) ;
       var zonesApaiseesLayer = new L.GeoJSON.AJAX(
         "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/opendata.paris.fr/zones-de-circulation-apaisee_PeS.geojson",
         { onEachFeature: areaFeature, style: styleFeature } );
