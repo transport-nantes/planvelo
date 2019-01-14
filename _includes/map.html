@@ -8,7 +8,7 @@
           - 5.53  // Area of parks and garden, see https://fr.wikipedia.org/wiki/Liste_des_espaces_verts_de_Paris. Bois de Boulogne and Bois de Vincennes are excluded since there are roads inside those parks 
           - 1.38 // Area of the Boulevard Péripérique https://fr.wikipedia.org/wiki/Boulevard_p%C3%A9riph%C3%A9rique_de_Paris#Voies_de_circulation
           - 1.7 ; // Estimated area of the Seine river in Paris, rounded to the nearest 0.1km2 
-      var areaZonesApaisees = 0, lengthLanesTheory = [0, 0], lengthLanesSatisfying = [0, 0], lengthLanesUnsatisfying = [0, 0], lengthLanesDropped = [0, 0], layersLoaded = 0 ;
+      var areaZonesApaisees = 0, lengthLanesTheory = [0, 0], lengthLanesSatisfying = [0, 0], lengthLanesUnsatisfying = [0, 0], layersLoaded = 0 ;
       var iPlanVelo = 0, iREVe = 1 ;
       var markers = [] ;
       var zoomLevelToMarkerSize = { 11: 24, 12: 24, 13: 24, 14: 24, 15: 32, 16: 32, 17: 48, 18: 48, 19: 64 } ;
@@ -163,12 +163,6 @@
           if ( styleFeature(feature).weight == 8 )
             lengthLanesUnsatisfying[iREVe] += turf.lineDistance(feature) ;
         }
-        if ( typeof feature != "undefined" && feature.geometry.type == "LineString" && colorFeature == hueReferences[0][1] )
-        {
-          lengthLanesDropped[iPlanVelo] += turf.lineDistance(feature) ;
-          if ( styleFeature(feature).weight == 8 )
-            lengthLanesDropped[iREVe] += turf.lineDistance(feature) ;
-        }
 
         bindFeatureEvents(feature, layer) ;
       }
@@ -253,19 +247,16 @@
         // If the two layers have been loaded, perform the update of width and log everything in console
         if ( layersLoaded == 2 )
         {
-          console.log("Sati " + lengthLanesSatisfying[iPlanVelo] + " *** " + (lengthLanesSatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100) +
+          console.log("Total\nSati " + lengthLanesSatisfying[iPlanVelo] + " *** " + (lengthLanesSatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100) +
                       "\nNon-sati " + lengthLanesUnsatisfying[iPlanVelo] + " *** " + (lengthLanesUnsatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100) +
-                      "\nAbandonné " + lengthLanesDropped[iPlanVelo] + " *** " + (lengthLanesDropped[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100) +
                       "\nTotal " + lengthLanesTheory[iPlanVelo] ) ;
-          console.log("Sati " + lengthLanesSatisfying[iREVe] + " *** " + (lengthLanesSatisfying[iREVe] / lengthLanesTheory[iREVe] * 100) +
+          console.log("REVe\nSati " + lengthLanesSatisfying[iREVe] + " *** " + (lengthLanesSatisfying[iREVe] / lengthLanesTheory[iREVe] * 100) +
                       "\nNon-sati " + lengthLanesUnsatisfying[iREVe] + " *** " + (lengthLanesUnsatisfying[iREVe] / lengthLanesTheory[iREVe] * 100) +
-                      "\nAbandonné " + lengthLanesDropped[iREVe] + " *** " + (lengthLanesDropped[iREVe] / lengthLanesTheory[iREVe] * 100) +
                       "\nTotal " + lengthLanesTheory[iREVe] ) ;
 
           disp( Math.round( lengthLanesSatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ), "pisteSatisfying") ;
           disp( Math.round( lengthLanesUnsatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ), "pisteUnsatisfying") ;
-          disp( Math.round( lengthLanesDropped[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ), "pisteDropped") ;
-          disp( Math.max(0, 100 - Math.round( lengthLanesDropped[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ) - Math.round( lengthLanesUnsatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ) - Math.round( lengthLanesSatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ) ), "pisteTheory") ;
+          disp( Math.max(0, 100 - Math.round( lengthLanesUnsatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ) - Math.round( lengthLanesSatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ) ), "pisteTheory") ;
         }
       }
 
