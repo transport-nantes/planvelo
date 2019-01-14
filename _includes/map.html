@@ -10,6 +10,20 @@
       var planVeloPratiqueLayer ;
       var hueReferences = [ [0, "#ff0000"], [0.33333, "#228b22"], [0.10784, "#ffa500"] ] ; // Red, green, orange
 
+      function toggleLegend(e)
+      {
+        if ( e.name == "Plan Vélo" )
+        {
+          if ( e.type == "overlayadd")
+          {
+            map.addLayer(planVeloPratiqueLayer) ;
+            e.layer.bringToBack() ;
+          }
+          else
+            map.removeLayer(planVeloPratiqueLayer) ;
+        }
+      }
+
       function areaFeature(feature, layer)
       {
 
@@ -320,6 +334,8 @@
       };
       L.control.layers(null, overlayLayers, {position: "topright", collapsed: false}).addTo(map);
 
+      // Add event listeners to display/hide legend items
+      map.on("overlayremove overlayadd", toggleLegend) ;
 
     </script>
     <ul class="legend">
