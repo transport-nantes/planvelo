@@ -6,9 +6,9 @@
   (function() {
     var u="//stats.parisenselle.fr/";
     _paq.push(['setTrackerUrl', u+'js/']);
-    _paq.push(['setSiteId', '{{ site.piwik_siteid }}']);
+    _paq.push(['setSiteId', '{{ site.matomo_siteid }}']);
     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
     g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'js/'; s.parentNode.insertBefore(g,s);
   })();
 </script>
-<noscript><p><img src="//stats.parisenselle.fr/js?idsite={{ site.piwik_siteid }}&rec=1" style="border:0;" alt="" /></p></noscript>
+<noscript><p><img src="//stats.parisenselle.fr/js?idsite={{ site.matomo_siteid }}&rec=1" style="border:0;" alt="" /></p></noscript>

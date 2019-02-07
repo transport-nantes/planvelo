@@ -4,8 +4,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>{% if page.title %}{{ page.title | escape }} - {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
-  {% if jekyll.environment == 'production' and site.piwik_siteid %}
-  {% include piwik.html %}
+  {% if jekyll.environment == 'production' and site.matomo_siteid %}
+  {% include matomo.html %}
   {% endif %}
   <!-- Tags provided by 'Jekyll SEO Tag'
   <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
