@@ -3,6 +3,12 @@
     <div id="mapFrame"></div>
     <!-- Build the map using Leaflet.js -->
     <script type="text/javascript">
+      var areaParisSquareKilometers =
+        105.4 // https://fr.wikipedia.org/wiki/Paris#Topographie
+          - 5.53  // Area of parks and garden, see https://fr.wikipedia.org/wiki/Liste_des_espaces_verts_de_Paris. Bois de Boulogne and Bois de Vincennes are excluded since there are roads inside those parks
+          - 1.38 // Area of the Boulevard Péripérique https://fr.wikipedia.org/wiki/Boulevard_p%C3%A9riph%C3%A9rique_de_Paris#Voies_de_circulation
+          - 1.7 ; // Estimated area of the Seine river in Paris, rounded to the nearest 0.1km2
+      var areaZonesApaisees = 0 ;
       var lengthLanesTheory = [0, 0], lengthLanesSatisfying = [0, 0], lengthLanesUnsatisfying = [0, 0], lengthLanesNotPlanned = [0, 0], layersLoaded = 0 ;
       var iPlanVelo = 0, iREVe = 1, iNotPlannedDone = 0, iNotPlannedTotal = 1 ;
       var markers = [] ;
@@ -12,6 +18,19 @@
 
       function toggleLegend(e)
       {
+        if (e.name == "Zones apaisées")
+        {
+          if ( e.type == "overlayadd")
+          {
+            $("#zonesApaiseesLegend").css('visibility','visible').hide().slideDown("fast");
+            e.layer.bringToBack() ;
+          }
+          else
+          {
+            $("#zonesApaiseesLegend").slideUp("fast", function(){$("#zonesApaiseesLegend").css('visibility','hidden').css("display", "block")});
+          }
+        }
+
         if ( e.name == "Plan Vélo" )
         {
           if ( e.type == "overlayadd")
@@ -26,6 +45,7 @@
 
       function areaFeature(feature, layer)
       {
+        areaZonesApaisees += Math.round( 10 * turf.area(feature) ) / 10 ;
 
         layer.on(
         {
@@ -324,13 +344,20 @@
         "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/hors-planvelo.geojson",
         {onEachFeature: bindFeatureEventsAndComputeLanesNotPlannedLength, style: styleFeature } );
       horsPlanVeloLayer.on("data:loaded", function () { console.log("Hors plan vélo : total " + lengthLanesNotPlanned[iNotPlannedTotal] + "km, fait " + lengthLanesNotPlanned[iNotPlannedDone] + "km") ; }) ;
-
+      var zonesApaiseesLayer = new L.GeoJSON.AJAX(
+        "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/zones-30.geojson",
+        { onEachFeature: areaFeature, style: styleFeature } );
+      zonesApaiseesLayer.on("data:loaded", function ()
+      {
+        disp( Math.round( areaZonesApaisees / (1000000 * 100) * 100 ), "zonesApaisees") ;
+      }) ;
 
       // Add control to display or hide layers
       var overlayLayers = {
         "Plan Vélo": planVeloTheorieLayer,
         "Antérieur au Plan Vélo": anterieurPlanVeloLayer,
-        "Hors Plan Vélo": horsPlanVeloLayer
+        "Hors Plan Vélo": horsPlanVeloLayer,
+        "Zones apaisées": zonesApaiseesLayer
       };
       L.control.layers(null, overlayLayers, {position: "topright", collapsed: false}).addTo(map);
 
@@ -342,6 +369,7 @@
       <li><span class="grey"></span>Plan Vélo (Projet)</li><br>
       <li><span class="green"></span>Réalisé – Satisfaisant</li><br>
       <li><span class="orange"></span>Réalisé – Non satisfaisant</li><br>
+      <li class="hiddenElement" id="zonesApaiseesLegend"><span class="blue"></span>Zones apaisées</li>
     </ul>
  </div>
 </div>
