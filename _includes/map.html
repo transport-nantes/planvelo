@@ -5,7 +5,7 @@
     <script type="text/javascript">
       var areaParisSquareKilometers =
         105.4 // https://fr.wikipedia.org/wiki/Paris#Topographie
-          - 5.53  // Area of parks and garden, see https://fr.wikipedia.org/wiki/Liste_des_espaces_verts_de_Paris. Bois de Boulogne and Bois de Vincennes are excluded since there are roads inside those parks
+          - (23.94 + 18.41)  // Area of parks and garden, see https://fr.wikipedia.org/wiki/Liste_des_espaces_verts_de_Paris
           - 1.38 // Area of the Boulevard Péripérique https://fr.wikipedia.org/wiki/Boulevard_p%C3%A9riph%C3%A9rique_de_Paris#Voies_de_circulation
           - 1.7 ; // Estimated area of the Seine river in Paris, rounded to the nearest 0.1km2
       var areaZonesApaisees = 0 ;
@@ -260,11 +260,11 @@
         // If the two layers have been loaded, perform the update of width and log everything in console
         if ( layersLoaded == 2 )
         {
-          console.log("Total\nSati " + lengthLanesSatisfying[iPlanVelo] + " *** " + (lengthLanesSatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100) +
-                      "\nNon-sati " + lengthLanesUnsatisfying[iPlanVelo] + " *** " + (lengthLanesUnsatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100) +
-                      "\nTotal " + lengthLanesTheory[iPlanVelo] ) ;
-          console.log("REVe\nSati " + lengthLanesSatisfying[iREVe] + " *** " + (lengthLanesSatisfying[iREVe] / lengthLanesTheory[iREVe] * 100) +
-                      "\nNon-sati " + lengthLanesUnsatisfying[iREVe] + " *** " + (lengthLanesUnsatisfying[iREVe] / lengthLanesTheory[iREVe] * 100) +
+          console.log("Total\nSati " + lengthLanesSatisfying[iPlanVelo] + "km *** " + (lengthLanesSatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100) +
+                      "\nNon-sati " + lengthLanesUnsatisfying[iPlanVelo] + "km *** " + (lengthLanesUnsatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100) +
+                      "\nTotal " + lengthLanesTheory[iPlanVelo] + "km" ) ;
+          console.log("Dont REVe\nSati " + lengthLanesSatisfying[iREVe] + "km *** " + (lengthLanesSatisfying[iREVe] / lengthLanesTheory[iREVe] * 100) +
+                      "\nNon-sati " + lengthLanesUnsatisfying[iREVe] + "km *** " + (lengthLanesUnsatisfying[iREVe] / lengthLanesTheory[iREVe] * 100) +
                       "\nTotal " + lengthLanesTheory[iREVe] ) ;
 
           disp( Math.round( lengthLanesSatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ), "pisteSatisfying") ;
