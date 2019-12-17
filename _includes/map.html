@@ -268,9 +268,11 @@
           console.log("Plus hors plan vélo\nSati " + lengthLanesSatisfying[iNotPlanned] + "km " +
                       "\nNon-sati " + lengthLanesUnsatisfying[iNotPlanned] + "km " ) ;
 
-          disp( Math.round( (lengthLanesSatisfying[iPlanVelo] + lengthLanesSatisfying[iNotPlanned]) / lengthLanesTheory[iPlanVelo] * 100 ), "pisteSatisfying") ;
-          disp( Math.round( (lengthLanesUnsatisfying[iPlanVelo] + lengthLanesUnsatisfying[iNotPlanned]) / lengthLanesTheory[iPlanVelo] * 100 ), "pisteUnsatisfying") ;
-          disp( Math.max(0, 100 - Math.round( lengthLanesUnsatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ) - Math.round( lengthLanesSatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ) ), "pisteTheory") ;
+          var satisfyingTotalPercent = (lengthLanesSatisfying[iPlanVelo] + lengthLanesSatisfying[iNotPlanned]) / lengthLanesTheory[iPlanVelo] * 100 ;
+          var unsatisfyingTotalPercent = (lengthLanesUnsatisfying[iPlanVelo] + lengthLanesUnsatisfying[iNotPlanned]) / lengthLanesTheory[iPlanVelo] * 100 ;
+          disp( Math.round( satisfyingTotalPercent ), "pisteSatisfying") ;
+          disp( Math.round( unsatisfyingTotalPercent ), "pisteUnsatisfying") ;
+          disp( Math.max(0, 100 - Math.round( satisfyingTotalPercent ) - Math.round( unsatisfyingTotalPercent ) ), "pisteTheory") ;
         }
       }
 
