@@ -5,7 +5,7 @@
     <script type="text/javascript">
       var areaParisSquareKilometers =
         105.4 // https://fr.wikipedia.org/wiki/Paris#Topographie
-          - (23.94 + 18.41)  // Area of parks and garden, see https://fr.wikipedia.org/wiki/Liste_des_espaces_verts_de_Paris
+          - 23.94  // Area of parks and garden, see https://fr.wikipedia.org/wiki/Liste_des_espaces_verts_de_Paris
           - 1.38 // Area of the Boulevard Péripérique https://fr.wikipedia.org/wiki/Boulevard_p%C3%A9riph%C3%A9rique_de_Paris#Voies_de_circulation
           - 1.7 ; // Estimated area of the Seine river in Paris, rounded to the nearest 0.1km2
       var areaZonesApaisees = 0 ;
@@ -349,7 +349,7 @@
         { onEachFeature: areaFeature, style: styleFeature } );
       zonesApaiseesLayer.on("data:loaded", function ()
       {
-        disp( Math.round( areaZonesApaisees / (1000000 * 100) * 100 ), "zonesApaisees") ;
+        disp( Math.round( areaZonesApaisees / (1000000 * areaParisSquareKilometers) * 100 ), "zonesApaisees") ;
       }) ;
 
       // Add control to display or hide layers
