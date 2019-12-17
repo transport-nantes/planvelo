@@ -9,8 +9,8 @@
           - 1.38 // Area of the Boulevard Péripérique https://fr.wikipedia.org/wiki/Boulevard_p%C3%A9riph%C3%A9rique_de_Paris#Voies_de_circulation
           - 1.7 ; // Estimated area of the Seine river in Paris, rounded to the nearest 0.1km2
       var areaZonesApaisees = 0 ;
-      var lengthLanesTheory = [0, 0], lengthLanesSatisfying = [0, 0], lengthLanesUnsatisfying = [0, 0], lengthLanesNotPlanned = [0, 0], layersLoaded = 0 ;
-      var iPlanVelo = 0, iREVe = 1, iNotPlannedDone = 0, iNotPlannedTotal = 1 ;
+      var lengthLanesTheory = [0, 0, 0], lengthLanesSatisfying = [0, 0, 0], lengthLanesUnsatisfying = [0, 0, 0], layersLoaded = 0 ;
+      var iPlanVelo = 0, iREVe = 1, iNotPlanned = 2 ;
       var markers = [] ;
       var zoomLevelToMarkerSize = { 11: 24, 12: 24, 13: 24, 14: 24, 15: 32, 16: 32, 17: 48, 18: 48, 19: 64 } ;
       var planVeloPratiqueLayer ;
@@ -171,11 +171,10 @@
       function bindFeatureEventsAndComputeLanesNotPlannedLength(feature, layer)
       {
         var colorFeature = styleFeature(feature).color ;
-        lengthLanesNotPlanned[iNotPlannedTotal] += turf.lineDistance(feature) ;
         if ( typeof feature != "undefined" && feature.geometry.type == "LineString" && colorFeature == hueReferences[1][1] )
-        {
-          lengthLanesNotPlanned[iNotPlannedDone] += turf.lineDistance(feature) ;
-        }
+          lengthLanesSatisfying[iNotPlanned] += turf.lineDistance(feature) ;
+        if ( typeof feature != "undefined" && feature.geometry.type == "LineString" && colorFeature == hueReferences[2][1] )
+          lengthLanesUnsatisfying[iNotPlanned] += turf.lineDistance(feature) ;
 
         bindFeatureEvents(feature, layer) ;
       }
@@ -258,17 +257,19 @@
         layersLoaded++ ;
 
         // If the two layers have been loaded, perform the update of width and log everything in console
-        if ( layersLoaded == 2 )
+        if ( layersLoaded == 3 )
         {
-          console.log("Total\nSati " + lengthLanesSatisfying[iPlanVelo] + "km *** " + (lengthLanesSatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100) +
+          console.log("Total Plan vélo\nSati " + lengthLanesSatisfying[iPlanVelo] + "km *** " + (lengthLanesSatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100) +
                       "\nNon-sati " + lengthLanesUnsatisfying[iPlanVelo] + "km *** " + (lengthLanesUnsatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100) +
                       "\nTotal " + lengthLanesTheory[iPlanVelo] + "km" ) ;
           console.log("Dont REVe\nSati " + lengthLanesSatisfying[iREVe] + "km *** " + (lengthLanesSatisfying[iREVe] / lengthLanesTheory[iREVe] * 100) +
                       "\nNon-sati " + lengthLanesUnsatisfying[iREVe] + "km *** " + (lengthLanesUnsatisfying[iREVe] / lengthLanesTheory[iREVe] * 100) +
                       "\nTotal " + lengthLanesTheory[iREVe] ) ;
+          console.log("Plus hors plan vélo\nSati " + lengthLanesSatisfying[iNotPlanned] + "km " +
+                      "\nNon-sati " + lengthLanesUnsatisfying[iNotPlanned] + "km " ) ;
 
-          disp( Math.round( lengthLanesSatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ), "pisteSatisfying") ;
-          disp( Math.round( lengthLanesUnsatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ), "pisteUnsatisfying") ;
+          disp( Math.round( (lengthLanesSatisfying[iPlanVelo] + lengthLanesSatisfying[iNotPlanned]) / lengthLanesTheory[iPlanVelo] * 100 ), "pisteSatisfying") ;
+          disp( Math.round( (lengthLanesUnsatisfying[iPlanVelo] + lengthLanesUnsatisfying[iNotPlanned]) / lengthLanesTheory[iPlanVelo] * 100 ), "pisteUnsatisfying") ;
           disp( Math.max(0, 100 - Math.round( lengthLanesUnsatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ) - Math.round( lengthLanesSatisfying[iPlanVelo] / lengthLanesTheory[iPlanVelo] * 100 ) ), "pisteTheory") ;
         }
       }
@@ -289,6 +290,8 @@
       map.fitBounds([ [48.91, 2.49], [48.80, 2.19] ]) ;
       map.on('movestart', function(e) { info.update() ; });
       map.on('zoomstart', function(e) { info.update() ; });
+
+      // Change the size of the icon for warning points on zoom
       map.on('zoomend', function(e)
       {
         var iconSize = zoomLevelToMarkerSize[ map.getZoom() ] ;
@@ -333,6 +336,10 @@
         planVeloPratiqueLayer.addTo(map);
         planVeloPratiqueLayer.on("data:loaded", function () { displayProgressBars() ; planVeloPratiqueLayer.bringToFront() ; }) ;
       }) ;
+      var horsPlanVeloLayer = new L.GeoJSON.AJAX(
+        "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/hors-planvelo.geojson",
+        {onEachFeature: bindFeatureEventsAndComputeLanesNotPlannedLength, style: styleFeature } );
+      horsPlanVeloLayer.on("data:loaded", function () { displayProgressBars() ; horsPlanVeloLayer.bringToFront(); }) ;
 
 
       var anterieurPlanVeloLayer = new L.GeoJSON.AJAX(
@@ -340,10 +347,8 @@
         {onEachFeature: bindFeatureEvents, style: styleFeature } );
       anterieurPlanVeloLayer.addTo(map) ;
       anterieurPlanVeloLayer.on("data:loaded", function () { displayProgressBars() ; anterieurPlanVeloLayer.bringToFront() ;  }) ;
-      var horsPlanVeloLayer = new L.GeoJSON.AJAX(
-        "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/hors-planvelo.geojson",
-        {onEachFeature: bindFeatureEventsAndComputeLanesNotPlannedLength, style: styleFeature } );
-      horsPlanVeloLayer.on("data:loaded", function () { console.log("Hors plan vélo : total " + lengthLanesNotPlanned[iNotPlannedTotal] + "km, fait " + lengthLanesNotPlanned[iNotPlannedDone] + "km") ; }) ;
+
+      // Zones apaisées
       var zonesApaiseesLayer = new L.GeoJSON.AJAX(
         "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/zones-30.geojson",
         { onEachFeature: areaFeature, style: styleFeature } );
