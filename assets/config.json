@@ -383,6 +383,7 @@
   },
   "css": [
     "buttons.less",
+    "responsive-utilities.less",
     "glyphicons.less",
     "button-groups.less",
     "progress-bars.less",
