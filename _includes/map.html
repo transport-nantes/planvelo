@@ -341,6 +341,7 @@
       var horsPlanVeloLayer = new L.GeoJSON.AJAX(
         "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/hors-planvelo.geojson",
         {onEachFeature: bindFeatureEventsAndComputeLanesNotPlannedLength, style: styleFeature } );
+      horsPlanVeloLayer.addTo(map);
       horsPlanVeloLayer.on("data:loaded", function () { displayProgressBars() ; horsPlanVeloLayer.bringToFront(); }) ;
 
 
