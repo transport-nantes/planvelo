@@ -1,65 +1,75 @@
 <script>
-  var start = new Date("04/05/2014") ;;
-  var end = new Date("04/05/2020") ;
-  var percentTimeElapsed = percent(start,end) ;
+  var start = new Date("04/05/2014");;
+  var end = new Date("04/05/2020");
+  var percentTimeElapsed = percent(start, end);
 
-  function percent(start,end) {
-      var now = new Date() ;
-      return Math.round(Math.max(0, Math.min(100, ( 100.0 * (now - start) ) /  (end - start) )));
+  function percent(start, end) {
+    var now = new Date();
+    return Math.round(Math.max(0, Math.min(100, (100.0 * (now - start)) / (end - start))));
   }
   // display
-  function disp(value, element, text)
-  {
-      var progressBar = document.getElementById(element);
-      progressBar.style.width = value+"%" ;
-      if (text)
-      {
-        progressBar.innerHTML = text ;
-      }
-      else {
-        progressBar.innerHTML = value+"%" ;
-      }
-      progressBar.setAttribute("aria-valuenow", value) ;
+  function disp(value, element, text) {
+    var progressBar = document.getElementById(element);
+    progressBar.style.width = value + "%";
+    if (text) {
+      progressBar.innerHTML = text;
+    }
+    else {
+      progressBar.innerHTML = value + "%";
+    }
+    progressBar.setAttribute("aria-valuenow", value);
 
-      // Adapt color of progress bar if different from bar for time elapsed
-      if ( element != "timebar" && element.indexOf("piste") == -1 )
-      {
-        if ( value > percentTimeElapsed || (percentTimeElapsed - value) < 10 )
-          progressBar.className += " progress-bar-success";
-        else if ( value / percentTimeElapsed > 0.5 )
-          progressBar.className += " progress-bar-warning";
-        else
-          progressBar.className += " progress-bar-danger";
-      }
+    // Adapt color of progress bar if different from bar for time elapsed
+    if (element != "timebar" && element.indexOf("piste") == -1) {
+      if (value > percentTimeElapsed || (percentTimeElapsed - value) < 10)
+        progressBar.className += " progress-bar-success";
+      else if (value / percentTimeElapsed > 0.5)
+        progressBar.className += " progress-bar-warning";
+      else
+        progressBar.className += " progress-bar-danger";
+    }
   }
 
-  window.onload = function ()
-  {
+  window.onload = function () {
     disp(percentTimeElapsed, 'timebar');
     $('[data-toggle="tooltip"]').tooltip();
   }
 </script>
 <style>
-.progress-bar-secondary{background-color:#868e96}
-.progress-striped .progress-bar-secondary{background-image:-webkit-linear-gradient(45deg, rgba(255,255,255,0.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.15) 75%, transparent 75%, transparent);background-image:-o-linear-gradient(45deg, rgba(255,255,255,0.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.15) 75%, transparent 75%, transparent);background-image:linear-gradient(45deg, rgba(255,255,255,0.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.15) 75%, transparent 75%, transparent)}
+  .progress-bar-secondary {
+    background-color: #868e96
+  }
+
+  .progress-striped .progress-bar-secondary {
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent)
+  }
 </style>
 <div class="panel panel-default">
   <div class="panel-body">
     Avancement de la réalisation des infrastructures cyclables pendant la mandature
     <div class="progress">
-     <div id="pisteSatisfying" class="progress-bar progress-bar-success" role="progressbar"
-     aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%" data-toggle="tooltip" title="Longueur totale des aménagements réalisés et satisfaisant par rapport à la longueur totale des aménagements dans le Plan Vélo"></div>
-     <div id="pisteUnsatisfying" class="progress-bar progress-bar-warning" role="progressbar"
-     aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%" data-toggle="tooltip" title="Longueur totale des aménagements réalisés et non satisfaisant par rapport à la longueur totale des aménagements dans le Plan Vélo"></div>
-     <div id="pisteTheory" class="progress-bar progress-bar-secondary" role="progressbar"
-     aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%" data-toggle="tooltip" title="Longueur totale des aménagements pas encore réalisés par rapport à la longueur totale des aménagements dans le Plan Vélo"></div>
-   </div>
-   Avancement du déploiement des zones à vitesse inférieure à 30 km/h
+      <div id="pisteSatisfying" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0"
+        aria-valuemin="0" aria-valuemax="100" style="width:0%" data-toggle="tooltip"
+        title="Longueur totale des aménagements réalisés et satisfaisant par rapport à la longueur totale des aménagements dans le Plan Vélo">
+      </div>
+      <div id="pisteUnsatisfying" class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="0"
+        aria-valuemin="0" aria-valuemax="100" style="width:0%" data-toggle="tooltip"
+        title="Longueur totale des aménagements réalisés et non satisfaisant par rapport à la longueur totale des aménagements dans le Plan Vélo">
+      </div>
+      <div id="pisteTheory" class="progress-bar progress-bar-secondary" role="progressbar" aria-valuenow="0"
+        aria-valuemin="0" aria-valuemax="100" style="width:0%" data-toggle="tooltip"
+        title="Longueur totale des aménagements pas encore réalisés par rapport à la longueur totale des aménagements dans le Plan Vélo">
+      </div>
+    </div>
+    Avancement du déploiement des zones à vitesse inférieure à 30 km/h
     <div class="progress">
-     <div id="zonesApaisees" class="progress-bar" role="progressbar"
-     aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%" data-toggle="tooltip" title="Hypothèse 100km² pour Paris hors parcs, axes majeurs, Seine et canaux">
-     </div>
-   </div>
+      <div id="zonesApaisees" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+        aria-valuemax="100" style="width:0%" data-toggle="tooltip"
+        title="Hypothèse 100km² pour Paris hors parcs, axes majeurs, Seine et canaux">
+      </div>
+    </div>
     Avancement lié au stationnement vélo
     <div class="btn-group btn-group-justified progress hidden-xs" role="group">
       <div class="btn-group btn-group-xs" role="group">
@@ -89,12 +99,11 @@
         <span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span> Véloboxes sécurisées
       </button>
     </div>
+    Temps de mandature écoulé
+    <div class="progress">
+      <div id="timebar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+        style="width:0%" data-toggle="tooltip" title="Temps écoulé depuis le 05/04/2014 (fin supposée 05/04/2020)">
+      </div>
+    </div>
   </div>
-   Temps de mandature écoulé
-   <div class="progress">
-     <div id="timebar" class="progress-bar" role="progressbar"
-     aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%" data-toggle="tooltip" title="Temps écoulé depuis le 05/04/2014 (fin supposée 05/04/2020)">
-     </div>
-   </div>
- </div>
 </div>
