@@ -318,14 +318,14 @@
 
       // Load the different layers and display the default one (planVelo) on the map
       var planVeloTheorieLayer = new L.GeoJSON.AJAX(
-        "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/planvelo-theorie.geojson",
+        "https://raw.githubusercontent.com/transport-nantes/planvelo-carte/master/planvelo-theorie.geojson",
         {onEachFeature: bindFeatureEventsAndComputeTheoryLanesLength, style: styleFeature } );
       planVeloTheorieLayer.addTo(map);
       planVeloTheorieLayer.on("data:loaded", function ()
       {
          planVeloTheorieLayer.bringToBack() ;
          planVeloPratiqueLayer = new L.GeoJSON.AJAX(
-          "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/planvelo-pratique.geojson",
+          "https://raw.githubusercontent.com/transport-nantes/planvelo-carte/master/planvelo-pratique.geojson",
           {
             onEachFeature: bindFeatureEventsAndComputeLanesLength,
             style: styleFeature,
@@ -340,21 +340,21 @@
         planVeloPratiqueLayer.on("data:loaded", function () { displayProgressBars() ; planVeloPratiqueLayer.bringToFront() ; }) ;
       }) ;
       var horsPlanVeloLayer = new L.GeoJSON.AJAX(
-        "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/hors-planvelo.geojson",
+        "https://raw.githubusercontent.com/transport-nantes/planvelo-carte/master/hors-planvelo.geojson",
         {onEachFeature: bindFeatureEventsAndComputeLanesNotPlannedLength, style: styleFeature } );
       horsPlanVeloLayer.addTo(map);
       horsPlanVeloLayer.on("data:loaded", function () { displayProgressBars() ; horsPlanVeloLayer.bringToFront(); }) ;
 
 
       var anterieurPlanVeloLayer = new L.GeoJSON.AJAX(
-        "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/planvelo-anterieur.geojson",
+        "https://raw.githubusercontent.com/transport-nantes/planvelo-carte/master/planvelo-anterieur.geojson",
         {onEachFeature: bindFeatureEvents, style: styleFeature } );
       anterieurPlanVeloLayer.addTo(map) ;
       anterieurPlanVeloLayer.on("data:loaded", function () { displayProgressBars() ; anterieurPlanVeloLayer.bringToFront() ;  }) ;
 
       // Zones apaisées
       var zonesApaiseesLayer = new L.GeoJSON.AJAX(
-        "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/zones-30.geojson",
+        "https://raw.githubusercontent.com/transport-nantes/planvelo-carte/master/zones-30.geojson",
         { onEachFeature: areaFeature, style: styleFeature } );
       zonesApaiseesLayer.on("data:loaded", function ()
       {

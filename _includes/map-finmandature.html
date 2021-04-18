@@ -231,14 +231,14 @@
 
       // Load the different layers and display the default one (planVelo) on the map
       var planVeloTheorieLayer = new L.GeoJSON.AJAX(
-        "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/planvelo-theorie.geojson",
+        "https://raw.githubusercontent.com/transport-nantes/planvelo-carte/master/planvelo-theorie.geojson",
         {onEachFeature: bindFeatureEventsAndComputeTheoryLanesLength, style: styleFeature } );
       planVeloTheorieLayer.addTo(map);
       planVeloTheorieLayer.on("data:loaded", function ()
       {
          planVeloTheorieLayer.bringToBack() ;
          planVeloPratiqueLayer = new L.GeoJSON.AJAX(
-          "https://raw.githubusercontent.com/ParisEnSelle/planvelo-carte/master/planvelo-findemandature2020.geojson",
+          "https://raw.githubusercontent.com/transport-nantes/planvelo-carte/master/planvelo-findemandature2020.geojson",
           {
             onEachFeature: bindFeatureEventsAndComputeLanesLength,
             style: styleFeature,
