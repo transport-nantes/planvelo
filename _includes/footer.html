@@ -6,65 +6,49 @@
       <div class="footer-col footer-col-heading">
         <h2 class="footer-heading">{{ site.title | escape }}</h2>
       </div>
-      <div class="footer-col footer-col-search">
-        {% include search.html %}
-      </div>
     </div>
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
         <ul class="contact-list">
-            {% if site.website and site.website-desc %}
             <li>
-              {% include icon-footer.html icon='icon-bike.svg' linkurl=site.website linktext=site.website-desc %}
+              {% include icon-footer.html icon='icon-bike.svg' linkurl='https://www.mobilitains.fr/' linktext='Les Mobilitains' %}
             </li>
             <li>
               {% assign joinurl = site.website | append: '/adherer' %}
-              {% include icon-footer.html icon='icon-join.svg' linkurl=joinurl linktext='Adhérer' linkdesc=' (5€)' %}
+              {% include icon-footer.html icon='icon-join.svg' linkurl='https://www.helloasso.com/associations/transport-nantes/formulaires/2' linktext='Adhérer' linkdesc=' (5€)' %}
             </li>
             <li>
-              {% include icon-footer.html icon='icon-donate.svg' linkurl='https://www.helloasso.com/associations/paris-en-selle/collectes/pes-campagne-de-dons' linktext='Faire un don' linkdesc=' (déductible)' %}
+              {% include icon-footer.html icon='icon-donate.svg' linkurl='https://www.helloasso.com/associations/transport-nantes/formulaires/2' linktext='Faire un don' linkdesc=' (déductible)' %}
             </li>
+	    {% if False %}
             <li>
               {% assign newsletterurl = site.website | append: '/contact' %}
               {% include icon-footer.html icon='icon-newsletter.svg' linkurl=newsletterurl linktext='Newsletter' %}
             </li>
+	    {% endif %}
             <li>
-              {% assign contacturl = site.website | append: '/contact' %}
-              {% include icon-footer.html icon='icon-contact.svg' linkurl=contacturl linktext='Contact' %}
+              {% include icon-footer.html icon='icon-contact.svg' linkurl='mailto:jevousaide@transport-nantes.com' linktext='Contact' %}
             </li>
-            {% endif %}
-
         </ul>
       </div>
 
       <div class="footer-col footer-col-2">
         <ul class="contact-list">
           <li>
-            {% assign feedurl = "/feed.xml" | relative_url %}
-            {% include icon-footer.html icon='icon-feed.svg' linkurl=feedurl linktext='Flux RSS' %}
+            {% include icon-footer.html icon='icon-twitter.svg' linkurl='https://twitter.com/mobilitains' linktext='Twitter' %}
           </li>
-          {% if site.twitter.username %}
-          <li>
-            {% include icon-footer.html icon='icon-twitter.svg' linkurl='https://twitter.com/parisenselle' linktext='Twitter' %}
-          </li>
-          {% endif %}
 
-          {% if site.facebook.username %}
           <li>
-            {% include icon-footer.html icon='icon-facebook.svg' linkurl='https://www.facebook.com/parisenselle' linktext='Facebook' %}
+            {% include icon-footer.html icon='icon-facebook.svg' linkurl='https://www.facebook.com/mobilitains' linktext='Facebook' %}
           </li>
-          {% endif %}
 
-          {% if site.gitlab.username %}
           <li>
-            {% include icon-footer.html icon='icon-gitlab.svg' linkurl='https://framagit.org/parisenselle/planvelo' linktext='Framagit' linkdesc=' (site web)' %}
+            {% include icon-footer.html icon='icon-github.svg' linkurl='https://github.com/transport-nantes/planvelo' linktext='Github' linkdesc=' (site web)' %}
           </li>
-          {% endif %}
-          {% if site.github.username %}
+
           <li>
-            {% include icon-footer.html icon='icon-github.svg' linkurl='https://parisenselle.github.io/planvelo-carte/' linktext='Github' linkdesc=' (carte)' %}
+            {% include icon-footer.html icon='icon-github.svg' linkurl='https://github.com/transport-nantes/planvelo-carte/' linktext='Github' linkdesc=' (carte)' %}
           </li>
-          {% endif %}
         </ul>
       </div>
 

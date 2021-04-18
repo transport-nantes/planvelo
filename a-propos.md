@@ -1,11 +1,13 @@
 ---
 layout: page
 title: À propos
-description: À propos de l'observatoire du Plan Vélo de Paris
+description: À propos de l'observatoire du Plan Vélo de Nantes Métropole
 permalink: /a-propos/
 image: assets/images/pages/a-propos_circulation-douce-small.jpg
 toc: true
 ---
+
+**(Kristel, Mélanie : il faut changer ce texte.)**
 
 # Informer les citoyens sur l’avancement du Plan Vélo
 

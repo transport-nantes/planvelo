@@ -1,11 +1,13 @@
 ---
 layout: page
 title: Engagements
-description: Les engagements pris par la mairie de Paris pour le Plan Vélo 2015-2020
+description: Les engagements pris par la présidente de Nantes Métropole pour le Plan Vélo 2020-2026
 permalink: /engagements/
 image: assets/images/pages/engagements_schema-small.jpg
 toc: true
 ---
+
+**(Kristel, Mélanie : il faut changer ce texte.)**
 
 # Le plan vélo
 
