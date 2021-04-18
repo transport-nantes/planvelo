@@ -3,3 +3,10 @@ _site
 .jekyll-metadata
 .tweet-cache
 Gemfile.lock
+.gem
+
+# emacs
+*~
+
+# vagrant
+.vagrant
