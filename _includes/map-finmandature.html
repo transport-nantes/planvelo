@@ -209,7 +209,7 @@
       var map = L.map('mapFrame',
         {
           fullscreenControl: true,
-          maxBounds: [ [48.9021449, 2.4699208], [48.815573, 2.224199] ],
+          maxBounds: [ [48.9021449, 2.4699208], [48.815573, 2.224199],
           maxBoundsViscosity: 1.0,
           minZoom: 11
         }) ;
@@ -218,7 +218,7 @@
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a> | Paris en Selle',
         subdomains: 'abcd',
       }).addTo(map);
-      map.fitBounds([ [48.9021449, 2.4699208], [48.815573, 2.224199] ]) ;
+      map.fitBounds([ [48.9021449, 2.4699208], [48.815573, 2.224199]) ;
       map.on('zoomend', function(e)
       {
         var iconSize = zoomLevelToMarkerSize[ map.getZoom() ] ;

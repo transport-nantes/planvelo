@@ -1,6 +1,6 @@
-# Site de l'observatoire du Plan Vélo de Paris
+# Site de l'observatoire du Plan Vélo de Nantes Métropole
 
-Ce projet contient le code du site web de l'observatoire du Plan Vélo de Paris 2015-2020.
+Ce projet contient le code du site web de l'observatoire du Plan Vélo de Nantes Métropole 2020-2026.
 
 ### Sommaire
 <!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
